@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/Modulos/_LayoutInterno.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9c8676b409.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/Modulos/_LayoutInterno.js"
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="ContLayMain">
+        <header class="HeaderLayout">
+            <div class="CenterContentImg">
+                <div class="contLaySecIcon"></div>
+            </div>
+            <div class="CenterContent contLaySecLog">
+                <span class="NameContUser">Johan Nicolas Lozano</span>
+                <div class="contInternoUser" id="contInternoUser">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <div class="secundContIcon">
+                        <i class="fa-solid fa-circle-chevron-down"></i>
+                    </div>
+                </div>
+                <span class="ModuleContUser">Home</span>
+            </div>
+        </header>
+        <div class="ContLayContent CenterContent">
+            <div class="MenuModaAcceso nav desactivar">
+                <ul class="list">
+                    <li class="list__item">
+                        <div class="list__button" data-value="1">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="#" class="nav__link">Cartera 1</a>
+                        </div>
+                    </li>
+                    <li class="list__item list__item--click">
+                        <div class="list__button list__button--click" data-value="2">
+                            <i class="fa-solid fa-business-time"></i>
+                            <a href="#" class="nav__link">Cartera 2</a>
+                            <i class="fa-solid fa-angle-right list__arrow"></i>
+                        </div>
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera dafdsaf1</a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list__item list__item--click">
+                        <div class="list__button list__button--click" data-value="3">
+                            <i class="fa-solid fa-money-bill"></i>
+                            <a href="#" class="nav__link">Cartera 3</a>
+                            <i class="fa-solid fa-angle-right list__arrow"></i>
+                        </div>
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
+                            </li>
+
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 2</a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 3</a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 4</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="list__item list__item--click">
+                        <div class="list__button list__button--click" data-value="4">
+                            <i class="fa-solid fa-business-time"></i>
+                            <a href="#" class="nav__link">Cartera 4</a>
+                            <i class="fa-solid fa-angle-right list__arrow"></i>
+                        </div>
+                        <ul class="list__show">
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
+                            </li>
+                            <li class="list__inside">
+                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <div class="contLaySecMenu">
+                    <div class="contInternoMen" id="contInternoMen">
+                        <i class="fa-solid fa-bars"></i>
+                        <div class="secundContIcon">
+                            <i class="fa-solid fa-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ContLayContMain">
+                <div class="ContLayCont">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="MenuModaUser desactivar1">
+                <ul class="ListUser">
+                    <li class="list__itemUser">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="#" class="nav__linkUser">Home</a>
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                    </li>
+                    <li class="list__itemUser">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="#" class="nav__linkUser">Cambiar Contraseña<a href=""></a></a>
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                    </li>
+                    <li class="list__itemUser">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="#" class="nav__linkUser">Salir</a>
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,194 @@
+﻿:root {
+    --BgModal: #aeaeaeb3;
+    --BgModalInt: rgb(53 52 62 / 90%);
+    --clModalBlue: #4271e5;
+    --clModalGreen: #44a749;
+    --clModalOrange: #c17425;
+    --clModalSilver: #43464d;
+    --clModalRed: #bb2727;
+    --ClWhite: #dbdee9;
+}
+
+#ContModalNoti {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    background: var(--BgModal);
+    font-size: 10px;
+}
+
+    #ContModalNoti div.ContModalInt {
+        width: 40em;
+        height: 18em;
+        display: grid;
+        grid-template-rows: 0.5em 1fr 0.5em;
+        overflow: hidden;
+        border-radius: 1em;
+        background: var(--BgModalInt);
+        transition: all 0.5s ease-in-out;
+    }
+
+div.ContModalInt .ContInt1ModNot {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4em;
+    padding: 2em;
+}
+
+.DivModaConIntNot1 {
+    display: grid;
+    grid-template-columns: 5em minmax(31em,31em);
+}
+
+    .DivModaConIntNot1 .contIcnModalNoti {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .DivModaConIntNot1 .contIcnModalNoti i {
+            padding: 0.3em;
+            font-size: 3em;
+            border-radius: 45px;
+            background: var(--ClWhite);
+        }
+
+    .DivModaConIntNot1 .contTxtModalNoti {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 0px 1.5em;
+        overflow-wrap: anywhere;
+    }
+
+.contTxtModalNoti span {
+    font-size: 1.8em;
+    color: var(--ClWhite);
+    text-align: left;
+    font-weight: 600;
+}
+
+.DivModaConIntNot2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .DivModaConIntNot2 button {
+        width: 10em;
+        height: 2.5em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        font-size: 1.4em;
+        font-weight: 500;
+        border: none;
+        border-radius: 0.5em;
+        cursor: pointer;
+        background: #141414;
+        color: var(--ClWhite);
+        text-transform: uppercase;
+        transition: .3s ease all;
+    }
+
+.BtnContentModalNoti span {
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+.BtnContentModalNoti.ContInfoModalBtn1 span {
+    transition: .4s ease-in-out all;
+}
+
+.BtnContentModalNoti.ContInfoModalBtn1 .icono {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    left: -20px;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+    font-size: 1.5em;
+}
+
+.BtnContentModalNoti.ContInfoModalBtn1:hover {
+    background: rgb(60, 160, 60);
+}
+
+    .BtnContentModalNoti.ContInfoModalBtn1:hover .icono {
+        left: calc(100% - 1.5em);
+        opacity: 1;
+    }
+
+    .BtnContentModalNoti.ContInfoModalBtn1:hover span {
+        position: absolute;
+        left: 2%;
+    }
+
+#ContModalNoti div.ContModalInt.activarModal {
+    opacity: 1;
+    transform: translateY(0em);
+}
+
+#ContModalNoti div.ContModalInt.desactivarModal {
+    transform: translateY(15em);
+    opacity: 0;
+}
+
+
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    #ContModalNoti {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    #ContModalNoti {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    #ContModalNoti {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    #ContModalNoti {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #ContModalNoti {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    #ContModalNoti {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    #ContModalNoti {
+        font-size: 9px;
+    }
+
+        #ContModalNoti div.ContModalInt {
+            width: 90vw;
+            height: 25vh;
+        }
+}

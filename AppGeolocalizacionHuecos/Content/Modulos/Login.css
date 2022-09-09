@@ -1,0 +1,329 @@
+﻿:root {
+    --BgBtnDis: rgba(160, 179, 176, 0.25);
+    --BgBtnEna: #1ab188;
+    --BgBtnHover: #30e3b3ae;
+    --BgContForm: #c0c0c01f;
+}
+
+.MainContainterLogin {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../Img/BgLogin1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.ContainerLogin {
+    font-size: 10px;
+    width: 35em;
+    height: 50em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    background: var(--LgBgMain);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 70px 11px var(--Fcwhite);
+}
+
+.IconCont {
+    width: 100%;
+    height: 17%;
+}
+
+    .IconCont i {
+        font-size: 7em;
+        color: var(--FcWhite2);
+    }
+
+.ContButton {
+    width: 100%;
+    height: 10%;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.BtnLogin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    text-transform: uppercase;
+    transition: .3s ease-in-out all;
+}
+
+.BtnEnabled {
+    background: var( --BgBtnEna);
+    color: var(--FcBlack);
+}
+
+.BtnDisabled {
+    cursor: pointer;
+    background: var( --BgBtnDis);
+    color: var(--FcWhite2);
+}
+
+.BtnLogin span {
+    font-size: 1.2em;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+.BtnLogin.BtnDisabled::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--BgBtnHover);
+    position: absolute;
+    z-index: 1;
+    top: -100px;
+    left: 0;
+    transition: .3s ease-in-out all;
+}
+
+.BtnLogin.BtnDisabled:hover::after {
+    top: 0;
+}
+
+.ContForm {
+    width: 100%;
+    height: 68%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 5px;
+    background: var(--BgContForm);
+}
+
+.ContFormLogin {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 2em;
+    transition: all 0.4s ease-in-out;
+}
+
+.FormHeader {
+    width: 100%;
+    height: 22%;
+}
+
+    .FormHeader span {
+        color: var(--Fcwhite);
+        font-size: 2.3em;
+        text-transform: uppercase;
+    }
+
+.FormSection {
+    width: 100%;
+    height: 56%;
+    flex-direction: column;
+}
+
+.inputBox {
+    position: relative;
+    width: 100%;
+    padding: 0.5em 0px;
+}
+
+    .inputBox input {
+        width: 100%;
+        padding: 0.666em;
+        background: var(--LgBgMain);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 5px;
+        outline: none;
+        color: var(--Fcwhite);
+        font-size: 1.5em;
+    }
+
+    .inputBox span {
+        position: absolute;
+        left: 0;
+        padding: 0.666em;
+        pointer-events: none;
+        font-size: 1.5em;
+        color: rgba(255, 255, 255, 0.25);
+        text-transform: uppercase;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .inputBox input:valid ~ span, .inputBox input:focus ~ span {
+        color: #00dfc4;
+        transform: translateX(13px) translateY(-0.666em);
+        font-size: 1em;
+        padding: 0 10px;
+        background: var(--BgBtnEna);
+        border: 2px solid var(--BgBtnEna);
+        letter-spacing: 0.25em;
+        color: var(--FcBlack)
+    }
+
+    .inputBox input:focus {
+        border: 1px solid var(--BgBtnEna);
+    }
+
+.RestPassw {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+    .RestPassw span {
+        font-size: 1.2em;
+        color: var(--BgBtnEna);
+        cursor: pointer;
+        padding: 0px 0.5em;
+    }
+
+.FormButton {
+    width: 100%;
+    height: 22%;
+    padding: 1em;
+}
+
+.BtnLogin.BtnEnter {
+    background: var(--BgBtnEna);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+    .BtnLogin.BtnEnter span {
+        transition: .4s ease-in-out all;
+        position: absolute;
+        left: 30%;
+        color: var(--FcBlack);
+    }
+
+    .BtnLogin.BtnEnter .icono {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 2;
+        left: -50px;
+        transition: .3s ease-in-out all;
+        opacity: 0;
+    }
+
+    .BtnLogin.BtnEnter i {
+        color: var(--FcWhite2);
+        font-size: 1.5em;
+    }
+
+    .BtnLogin.BtnEnter:hover .icono {
+        left: calc(75%);
+        opacity: 1;
+    }
+
+    .BtnLogin.BtnEnter:hover span {
+        left: 10%;
+    }
+
+.ContFormRegis {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 1em;
+    transition: all 0.4s ease-in-out;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    font-size: 0.85em;
+}
+
+.ContFormRows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.ContHeaderReg {
+    font-size: 2.3em;
+    color: var(--Fcwhite);
+    text-transform: uppercase;
+}
+
+.ContFormColms {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6em 0.3em;
+}
+
+.BtnRegis {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 3px inset #1C6EA4;
+    transition: all 0.5s ease-in-out;
+}
+
+    .BtnRegis:hover {
+        border: 3px outset #2389CC;
+    }
+
+.BtnRegisClear {
+    width: 15%;
+    background: var(--LgBgMain);
+    color: var(--FcWhite2);
+    font-size: 2.5em;
+}
+
+.BtnRegisSave {
+    width: 40%;
+    background: var(--BgBtnEna);
+    font-size: 2em;
+    color: var(--FcBlack);
+}
+
+
+
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    .ContainerLogin {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    .ContainerLogin {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    .ContainerLogin {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .ContainerLogin {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .ContainerLogin {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .ContainerLogin {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .ContainerLogin {
+        font-size: 9px;
+        width: 90vw;
+        height: 75vh;
+    }
+}

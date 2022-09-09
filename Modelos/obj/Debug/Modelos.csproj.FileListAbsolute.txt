@@ -1,0 +1,12 @@
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\bin\Debug\Modelos.dll
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\bin\Debug\Modelos.pdb
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.dll
+C:\AppGeolocalizacionHuecos\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.pdb
+D:\developer\AppGeolocalizacionHuecos\Modelos\bin\Debug\Modelos.dll
+D:\developer\AppGeolocalizacionHuecos\Modelos\bin\Debug\Modelos.pdb
+D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.dll
+D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.pdb

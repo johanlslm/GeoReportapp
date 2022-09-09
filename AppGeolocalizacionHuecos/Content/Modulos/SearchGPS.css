@@ -1,0 +1,168 @@
+﻿:root {
+    --ClSilver: #d6d5d5d0;
+    --ClSilverG: #504f4fd0;
+    --clWhite: rgb(239, 233, 233);
+    --ClBlack: rgb(24, 22, 22);
+    --ClGreenMin: rgb(146, 231, 146);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.containerConsultMain {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 35em;
+    gap: 3px;
+    font-size: 10px;
+}
+
+    div.containerConsultMain #mapcontainer {
+        background: rgb(101, 96, 165);
+        position: relative;
+        overflow: hidden;
+    }
+
+#mapcontainer .airbutton {
+    width: 30em;
+    height: 5em;
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+}
+
+    #mapcontainer .airbutton button {
+        width: 5em;
+        height: 5em;
+        font-size: 1em;
+        border-radius: 45px;
+        cursor: pointer;
+        border: 3px inset #0D7AA4;
+        transition: all 0.5s ease-in-out;
+        background: var(--ClSilver);
+    }
+
+        #mapcontainer .airbutton button:hover {
+            border: 3px outset #0D7AA4;
+            background: var(--ClGreenMin);
+        }
+
+        #mapcontainer .airbutton button i {
+            font-size: 3em;
+            color: var(--ClBlack);
+        }
+
+    #mapcontainer .airbutton .airbuttonInt1 {
+        display: grid;
+        grid-template-columns: 1fr 3em;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--ClSilverG);
+        background: var(--clWhite);
+        border-radius: 0.8em;
+        overflow: hidden;
+    }
+
+        #mapcontainer .airbutton .airbuttonInt1 input {
+            width: 100%;
+            height: 100%;
+            font-size: 1.7em;
+            padding: 0.4em;
+            background: none;
+            border-style: none;
+            outline: none;
+            color: var(--ClBlack);
+            border: 2px solid transparent;
+            transition: all 0.5s ease-in-out;
+        }
+
+        #mapcontainer .airbutton .airbuttonInt1 i {
+            font-size: 2em;
+            align-self: rigth;
+            color: var(--ClSilverG);
+            cursor: pointer;
+        }
+
+div.containerConsultMain #reportcontainer {
+    max-height: 100%;
+    background: rgb(230, 90, 90);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    padding: 0.3em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#reportcontainer .CardContainerSearch {
+    width: 100%;
+    min-height: 9em;
+    box-shadow: 0px 44px 56px -43px rgba(30, 0, 199, 1);
+    background: aqua;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 7em;
+}
+
+.reportimage {
+    background: red;
+}
+
+.reporttext {
+    background: rgb(72, 189, 224);
+}
+
+
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    div.containerConsultMain {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    div.containerConsultMain {
+        font-size: 11.5px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    div.containerConsultMain {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    div.containerConsultMain {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    div.containerConsultMain {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    div.containerConsultMain {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    div.containerConsultMain {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 30em;
+        font-size: 9px;
+    }
+}

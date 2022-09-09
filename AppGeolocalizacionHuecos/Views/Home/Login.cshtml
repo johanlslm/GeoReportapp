@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script src="~/Scripts/Modulos/Login.js"></script>
+}
+
+<div class="MainContainterLogin CenterCont">
+    <div class="ContainerLogin">
+        <div class="IconCont CenterCont">
+            <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        <div class="ContButton CenterCont">
+            <button class="BtnLogin efectBtn BtnEnabled BtnLoginval" value="1">
+                <span>ingresar</span>
+            </button>
+            <button class="BtnLogin efectBtn BtnDisabled BtnLoginval" value="2">
+                <span>Registrarse</span>
+            </button>
+        </div>
+        <div class="ContForm">
+            <div class="ContFormLogin activar">
+                <div class="FormHeader CenterCont">
+                    <span>Iniciar sesión</span>
+                </div>
+                <div class="FormSection CenterCont">
+                    <div class="inputBox">
+                        <input type="text" name="" id="inputEmailLogin" class="inputEventEnterLogin" required="required">
+                        <span>Usuario</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="" id="inputPasswordLogin" class="inputEventEnterLogin" required="required">
+                        <span>Contraseña</span>
+                    </div>
+                    <div class="RestPassw">
+                        <span>Olvide la contraseña!</span>
+                    </div>
+                </div>
+                <div class="FormButton CenterCont">
+                    <button id="BtnLoginEvent" class="BtnLogin BtnEnter CenterCont" onclick="IngresarLoginEvent();">
+                        <div class="icono">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                        </div>
+                        <span>Iniciar</span>
+                    </button>
+                </div>
+            </div>
+            <div class="ContFormRegis desactivar">
+                <div class="CenterCont ContHeaderReg">
+                    <span>Formato de registro</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="InputTxtNameSignIn" class="inputEventEnterSignIn" required="required">
+                    <span>Nombres</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="InputTxtLastNameSignIn" class="inputEventEnterSignIn" required="required">
+                    <span>Apellidos</span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="InputTxtemailSignIn" class="inputEventEnterSignIn" required="required">
+                    <span>Correo</span>
+                </div>
+                <div class="ContFormRows">
+                    <div class="inputBox">
+                        <input type="password" id="InputTxtPassSignIn" class="inputEventEnterSignIn" required="required">
+                        <span>Contraseña</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" id="InputTxtConfirmPassSignIn" class="inputEventEnterSignIn" required="required">
+                        <span>Confirmar </span>
+                    </div>
+                </div>
+                <div class="ContFormColms">
+                    <button class="BtnRegisClear BtnRegis CenterCont" onclick="ClearInputsRegister();">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
+                    <button class="BtnRegisSave BtnRegis CenterCont" onclick="RegistroLoginEvent();" id="BtnSignInEvent">
+                        <span>Registrarse</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,468 @@
+﻿:root {
+    --ColMain: #323232;
+    --ColSecund: #ffffff;
+    --FcMain: #008139;
+    --FcSecund: #00a326;
+    --FcDegraMain: linear-gradient(90deg, rgba(0,163,38,1) 0%, rgba(0,129,57,1) 50%, rgba(0,163,38,1) 100%);
+    --ColSilver: #30363099;
+    --ColSilverSolid: #464a46;
+    --ColSilverMenu: #303630e6;
+    --ColSilverHover: #65686599;
+    --ColMenu: #91b2c5e6;
+    --ConMenuHover: rgb(154, 199, 232);
+    --BgBlueMin: #e4f6ff;
+    font-size: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div.ContLayMain {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    font-size: 10px;
+}
+
+    /***************************************** HEADER *****************************************/
+    div.ContLayMain .HeaderLayout {
+        width: 100%;
+        height: 6em;
+        background: var(--FcMain);
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+.CenterContentImg {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+/*************** btn icon menu****************/
+div.contLaySecMenu {
+    width: 5em;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contInternoMen {
+    grid-row: 1/ span 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0 0.8em 0.8em 0;
+    transition: all 0.3s ease-in-out;
+    background: var(--ColSilverSolid);
+}
+
+    .contInternoMen:hover {
+        background: var(--FcSecund);
+    }
+
+    .contInternoMen i {
+        font-size: 3em;
+        color: var(--ColSecund);
+    }
+
+.secundContIcon {
+    position: absolute;
+    background: var(--FcMain);
+    bottom: 0.4em;
+    right: 0.4em;
+    z-index: 2;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+    .secundContIcon i {
+        font-size: 2em;
+        color: var(--ColMain);
+    }
+/****************** SECCION BG EMPRESARIAL************************/
+.contLaySecIcon {
+    background: url(../../img/AdministrativoCooinpaz/bgLogocoinpaz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    width: 55%;
+    height: 90%;
+    margin-left: 2.5em;
+}
+/*************** btn icon User****************/
+div.contLaySecLog {
+    display: grid;
+    grid-template-columns: 1fr 5em;
+    grid-template-rows: 1fr 1fr;
+    padding-right: 2.5em;
+}
+
+.contInternoUser {
+    grid-row: 1/ span 2;
+    grid-column: 2/3;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: right;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: all 0.3s ease-in-out;
+}
+
+    .contInternoUser:hover {
+        background: var(--FcSecund);
+    }
+
+    .contInternoUser i {
+        font-size: 3em;
+        color: var(--ColSecund);
+    }
+
+.secundContIcon {
+    position: absolute;
+    background: var(--ColSilverSolid);
+    bottom: 0.1em;
+    right: 0.1em;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+    .secundContIcon i {
+        font-size: 2em;
+        color: var(--ColMenu);
+    }
+
+.contLaySecLog .NameContUser {
+    align-self: flex-end;
+    text-align: end;
+    padding: 0 0.9em;
+    font-size: 1.7em;
+    color: var(--ColSecund);
+    letter-spacing: 1.2px;
+    font-weight: 600;
+}
+
+.contLaySecLog .ModuleContUser {
+    align-self: flex-start;
+    text-align: end;
+    font-size: 1.3em;
+    padding: 0 1.3em;
+    color: var(--ColSecund);
+}
+
+.contLaySecMenu .rotateArrow {
+    background: var(--FcSecund);
+}
+
+.rotateArrow .secundContIcon {
+    transform: rotate(180deg);
+}
+
+.contLaySecLog .rotateArrow {
+    background: var(--FcSecund);
+}
+
+.rotateArrow .secundContIcon {
+    transform: rotate(180deg);
+}
+
+/***************************************** CONTENEDOR PRINCIPAL *****************************************/
+div.ContLayMain div.ContLayContent {
+    width: 100%;
+    height: calc(100vh - 6em);
+    position: relative;
+    overflow: hidden;
+}
+
+.MenuModaAcceso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+}
+
+.ContLayContMain {
+    width: 100%;
+    height: 100%;
+    padding: 2.5em;
+    position: relative;
+    background: var(--BgBlueMin);
+    z-index: 1;
+}
+
+.MenuModaUser {
+    min-width: 20em;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+}
+
+/***************************************** MENU DESPLEGABLE *****************************************/
+
+.nav {
+    min-width: 18em;
+    max-width: 35em;
+    height: calc(100vh - 6em);
+    display: flex;
+    align-items: flex-start;
+}
+
+.list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 0 1.5em 0;
+    background: var(--ColMenu);
+    color: var(--FcSecund);
+    transition: all 0.5s ease-in-out;
+}
+
+.desactivar .list {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.activar .list {
+    height: 100%;
+    width: calc(100% - 5em);
+    opacity: 1;
+}
+
+.list__item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.list__button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 0 1.1em;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.nav__link {
+    color: var(--ColMain);
+    display: block;
+    padding: 1em 0;
+    text-decoration: none;
+    margin-right: 2.5em;
+}
+
+.nav__link--inside {
+    border-radius: 0.42em;
+    padding-left: 1.42em;
+    text-align: left;
+}
+
+.list__show {
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid var(--ColSilver);
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+    font-size: 1.3em;
+}
+
+.nav__link--inside:hover {
+    background: var(--ConMenuHover);
+}
+
+.arrow .list__arrow {
+    transform: rotate(90deg);
+}
+
+.list__arrow {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+/***************************************** MENU OPS USER *****************************************/
+.ListUser {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1.5em 0 0 1.5em;
+    background: var(--ColSilverMenu);
+    color: var(--FcSecund);
+    overflow: hidden;
+}
+
+.list__itemUser {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.list__buttonUser {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1em;
+    margin: 0 1.1em;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.list__itemUser:hover {
+    background: var(--ColSilverHover);
+}
+
+.list__buttonUser i {
+    color: var(--ConMenuHover);
+    font-size: 1.2em;
+}
+
+.nav__linkUser {
+    color: var(--ColMain);
+    display: block;
+    padding: 1em 0;
+    text-decoration: none;
+    color: var(--ColSecund);
+}
+
+/***************************************** CONTENEDOR GENERAL *****************************************/
+.ContLayCont {
+    width: 100%;
+    height: 100%;
+    background: var(--ColSecund);
+    border-radius: 1em;
+    box-shadow: 0px 0px 15px 0px rgba(189,189,199,1);
+    padding: 2.5em;
+    overflow: auto
+}
+
+
+/***************************************** GENERAL *****************************************/
+.CenterContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desactivar1 {
+    top: -100%;
+}
+
+
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    div.ContLayMain {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    div.ContLayMain {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    div.ContLayMain {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    div.ContLayMain {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    div.ContLayMain {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    div.ContLayMain {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    div.ContLayMain .HeaderLayout {
+        grid-template-columns: 6em 1fr;
+    }
+
+    div.contLaySecLog {
+        padding-right: 0em;
+    }
+
+    .nav {
+        max-width: 80em;
+    }
+
+    .activar .list {
+        width: 100vw;
+    }
+
+    .activar div.contLaySecMenu {
+        position: absolute;
+        right: 0;
+    }
+
+    .activar .contInternoMen {
+        border-radius: 0.8em 0 0 0.8em;
+    }
+
+    .list__button {
+        font-size: 1.6em;
+    }
+
+    .list__show {
+        font-size: 1.4em;
+    }
+
+    .ContLayContMain {
+        padding: 0.5em;
+    }
+
+    .MenuModaUser {
+        min-width: 100vw;
+    }
+
+    .ListUser {
+        border-radius: 0 0 1.5em 1.5em;
+    }
+
+    .list__buttonUser {
+        font-size: 1.6em;
+    }
+
+    .contLaySecIcon {
+        background: url(../../img/AdministrativoCooinpaz/bgLogocoinpazmini.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 0.5em;
+        margin: 0.5em 0 0.5em 0.5em;
+        width: 100%;
+        height: 100%;
+    }
+}

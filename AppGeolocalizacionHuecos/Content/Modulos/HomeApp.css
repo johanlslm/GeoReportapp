@@ -1,0 +1,62 @@
+﻿:root {
+    --BgCardTxt: transparent linear-gradient(180deg, rgba(0,86,143,0.25098) 0%, rgba(0,86,143,0.85098) 100%) 0% 0% no-repeat padding-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+div.ContCardMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30em);
+    width: 100%;
+    height: 100%;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+div.CardContint1 {
+    position: relative;
+    width: 30em;
+    height: 25em;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    border-radius: 0.5em;
+}
+
+.contCardImg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.contCardTxt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 65%;
+    z-index: 2;
+    font-size: 2em;
+    padding: 1.6em;
+    background: var(--BgCardTxt);
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.eventHoverTxt {
+    top: 0;
+    align-items: center;
+}
