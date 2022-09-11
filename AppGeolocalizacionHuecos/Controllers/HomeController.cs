@@ -26,5 +26,22 @@ namespace AppGeolocalizacionHuecos.Controllers
         {
             return View();
         }
+
+        //[HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        //public async Task<JsonResult> IngresarLoginEvent(String CorreoVali, String PassWordVali) {
+        //    var srv = Proxy.obtenerServicioDistribuidoGeneral();
+        //    try
+        //    {
+        //        var datosModal = await srv.as;
+        //        return Json(new
+        //        {
+        //            datosModal
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
     }
 }

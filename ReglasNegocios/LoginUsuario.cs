@@ -10,8 +10,17 @@ namespace ReglasNegocios
 {
     public class LoginUsuario
     {
-        public int LoginUsuarioR(LoginUsuarioDTO loginUsuario) {
-            return new LoginDAO().LoginUsuario(loginUsuario);
+        public ContenedorLoginDTO IngresarLoginEvent(String correo, String Pass)
+        {
+            try
+            {
+                return new LoginDAO().IngresarLoginEvent(correo, Pass);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

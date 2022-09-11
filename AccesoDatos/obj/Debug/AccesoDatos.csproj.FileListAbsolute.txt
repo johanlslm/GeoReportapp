@@ -17,3 +17,13 @@ D:\developer\AppGeolocalizacionHuecos\AccesoDatos\obj\Debug\AccesoDatos.csproj.C
 D:\developer\AppGeolocalizacionHuecos\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
 D:\developer\AppGeolocalizacionHuecos\AccesoDatos\obj\Debug\AccesoDatos.dll
 D:\developer\AppGeolocalizacionHuecos\AccesoDatos\obj\Debug\AccesoDatos.pdb
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\bin\Debug\Modelos.dll
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\bin\Debug\Modelos.pdb
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\obj\Debug\AccesoDatos.csproj.AssemblyReference.cache
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\developer\GeoReportapp\GeoReportapp\AccesoDatos\obj\Debug\AccesoDatos.pdb

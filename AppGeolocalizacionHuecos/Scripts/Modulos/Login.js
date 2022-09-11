@@ -88,6 +88,29 @@ async function IngresarLoginEvent() {
         EventoModalNotification(RespuestaValidacion);
     } else {
         LoadingStar('Validando usuario')
+        var parametro = {
+            CorreoVali: InputLoginEmail.value, PassWordVali: InputLoginPassword.value
+        };
+        console.log(parametro)
+        $.ajax({
+            type: 'POST',
+            url: '../Home/IngresarLoginEvent',
+            data: JSON.stringify(parametro),
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+                loadingBlStop();
+                if (data.error) {
+                   
+                } else {
+
+                   
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                
+            }
+        });
     }
 }
 

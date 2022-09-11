@@ -10,3 +10,9 @@ D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.AssemblyR
 D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
 D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.dll
 D:\developer\AppGeolocalizacionHuecos\Modelos\obj\Debug\Modelos.pdb
+D:\developer\GeoReportapp\GeoReportapp\Modelos\bin\Debug\Modelos.dll
+D:\developer\GeoReportapp\GeoReportapp\Modelos\bin\Debug\Modelos.pdb
+D:\developer\GeoReportapp\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+D:\developer\GeoReportapp\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+D:\developer\GeoReportapp\GeoReportapp\Modelos\obj\Debug\Modelos.dll
+D:\developer\GeoReportapp\GeoReportapp\Modelos\obj\Debug\Modelos.pdb
