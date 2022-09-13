@@ -34,14 +34,17 @@
     }, 100);
 }
 function LoadingStop() {
-    document.querySelector('.ContainerLoading1').classList.remove('activarModal');
+    setTimeout(function () {
+        document.querySelector('.ContainerLoading1').classList.remove('activarModal');
+    }, 200)
+
     setTimeout(function () {
         document.querySelector('.ContainerLoading1').classList.add('desactivarModal');
-    }, 150);
+    }, 300);
     setTimeout(function () {
         document.getElementById('ContainerModalLoadingMain').remove();
-    }, 650);
+    }, 800);
     setTimeout(function () {
         document.getElementById('stylesheetModalLoading').remove();
-    }, 750);
+    }, 2000);
 }

@@ -4,11 +4,11 @@ namespace AccesoDatos
 {
     public class Proxy
     {
-        public static srvGeoLocalizacion.IService1 obtenerServicioDistribuidoGeneral()
+        public static ServiceReference1.IService1 obtenerConexionSRV()
         {
             try
             {
-                srvGeoLocalizacion.IService1 srv = new srvGeoLocalizacion.Service1Client();
+                ServiceReference1.IService1 srv = new ServiceReference1.Service1Client();
                 return srv;
             }
             catch (Exception ex)

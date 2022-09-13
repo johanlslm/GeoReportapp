@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\srvGeoLocalizacion\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,14 +61,25 @@
       <Project>{cd585a7a-d90b-4f55-aaf6-6c6de0b4934d}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WcfGeolocaliza\WcfGeolocaliza.csproj">
+      <Project>{dacef151-acf1-4e07-83f0-48e4e5f8032f}</Project>
+      <Name>WcfGeolocaliza</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\srvGeoLocalizacion\AccesoDatos.srvGeoLocalizacion.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
+    <None Include="Connected Services\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\Service12.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\srvGeoLocalizacion\Service1.wsdl" />
     <None Include="Connected Services\srvGeoLocalizacion\Service1.xsd">
@@ -75,11 +91,10 @@
     <None Include="Connected Services\srvGeoLocalizacion\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\srvGeoLocalizacion\Service13.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\DataSources\Modelos.ContenedorLoginDTO.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
     <WCFMetadataStorage Include="Connected Services\srvGeoLocalizacion\" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +108,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\srvGeoLocalizacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

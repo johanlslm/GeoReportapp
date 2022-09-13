@@ -67,19 +67,41 @@ function EventoModalNotification(TipoModal) {
             DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.TextInfo };
             break;
         case 2:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: "Correo con formato incorrecto" };
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.TextInfo };
             break;
         case 3:
-            DTOInfoModalNot = { Color: "Azul", Icono: "Password", TxtInfo: "Correo no registrado en el sistema" };
+            DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.TextInfo };
             break;
         case 4:
-            DTOInfoModalNot = { Color: "Azul", Icono: "Password", TxtInfo: "Contraseña incorrecta" };
+            DTOInfoModalNot = { Color: "Fallo", Icono: "Password", TxtInfo: TipoModal.TextInfo };
             break;
     }
     OpenAlertInfo(DTOInfoModalNot);
 }
 
+function ValidadorEmailRecover(DTOinfo) {
+    let ParentInput = DTOinfo.Elemento.parentNode;
+    if (DTOinfo.ObjRespusta.TipoErrorCampoVal != 6) {
+        $(ParentInput).removeClass('valido');
+        $(ParentInput).addClass('invalido');
+        ParentInput.setAttribute("title", DTOinfo.ObjRespusta.TextInfo);
+    } else {
+        $(ParentInput).removeClass('invalido');
+        $(ParentInput).addClass('valido');
+    }
+}
+
+function ClearInputsRegister() {
+    let InputEventClear = document.querySelectorAll('.ContFormRegis input');
+    InputEventClear.forEach(element => {
+        element.value = "";
+    });
+}
+
 async function IngresarLoginEvent() {
+    LoadingStar('Validando usuario')
+
+
     let InputLoginEmail = document.getElementById('inputEmailLogin');
     let InputLoginPassword = document.getElementById('inputPasswordLogin');
     let ObjVal = [{ Elemento: InputLoginEmail.id, Tipo: 1 }, { Elemento: InputLoginPassword.id, Tipo: 2 }];
@@ -87,11 +109,9 @@ async function IngresarLoginEvent() {
     if (RespuestaValidacion.ErrorRespuesta) {
         EventoModalNotification(RespuestaValidacion);
     } else {
-        LoadingStar('Validando usuario')
         var parametro = {
             CorreoVali: InputLoginEmail.value, PassWordVali: InputLoginPassword.value
         };
-        console.log(parametro)
         $.ajax({
             type: 'POST',
             url: '../Home/IngresarLoginEvent',
@@ -99,16 +119,19 @@ async function IngresarLoginEvent() {
             contentType: 'application/json; charset=UTF-8',
             dataType: 'json',
             success: function (data) {
-                loadingBlStop();
-                if (data.error) {
-                   
+                LoadingStop();
+                var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo }
+                console.log(data);
+                if (data.Error) {
+                    EventoModalNotification(RespEvent);
                 } else {
-
-                   
+                    EventoModalNotification(RespEvent);
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                
+                LoadingStop();
+                var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                EventoModalNotification(RespEvent);
             }
         });
     }
@@ -144,21 +167,4 @@ async function LoginRecoverPassword() {
         LoadingStar('Verificando datos del correo')
     }
 
-}
-function ValidadorEmailRecover(DTOinfo) {
-    let ParentInput = DTOinfo.Elemento.parentNode;
-    if (DTOinfo.ObjRespusta.TipoErrorCampoVal != 6) {
-        $(ParentInput).removeClass('valido');
-        $(ParentInput).addClass('invalido');
-        ParentInput.setAttribute("title", DTOinfo.ObjRespusta.TextInfo);
-    } else {
-        $(ParentInput).removeClass('invalido');
-        $(ParentInput).addClass('valido');
-    }
-}
-function ClearInputsRegister() {
-    let InputEventClear = document.querySelectorAll('.ContFormRegis input');
-    InputEventClear.forEach(element => {
-        element.value = "";
-    });
 }

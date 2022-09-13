@@ -20,7 +20,7 @@ namespace Datos
                 con.parametros.AddWithValue("@PassUserVal", Pass);
                 var Result = con.ejecutarSP("spIngresarLoginEvent");
                 ContenedorLogin.Respuesta = (Int32)Result.Tables[0].Rows[0][0];
-                ContenedorLogin.LoginUsuarioDto = BaseAdapter.ConvertirLista<LoginUsuarioDTO>(Result.Tables[1]).Count > 0 ? BaseAdapter.ConvertirLista<LoginUsuarioDTO>(Result.Tables[0])[0] : new LoginUsuarioDTO();
+                ContenedorLogin.LoginUsuarioDto = BaseAdapter.ConvertirLista<LoginUsuarioDTO>(Result.Tables[1]).Count > 0 ? BaseAdapter.ConvertirLista<LoginUsuarioDTO>(Result.Tables[1])[0] : new LoginUsuarioDTO();
 
 
 
