@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Web.Security;
+
 
 namespace AppGeolocalizacionHuecos.Controllers
 {
@@ -36,7 +39,7 @@ namespace AppGeolocalizacionHuecos.Controllers
             var TipoRespuesta = 0;
             var Error = false;
             var txtTextInfo = "";
-
+            var URLAction ="";
             try
             {
                 var datosmodal = await srv.IngresarLoginEventAsync(CorreoVali, PassWordVali);
@@ -76,8 +79,29 @@ namespace AppGeolocalizacionHuecos.Controllers
                 {
                     txtTextInfo = "Bienvenido " + datosmodal.LoginUsuarioDto.Nombre_Usuario;
                     TipoRespuesta = 3;
+
+                    var serealizar = new JavaScriptSerializer();
+                    string DatosUsuario = serealizar.Serialize(datosmodal.LoginUsuarioDto);
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, ".UserDTOLogin", DateTime.Now, DateTime.Now.AddMinutes(120), true, DatosUsuario, FormsAuthentication.FormsCookiePath);
+                    string ticketEncrip = FormsAuthentication.Encrypt(ticket);
+                    var cookie = Request.Cookies.Get(".UserDTOLogin");
+
+                    if (cookie != null)
+                    {
+                        cookie.Value = ticketEncrip;
+                        Response.SetCookie(cookie);
+                    }
+                    else
+                    {
+                        cookie = new HttpCookie(".UserDTOLogin");
+                        cookie.Value = ticketEncrip;
+                        cookie.Expires = DateTime.Now.AddMinutes(120);
+                        Response.SetCookie(cookie);
+                    }
+                    URLAction = "Home/HomeApp";
+
                 }
-                return Json(new{datosmodal,txtTextInfo,TipoRespuesta});
+                return Json(new{datosmodal,txtTextInfo,TipoRespuesta,Error, URLAction});
             }
             catch (Exception ex)
             {

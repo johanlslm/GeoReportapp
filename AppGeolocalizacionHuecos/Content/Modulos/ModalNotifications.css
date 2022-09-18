@@ -3,9 +3,9 @@
     --BgModalInt: rgb(53 52 62 / 90%);
     --clModalBlue: #4271e5;
     --clModalGreen: #44a749;
-    --clModalOrange: #c17425;
+    --clModalOrange: #e36a30;
     --clModalSilver: #43464d;
-    --clModalRed: #bb2727;
+    --clModalRed: #e52222;
     --ClWhite: #dbdee9;
 }
 
@@ -78,6 +78,7 @@ div.ContModalInt .ContInt1ModNot {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1em;
 }
 
     .DivModaConIntNot2 button {
@@ -124,15 +125,19 @@ div.ContModalInt .ContInt1ModNot {
     background: rgb(60, 160, 60);
 }
 
-    .BtnContentModalNoti.ContInfoModalBtn1:hover .icono {
-        left: calc(100% - 1.5em);
-        opacity: 1;
-    }
+.BtnContentModalNoti.ContInfoModalBtn1:nth-child(2):hover {
+    background: rgb(243, 90, 90);
+}
 
-    .BtnContentModalNoti.ContInfoModalBtn1:hover span {
-        position: absolute;
-        left: 2%;
-    }
+.BtnContentModalNoti.ContInfoModalBtn1:hover .icono {
+    left: calc(100% - 1.5em);
+    opacity: 1;
+}
+
+.BtnContentModalNoti.ContInfoModalBtn1:hover span {
+    position: absolute;
+    left: 2%;
+}
 
 #ContModalNoti div.ContModalInt.activarModal {
     opacity: 1;

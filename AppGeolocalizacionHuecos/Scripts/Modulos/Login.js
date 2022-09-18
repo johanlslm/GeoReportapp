@@ -62,21 +62,22 @@ function validarCampos(ObjCamposVal) {
 
 function EventoModalNotification(TipoModal) {
     let DTOInfoModalNot;
-    switch (TipoModal.TipoRespuesta) {
+    switch (TipoModal.RespEvent.TipoRespuesta) {
         case 1:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.TextInfo };
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
         case 2:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.TextInfo };
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Contrasena", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
         case 3:
-            DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.TextInfo };
+            DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
         case 4:
-            DTOInfoModalNot = { Color: "Fallo", Icono: "Password", TxtInfo: TipoModal.TextInfo };
+            DTOInfoModalNot = { Color: "Rojo", Icono: "Fallo", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
     }
-    OpenAlertInfo(DTOInfoModalNot);
+    OpenAlertInfo(DTOInfoModalNot, TipoModal.Confirmar);
+    
 }
 
 function ValidadorEmailRecover(DTOinfo) {
@@ -101,7 +102,6 @@ function ClearInputsRegister() {
 async function IngresarLoginEvent() {
     LoadingStar('Validando usuario')
 
-
     let InputLoginEmail = document.getElementById('inputEmailLogin');
     let InputLoginPassword = document.getElementById('inputPasswordLogin');
     let ObjVal = [{ Elemento: InputLoginEmail.id, Tipo: 1 }, { Elemento: InputLoginPassword.id, Tipo: 2 }];
@@ -121,11 +121,19 @@ async function IngresarLoginEvent() {
             success: function (data) {
                 LoadingStop();
                 var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo }
-                console.log(data);
                 if (data.Error) {
                     EventoModalNotification(RespEvent);
                 } else {
-                    EventoModalNotification(RespEvent);
+                    if (data.datosmodal.Respuesta == 6) {
+                        let Confirmar = function Confirmar(){ window.location.href = '../' + data.URLAction; };
+                        let objEnviarModal = { RespEvent, Confirmar }
+                        EventoModalNotification(objEnviarModal);
+
+                    } else {
+
+                        EventoModalNotification(objEnviarModal);
+                    }
+                    
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
