@@ -1,4 +1,5 @@
 ﻿using AccesoDatos;
+using Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace AppGeolocalizacionHuecos.Controllers
 {
     public class HomeController : Controller
     {
+        private LoginUsuarioDTO usuario;
         public ActionResult Index()
         {
-            //var srv = Proxy.obtenerServicioDistribuidoGeneral();
             return RedirectToAction("Login", "Home");
         }
         public ActionResult Login()
@@ -24,11 +25,27 @@ namespace AppGeolocalizacionHuecos.Controllers
         }
         public ActionResult HomeApp()
         {
-            return View();
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
         public ActionResult SearchGPS()
         {
-            return View();
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
 
 
@@ -102,6 +119,49 @@ namespace AppGeolocalizacionHuecos.Controllers
 
                 }
                 return Json(new{datosmodal,txtTextInfo,TipoRespuesta,Error, URLAction});
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
+
+
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> RegistroLoginEvent(String NombresVali, String ApellidosVali, String CorreoVali, String PassWordVali , String PassWord2Vali)
+        {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                var datosmodal = await srv.RegistroLoginEventAsync(NombresVali, ApellidosVali, CorreoVali, PassWordVali, PassWord2Vali);
+
+                    switch (datosmodal)
+                    {
+                        case 1:
+                            txtTextInfo = "Correo ya registrado en el sistema";
+                            TipoRespuesta = 1;
+                            break;
+                        case 2:
+                            txtTextInfo = "Las contraseñas no coinciden";
+                            TipoRespuesta = 2;
+                            break;
+                        case 3:
+                            txtTextInfo = "Registro completado con exito";
+                            TipoRespuesta = 3;
+                            break;
+                        default:
+                            txtTextInfo = "Error no controlado, valide en un rato";
+                            TipoRespuesta = 4;
+                            Error = true;
+                            break;
+                    }
+                return Json(new { datosmodal, txtTextInfo, TipoRespuesta, Error });
             }
             catch (Exception ex)
             {

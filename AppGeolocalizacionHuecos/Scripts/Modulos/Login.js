@@ -67,7 +67,7 @@ function EventoModalNotification(TipoModal) {
             DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
         case 2:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Contrasena", TxtInfo: TipoModal.RespEvent.TextInfo };
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.RespEvent.TextInfo };
             break;
         case 3:
             DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.RespEvent.TextInfo };
@@ -120,17 +120,20 @@ async function IngresarLoginEvent() {
             dataType: 'json',
             success: function (data) {
                 LoadingStop();
-                var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo }
+                var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
+                let objEnviarModal;
                 if (data.Error) {
                     EventoModalNotification(RespEvent);
                 } else {
+                    console.log(data)
                     if (data.datosmodal.Respuesta == 6) {
+                        
                         let Confirmar = function Confirmar(){ window.location.href = '../' + data.URLAction; };
-                        let objEnviarModal = { RespEvent, Confirmar }
+                        objEnviarModal = { RespEvent, Confirmar }
                         EventoModalNotification(objEnviarModal);
 
                     } else {
-
+                        objEnviarModal = { RespEvent }
                         EventoModalNotification(objEnviarModal);
                     }
                     
@@ -159,7 +162,49 @@ async function RegistroLoginEvent() {
     if (RespuestaValidacion.ErrorRespuesta) {
         EventoModalNotification(RespuestaValidacion);
     } else {
-        LoadingStar('Validando datos de registro')
+        LoadingStar('Validando datos de registro');
+
+        var parametro = {
+            NombresVali: InputSignName.value, ApellidosVali: InputSignLName.value, CorreoVali: InputSignEmail.value, PassWordVali: InputSignPass.value, PassWord2Vali: InputSignConf.value
+        };
+        console.log(parametro);
+        $.ajax({
+            type: 'POST',
+            url: '../Home/RegistroLoginEvent',
+            data: JSON.stringify(parametro),
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+                LoadingStop();
+                var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
+                let objEnviarModal;
+                console.log(data);
+                if (data.Error) {
+                    EventoModalNotification(RespEvent);
+                } else {
+                    console.log(data)
+                    if (data.datosmodal== 3) {
+
+                        let Confirmar = function Confirmar() { alert("prueba de acceso") };
+                        objEnviarModal = { RespEvent, Confirmar }
+                        EventoModalNotification(objEnviarModal);
+
+                    } else {
+                        objEnviarModal = { RespEvent }
+                        EventoModalNotification(objEnviarModal);
+                    }
+
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                LoadingStop();
+                var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                EventoModalNotification(RespEvent);
+            }
+        });
+
+
+
     }
 }
 

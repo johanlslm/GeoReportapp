@@ -25,5 +25,17 @@ namespace WcfGeolocaliza
                 throw;
             }
         }
+        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
+        {
+            try
+            {
+                return new LoginUsuario().RegistroLoginEvent(nombres, apellidos, correo, pass1, pass2);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

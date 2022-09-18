@@ -16,4 +16,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RegistroLoginEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombres" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apellidos" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroLoginEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistroLoginEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

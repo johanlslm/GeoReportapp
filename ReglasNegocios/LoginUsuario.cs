@@ -22,5 +22,17 @@ namespace ReglasNegocios
                 throw;
             }
         }
-    }
+        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
+        {
+            try
+            {
+                return new LoginDAO().RegistroLoginEvent(nombres, apellidos, correo, pass1, pass2);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelos;
 using arciait.Adaptador;
+using System.Data.SqlClient;
 
 namespace Datos
 {
@@ -29,6 +30,28 @@ namespace Datos
             catch (Exception)
             {
                 throw;
+            }
+        }
+        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1 ,String pass2)
+        {
+            try
+            {
+                var con = new Conexion();
+                con.parametros.AddWithValue("@NombreUsuario", nombres);
+                con.parametros.AddWithValue("@ApellidoUsuario", apellidos);
+                con.parametros.AddWithValue("@CorreoUsuario", correo);
+                con.parametros.AddWithValue("@ContraseñaUsuario", pass1);
+                con.parametros.AddWithValue("@Contraseña2Usuario", pass2);
+
+                var Result = con.ejecutarSP("spRegistroLoginEvent");
+
+               int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
+
+               return (int)Convert.ToInt64(Result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

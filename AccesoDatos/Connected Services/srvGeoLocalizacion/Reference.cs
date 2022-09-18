@@ -20,6 +20,12 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IngresarLoginEvent", ReplyAction="http://tempuri.org/IService1/IngresarLoginEventResponse")]
         System.Threading.Tasks.Task<Modelos.ContenedorLoginDTO> IngresarLoginEventAsync(string correo, string Pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistroLoginEvent", ReplyAction="http://tempuri.org/IService1/RegistroLoginEventResponse")]
+        int RegistroLoginEvent(string nombres, string apellidos, string correo, string pass1, string pass2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistroLoginEvent", ReplyAction="http://tempuri.org/IService1/RegistroLoginEventResponse")]
+        System.Threading.Tasks.Task<int> RegistroLoginEventAsync(string nombres, string apellidos, string correo, string pass1, string pass2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         public System.Threading.Tasks.Task<Modelos.ContenedorLoginDTO> IngresarLoginEventAsync(string correo, string Pass) {
             return base.Channel.IngresarLoginEventAsync(correo, Pass);
+        }
+        
+        public int RegistroLoginEvent(string nombres, string apellidos, string correo, string pass1, string pass2) {
+            return base.Channel.RegistroLoginEvent(nombres, apellidos, correo, pass1, pass2);
+        }
+        
+        public System.Threading.Tasks.Task<int> RegistroLoginEventAsync(string nombres, string apellidos, string correo, string pass1, string pass2) {
+            return base.Channel.RegistroLoginEventAsync(nombres, apellidos, correo, pass1, pass2);
         }
     }
 }
