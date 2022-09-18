@@ -176,3 +176,7 @@ async function LoginRecoverPassword() {
     }
 
 }
+
+function prueba() {
+    alert("commit de prueba");
+}
