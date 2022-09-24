@@ -165,6 +165,7 @@
     <Content Include="Scripts\Modulos\ModalRecoverPassword.js" />
     <Content Include="Scripts\Modulos\ReporteFormulario.js" />
     <Content Include="Scripts\Modulos\ReporteGPS.js" />
+    <Content Include="Scripts\Modulos\SearchGPS.js" />
     <Content Include="Scripts\Modulos\SobreNosotros.js" />
     <Content Include="Views\Home\HomeApp.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

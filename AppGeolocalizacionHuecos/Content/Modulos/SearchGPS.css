@@ -6,15 +6,10 @@
     --ClGreenMin: rgb(146, 231, 146);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 div.containerConsultMain {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 35em;
     gap: 3px;

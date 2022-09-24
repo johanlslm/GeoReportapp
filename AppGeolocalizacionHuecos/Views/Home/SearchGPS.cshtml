@@ -2,10 +2,10 @@
     ViewBag.Title = "Buscar Huecos";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
 }
-@section scripts {
-    @*<script src="~/Scripts/Modulos/HomeApp.js"></script>*@
-}
+
 <link href="~/Content/Modulos/SearchGPS.css" rel="stylesheet" />
+
+
 <div class="containerConsultMain">
     <div id="mapcontainer">
         <script>
@@ -26,8 +26,6 @@
             ).addTo(mymap);
 
         </script>
-
-
 
 
         <div class="airbutton">
@@ -84,3 +82,7 @@
 
     </div>
 </div>
+
+@section scripts {
+    <script src="~/Scripts/Modulos/SearchGPS.js"></script>
+}
