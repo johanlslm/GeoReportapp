@@ -22,7 +22,7 @@ namespace ReglasNegocios
                 throw;
             }
         }
-        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
+        public Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
         {
             try
             {
@@ -34,5 +34,18 @@ namespace ReglasNegocios
                 throw;
             }
         }
-     }
+
+        public Int32 LoginRecoverPassword(String correo)
+        {
+            try
+            {
+                var RespuestaSP = new LoginDAO().LoginRecoverPassword(correo);
+
+                return RespuestaSP.Respuesta;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+        }
+    }
 }

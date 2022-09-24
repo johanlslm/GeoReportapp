@@ -96,6 +96,20 @@ namespace AppGeolocalizacionHuecos.Seguridad
 
         }
 
+        public static bool cierraSession(HttpResponseBase response, HttpRequestBase requestBase)
+        {
+            try
+            {
+                var cok = requestBase.Cookies.Get(".UserDTOLogin");
+                cok.Value = "";
+                response.SetCookie(cok);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public static string GetMD5(string str)
         {

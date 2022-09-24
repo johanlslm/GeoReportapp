@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    //var MenusAcceso = WebCoinpaz.Seguridad.Seguridad.validaSessionMenuCooinpaz(Request.Cookies.Get(".UserDTOMenusCooinpaz"));
+    var usuario = AppGeolocalizacionHuecos.Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+    //var usuario = ViewBag.usuario as Entidades.UsuarioCooinpazDTO;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,7 +19,7 @@
     <script src="https://kit.fontawesome.com/9c8676b409.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/Scripts/Modulos/_LayoutInterno.js"
-    @Scripts.Render("~/bundles/modernizr")
+            @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="ContLayMain">
@@ -21,78 +28,68 @@
                 <div class="contLaySecIcon"></div>
             </div>
             <div class="CenterContent contLaySecLog">
-                <span class="NameContUser">Johan Nicolas Lozano</span>
+                <span class="NameContUser">@usuario.Nombre_Usuario </span>
                 <div class="contInternoUser" id="contInternoUser">
                     <i class="fa-solid fa-circle-user"></i>
                     <div class="secundContIcon">
                         <i class="fa-solid fa-circle-chevron-down"></i>
                     </div>
                 </div>
-                <span class="ModuleContUser">Home</span>
+                <span class="ModuleContUser">Usuario activo</span>
             </div>
         </header>
         <div class="ContLayContent CenterContent">
             <div class="MenuModaAcceso nav desactivar">
                 <ul class="list">
+
                     <li class="list__item">
                         <div class="list__button" data-value="1">
                             <i class="fa-solid fa-house"></i>
-                            <a href="#" class="nav__link">Cartera 1</a>
+                            <a href="SearchGPS" class="nav__link">BUSCAR HUECOS</a>
                         </div>
                     </li>
+
                     <li class="list__item list__item--click">
                         <div class="list__button list__button--click" data-value="2">
                             <i class="fa-solid fa-business-time"></i>
-                            <a href="#" class="nav__link">Cartera 2</a>
+                            <a href="#" class="nav__link">REPORTAR</a>
                             <i class="fa-solid fa-angle-right list__arrow"></i>
                         </div>
                         <ul class="list__show">
                             <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera dafdsaf1</a>
+                                <a href="ReporteGPS" class="nav__link nav__link--inside">POR GPS</a>
                             </li>
                             <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list__item list__item--click">
-                        <div class="list__button list__button--click" data-value="3">
-                            <i class="fa-solid fa-money-bill"></i>
-                            <a href="#" class="nav__link">Cartera 3</a>
-                            <i class="fa-solid fa-angle-right list__arrow"></i>
-                        </div>
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
-                            </li>
-
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 2</a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 3</a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 4</a>
+                                <a href="ReporteFormulario" class="nav__link nav__link--inside">POR FORMULARIO</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="list__item list__item--click">
-                        <div class="list__button list__button--click" data-value="4">
-                            <i class="fa-solid fa-business-time"></i>
-                            <a href="#" class="nav__link">Cartera 4</a>
-                            <i class="fa-solid fa-angle-right list__arrow"></i>
+                    <li class="list__item">
+                        <div class="list__button" data-value="3">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="DReporte" class="nav__link">DESCARGAR REPORTE</a>
                         </div>
-                        <ul class="list__show">
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
-                            </li>
-                            <li class="list__inside">
-                                <a href="#" class="nav__link nav__link--inside">Sub Cartera 1</a>
-                            </li>
-                        </ul>
                     </li>
+                    @{
+                        if (usuario.Tipo_Usuario == 2)
+                        {
+                            <li class="list__item">
+                                <div class="list__button" data-value="4">
+                                    <i class="fa-solid fa-house"></i>
+                                    <a href="Administrativo" class="nav__link">ADMINISTRATIVO</a>
+                                </div>
+                            </li>
+
+                        }
+                    }
+                    <li class="list__item">
+                        <div class="list__button" data-value="5">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="SobreNosotros" class="nav__link">SOBRE NOSOTROS</a>
+                        </div>
+                    </li>
+
 
                 </ul>
                 <div class="contLaySecMenu">
@@ -113,17 +110,17 @@
                 <ul class="ListUser">
                     <li class="list__itemUser">
                         <div class="list__buttonUser" data-value="1">
-                            <a href="#" class="nav__linkUser">Home</a>
+                            <a href="HomeApp" class="nav__linkUser">Home</a>
                             <i class="fa-solid fa-house"></i>
                         </div>
                     </li>
                     <li class="list__itemUser">
                         <div class="list__buttonUser" data-value="1">
-                            <a href="#" class="nav__linkUser">Cambiar Contraseña<a href=""></a></a>
+                            <a href="CambioPass" class="nav__linkUser">Cambiar Contraseña</a>
                             <i class="fa-solid fa-key"></i>
                         </div>
                     </li>
-                    <li class="list__itemUser">
+                    <li class="list__itemUser" onclick="location.href='@Url.Action("logout", "Home")'">
                         <div class="list__buttonUser" data-value="1">
                             <a href="#" class="nav__linkUser">Salir</a>
                             <i class="fa-solid fa-door-open"></i>

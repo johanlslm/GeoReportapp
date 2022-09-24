@@ -51,7 +51,7 @@
     /************************************************** DESPLIEGUE SUB MENUS **************************************************/
 
     $('.list__button').click(function (e) {
-        e.preventDefault();
+        /*e.preventDefault();*/
         let LiElement = document.querySelectorAll('.list__button');
         let DValThis = $(this).attr('data-value');
         LiElement.forEach(contElem => {

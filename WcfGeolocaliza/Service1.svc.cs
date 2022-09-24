@@ -25,7 +25,7 @@ namespace WcfGeolocaliza
                 throw;
             }
         }
-        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
+        public Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2)
         {
             try
             {
@@ -35,6 +35,17 @@ namespace WcfGeolocaliza
             {
 
                 throw;
+            }
+        }
+        public Int32 LoginRecoverPassword(String correo)
+        {
+            try
+            {
+                return new LoginUsuario().LoginRecoverPassword(correo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

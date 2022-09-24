@@ -19,12 +19,15 @@ namespace AppGeolocalizacionHuecos.Controllers
         {
             return RedirectToAction("Login", "Home");
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
         public ActionResult HomeApp()
         {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
             if (usuario != null)
             {
                 return View();
@@ -34,6 +37,7 @@ namespace AppGeolocalizacionHuecos.Controllers
                 return RedirectToAction("Login", "Home");
             }
         }
+
         public ActionResult SearchGPS()
         {
             usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
@@ -48,6 +52,100 @@ namespace AppGeolocalizacionHuecos.Controllers
             }
         }
 
+        public ActionResult ReporteGPS() {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        public ActionResult ReporteFormulario()
+        {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        public ActionResult DReporte()
+        {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        public ActionResult Administrativo()
+        {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null && usuario.Tipo_Usuario == 2)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("HomeApp", "Home");
+            }
+        }
+
+        public ActionResult CambioPass()
+        {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        public ActionResult SobreNosotros()
+        {
+            usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+
+            if (usuario != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        public ActionResult logout()
+        {
+            if (Seguridad.Seguridad.cierraSession(Response, Request))
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
 
         [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
         public async  Task<JsonResult> IngresarLoginEvent (String CorreoVali, String PassWordVali)
@@ -162,6 +260,48 @@ namespace AppGeolocalizacionHuecos.Controllers
                             break;
                     }
                 return Json(new { datosmodal, txtTextInfo, TipoRespuesta, Error });
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
+
+
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> LoginRecoverPassword(String EmailResetPass) {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                var datosmodal = await srv.LoginRecoverPasswordAsync(EmailResetPass);
+
+                switch (datosmodal)
+                {
+                    case 1:
+                        txtTextInfo = "Correo no registrado en el sistema";
+                        TipoRespuesta = 1;
+                        break;
+                    case 2:
+                        txtTextInfo = "Usuario inactivo, contacte al soporte del sistema";
+                        TipoRespuesta = 2;
+                        break;
+                    case 3:
+                        txtTextInfo = "Contraseña nueva enviada al correo electronico, valide por favor";
+                        TipoRespuesta = 10;
+                        break;
+                    default:
+                        txtTextInfo = "Error no controlado, valide en un rato";
+                        TipoRespuesta = 4;
+                        Error = true;
+                        break;
+                }
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
             }
             catch (Exception ex)
             {

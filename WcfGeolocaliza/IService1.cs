@@ -16,7 +16,8 @@ namespace WcfGeolocaliza
         ContenedorLoginDTO IngresarLoginEvent(String correo, String Pass);
 
         [OperationContract]
-        int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2);
-
+        Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2);
+        [OperationContract]
+        Int32 LoginRecoverPassword(String correo);
     }
 }

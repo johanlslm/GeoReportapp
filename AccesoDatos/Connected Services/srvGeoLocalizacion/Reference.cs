@@ -26,6 +26,12 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistroLoginEvent", ReplyAction="http://tempuri.org/IService1/RegistroLoginEventResponse")]
         System.Threading.Tasks.Task<int> RegistroLoginEventAsync(string nombres, string apellidos, string correo, string pass1, string pass2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginRecoverPassword", ReplyAction="http://tempuri.org/IService1/LoginRecoverPasswordResponse")]
+        int LoginRecoverPassword(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginRecoverPassword", ReplyAction="http://tempuri.org/IService1/LoginRecoverPasswordResponse")]
+        System.Threading.Tasks.Task<int> LoginRecoverPasswordAsync(string correo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         public System.Threading.Tasks.Task<int> RegistroLoginEventAsync(string nombres, string apellidos, string correo, string pass1, string pass2) {
             return base.Channel.RegistroLoginEventAsync(nombres, apellidos, correo, pass1, pass2);
+        }
+        
+        public int LoginRecoverPassword(string correo) {
+            return base.Channel.LoginRecoverPassword(correo);
+        }
+        
+        public System.Threading.Tasks.Task<int> LoginRecoverPasswordAsync(string correo) {
+            return base.Channel.LoginRecoverPasswordAsync(correo);
         }
     }
 }

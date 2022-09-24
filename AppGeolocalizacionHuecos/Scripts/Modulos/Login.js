@@ -81,14 +81,21 @@ function EventoModalNotification(TipoModal) {
 }
 
 function ValidadorEmailRecover(DTOinfo) {
+
     let ParentInput = DTOinfo.Elemento.parentNode;
-    if (DTOinfo.ObjRespusta.TipoErrorCampoVal != 6) {
+    if (DTOinfo.ObjRespusta.TipoErrorCampoVal != 10) {
         $(ParentInput).removeClass('valido');
         $(ParentInput).addClass('invalido');
         ParentInput.setAttribute("title", DTOinfo.ObjRespusta.TextInfo);
     } else {
         $(ParentInput).removeClass('invalido');
         $(ParentInput).addClass('valido');
+    }
+    if (DTOinfo.ObjRespusta.TipoErrorCampoVal == 10) {
+        let RespEvent = { TipoRespuesta: 3, TextInfo: DTOinfo.ObjRespusta.TextInfo }
+        let Confirmar = function Confirmar() { document.querySelector('.BtnIntModalRecover').click(); }
+        let OBJEnviar = { RespEvent, Confirmar }
+        EventoModalNotification(OBJEnviar);
     }
 }
 
@@ -120,12 +127,13 @@ async function IngresarLoginEvent() {
             dataType: 'json',
             success: function (data) {
                 LoadingStop();
+                console.log(data);
                 var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
                 let objEnviarModal;
                 if (data.Error) {
                     EventoModalNotification(RespEvent);
                 } else {
-                    console.log(data)
+                    
                     if (data.datosmodal.Respuesta == 6) {
                         
                         let Confirmar = function Confirmar(){ window.location.href = '../' + data.URLAction; };
@@ -167,7 +175,7 @@ async function RegistroLoginEvent() {
         var parametro = {
             NombresVali: InputSignName.value, ApellidosVali: InputSignLName.value, CorreoVali: InputSignEmail.value, PassWordVali: InputSignPass.value, PassWord2Vali: InputSignConf.value
         };
-        console.log(parametro);
+        
         $.ajax({
             type: 'POST',
             url: '../Home/RegistroLoginEvent',
@@ -178,14 +186,14 @@ async function RegistroLoginEvent() {
                 LoadingStop();
                 var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
                 let objEnviarModal;
-                console.log(data);
+                
                 if (data.Error) {
                     EventoModalNotification(RespEvent);
                 } else {
-                    console.log(data)
+                    
                     if (data.datosmodal== 3) {
 
-                        let Confirmar = function Confirmar() { alert("prueba de acceso") };
+                        let Confirmar = function Confirmar() { document.querySelector('.BtnRegisClear').click(); document.getElementById('BtnLoginval1').click(); };
                         objEnviarModal = { RespEvent, Confirmar }
                         EventoModalNotification(objEnviarModal);
 
@@ -212,12 +220,44 @@ async function LoginRecoverPassword() {
     let inputRecoverPass = document.getElementById('InputEmailRecoverPass');
     let ObjVal = [{ Elemento: inputRecoverPass.id, Tipo: 1 }];
     let RespuestaValidacion = validarCampos(ObjVal);
+    let DTOValidadorRecover;
+
     if (RespuestaValidacion.ErrorRespuesta) {
-        let DTOValidadorRecover = { Elemento: inputRecoverPass, ObjRespusta: RespuestaValidacion }
+        DTOValidadorRecover = { Elemento: inputRecoverPass, ObjRespusta: RespuestaValidacion }
         ValidadorEmailRecover(DTOValidadorRecover);
     }
     else {
         LoadingStar('Verificando datos del correo')
+        var parametro = {
+            EmailResetPass: inputRecoverPass.value
+        };
+        
+        $.ajax({
+            type: 'POST',
+            url: '../Home/LoginRecoverPassword',
+            data: JSON.stringify(parametro),
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+
+                LoadingStop();
+
+                RespuestaValidacion = { TextInfo : data.txtTextInfo, TipoErrorCampoVal : data.TipoRespuesta }
+                DTOValidadorRecover = { Elemento: inputRecoverPass, ObjRespusta: RespuestaValidacion }
+
+                if (data.Error) {
+                    let RespEvent = { TipoRespuesta: 4, TextInfo: data.txtTextInfo }
+                    EventoModalNotification(RespEvent);
+                } else {
+                    ValidadorEmailRecover(DTOValidadorRecover);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                LoadingStop();
+                let RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                EventoModalNotification(RespEvent);
+            }
+        });
     }
 
 }

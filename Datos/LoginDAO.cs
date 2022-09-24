@@ -32,7 +32,7 @@ namespace Datos
                 throw;
             }
         }
-        public int RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1 ,String pass2)
+        public Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1 ,String pass2)
         {
             try
             {
@@ -47,13 +47,30 @@ namespace Datos
 
                int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
 
-               return (int)Convert.ToInt64(Result);
+               return Respuesta;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        public ResetPassDTO LoginRecoverPassword(String correo)
+        {
+            try
+            {
+                var con = new Conexion();
+                con.parametros.AddWithValue("@CorreoUsuario", correo);
+                var resp = con.ejecutarSP<ResetPassDTO>("spLoginRecoverPassword");
+                return resp.Count > 0 ? resp[0] : new ResetPassDTO();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
     }
 
 }

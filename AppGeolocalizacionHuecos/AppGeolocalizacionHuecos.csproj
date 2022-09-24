@@ -133,12 +133,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\GeneralStyles.css" />
+    <Content Include="Content\Modulos\Administrativo.css" />
+    <Content Include="Content\Modulos\CambioPass.css" />
+    <Content Include="Content\Modulos\DReporte.css" />
     <Content Include="Content\Modulos\HomeApp.css" />
     <Content Include="Content\Modulos\LoadingModal.css" />
     <Content Include="Content\Modulos\Login.css" />
     <Content Include="Content\Modulos\ModalNotifications.css" />
     <Content Include="Content\Modulos\ModalRecoverPassword.css" />
+    <Content Include="Content\Modulos\ReporteFormulario.css" />
+    <Content Include="Content\Modulos\ReporteGPS.css" />
     <Content Include="Content\Modulos\SearchGPS.css" />
+    <Content Include="Content\Modulos\SobreNosotros.css" />
     <Content Include="Content\Modulos\_LayoutInterno.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -151,9 +157,15 @@
     <Content Include="Img\LoadingPoint.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Modulos\Administrativo.js" />
+    <Content Include="Scripts\Modulos\CambioPass.js" />
+    <Content Include="Scripts\Modulos\DReporte.js" />
     <Content Include="Scripts\Modulos\LoadingModal.js" />
     <Content Include="Scripts\Modulos\ModalNotifications.js" />
     <Content Include="Scripts\Modulos\ModalRecoverPassword.js" />
+    <Content Include="Scripts\Modulos\ReporteFormulario.js" />
+    <Content Include="Scripts\Modulos\ReporteGPS.js" />
+    <Content Include="Scripts\Modulos\SobreNosotros.js" />
     <Content Include="Views\Home\HomeApp.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -183,6 +195,12 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutInterno.cshtml" />
     <Content Include="Views\Home\SearchGPS.cshtml" />
+    <Content Include="Views\Home\ReporteGPS.cshtml" />
+    <Content Include="Views\Home\ReporteFormulario.cshtml" />
+    <Content Include="Views\Home\DReporte.cshtml" />
+    <Content Include="Views\Home\Administrativo.cshtml" />
+    <Content Include="Views\Home\CambioPass.cshtml" />
+    <Content Include="Views\Home\SobreNosotros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

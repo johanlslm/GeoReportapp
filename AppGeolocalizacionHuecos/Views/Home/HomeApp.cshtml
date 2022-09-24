@@ -2,36 +2,50 @@
 @{
     ViewBag.Title = "HomeApp";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    var usuario = AppGeolocalizacionHuecos.Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
 }
+
 @section scripts {
     <script src="~/Scripts/Modulos/HomeApp.js"></script>
 }
 
+
+
 <link href="~/Content/Modulos/HomeApp.css" rel="stylesheet" />
 <div class="ContCardMain">
-    <div class="CardContint1">
+    <div class="CardContint1" id="CardHome1">
         <div class="contCardImg" style="background: url(../../Img/BgGPSSearch.jpg); background-size: cover; background-position: center;"></div>
         <div class="contCardTxt">
             <span>Buscar Huecos</span>
         </div>
     </div>
-    <div class="CardContint1">
+    <div class="CardContint1" id="CardHome2">
         <div class="contCardImg" style="background: url(../../Img/BgGPSReport.jpg); background-size: cover; background-position: center;"></div>
         <div class="contCardTxt">
             <span>Reportar por GPS</span>
         </div>
     </div>
-    <div class="CardContint1">
+    <div class="CardContint1" id="CardHome3">
         <div class="contCardImg" style="background: url(../../Img/BgGPSForm.jpg); background-size: cover; background-position: center;"></div>
         <div class="contCardTxt">
             <span>Reportar por Formulario</span>
         </div>
     </div>
-    <div class="CardContint1">
+    <div class="CardContint1" id="CardHome4">
         <div class="contCardImg" style="background: url(../../Img/BgGPSDownload.jpg); background-size: cover; background-position: center;"></div>
         <div class="contCardTxt">
             <span>Descargar Reporte</span>
         </div>
     </div>
+    @{ 
+        if (usuario.Tipo_Usuario == 2) { 
+        <div class="CardContint1" id="CardHome5">
+            <div class="contCardImg" style="background: url(../../Img/BgGPSDownload.jpg); background-size: cover; background-position: center;"></div>
+            <div class="contCardTxt">
+                <span>Administrativo</span>
+            </div>
+        </div>
+        }
+    }
 
 </div>
