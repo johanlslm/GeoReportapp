@@ -22,3 +22,9 @@ D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.Assem
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Modelos\obj\Debug\Modelos.dll
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Modelos\obj\Debug\Modelos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\bin\Debug\Modelos.dll
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\bin\Debug\Modelos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\obj\Debug\Modelos.dll
+D:\DESARROLLO\.NET\GeoReportapp\Modelos\obj\Debug\Modelos.pdb

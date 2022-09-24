@@ -46,3 +46,15 @@ D:\DESARROLLO\.NET\GeoReport\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocio
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CopyComplete
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.dll
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.pdb
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\ReglasNegocios.dll
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\ReglasNegocios.pdb
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\Datos.dll
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\Modelos.dll
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\arciait.dll
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\Datos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\bin\Debug\Modelos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.AssemblyReference.cache
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CoreCompileInputs.cache
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CopyComplete
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.dll
+D:\DESARROLLO\.NET\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.pdb

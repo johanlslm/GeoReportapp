@@ -34,3 +34,12 @@ D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Datos\obj\Debug\Datos.csproj.CoreCompi
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Datos\obj\Debug\Datos.csproj.CopyComplete
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Datos\obj\Debug\Datos.dll
 D:\DESARROLLO\.NET\GeoReport\GeoReportapp\Datos\obj\Debug\Datos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\Datos\bin\Debug\Datos.dll
+D:\DESARROLLO\.NET\GeoReportapp\Datos\bin\Debug\Datos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\Datos\bin\Debug\Modelos.dll
+D:\DESARROLLO\.NET\GeoReportapp\Datos\bin\Debug\Modelos.pdb
+D:\DESARROLLO\.NET\GeoReportapp\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+D:\DESARROLLO\.NET\GeoReportapp\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\DESARROLLO\.NET\GeoReportapp\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\DESARROLLO\.NET\GeoReportapp\Datos\obj\Debug\Datos.dll
+D:\DESARROLLO\.NET\GeoReportapp\Datos\obj\Debug\Datos.pdb

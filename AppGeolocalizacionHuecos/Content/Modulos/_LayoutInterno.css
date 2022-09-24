@@ -1,14 +1,14 @@
 ﻿:root {
     --ColMain: #323232;
     --ColSecund: #ffffff;
-    --FcMain: #008139;
-    --FcSecund: #00a326;
+    --FcMain: #222232;
+    --FcSecund: #4f5472;
     --FcDegraMain: linear-gradient(90deg, rgba(0,163,38,1) 0%, rgba(0,129,57,1) 50%, rgba(0,163,38,1) 100%);
     --ColSilver: #30363099;
     --ColSilverSolid: #464a46;
     --ColSilverMenu: #303630e6;
     --ColSilverHover: #65686599;
-    --ColMenu: #91b2c5e6;
+    --ColMenu: #728c9be6;
     --ConMenuHover: rgb(154, 199, 232);
     --BgBlueMin: #e4f6ff;
     font-size: 10px;
