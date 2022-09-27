@@ -11,4 +11,3 @@
 	c = c.replace(/[^\d.-]/g, '');
 	c = parseFloat(c);
 }
-alert("entro")

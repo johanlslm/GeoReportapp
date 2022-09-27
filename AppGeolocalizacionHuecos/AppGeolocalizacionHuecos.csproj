@@ -155,6 +155,8 @@
     <Content Include="Img\BgGPSSearch.jpg" />
     <Content Include="Img\BgLogin1.jpg" />
     <Content Include="Img\LoadingPoint.gif" />
+    <Content Include="Img\Media\ReporteHuecos\Hueco_000001.JPG" />
+    <Content Include="Img\Media\ReporteHuecos\Hueco_000002.JPG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Modulos\Administrativo.js" />
