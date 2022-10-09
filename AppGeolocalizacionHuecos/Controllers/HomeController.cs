@@ -311,5 +311,47 @@ namespace AppGeolocalizacionHuecos.Controllers
                 return Json(new { txtTextInfo, TipoRespuesta, Error });
             }
         }
+
+
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> ChangePasswordEvent(String InputPass1, String InputPass2)
+        {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+                Int64 idUserVal = usuario.Id_usuario;
+                var datosmodal = await srv.ChangePasswordEventAsync(InputPass1, InputPass2 , idUserVal);
+
+                switch (datosmodal)
+                {
+                    case 1:
+                        txtTextInfo = "Las contraseñas no coinciden";
+                        TipoRespuesta = 1;
+                        break;
+                    case 2:
+                        txtTextInfo = "Actualizacion realizada con exito";
+                        TipoRespuesta = 3;
+                        break;
+                    default:
+                        txtTextInfo = "Error no controlado, valide en un rato";
+                        TipoRespuesta = 4;
+                        Error = true;
+                        break;
+                }
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
+
     }
 }

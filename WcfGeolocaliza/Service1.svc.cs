@@ -48,5 +48,17 @@ namespace WcfGeolocaliza
                 throw ex;
             }
         }
+
+        public Int32 ChangePasswordEvent(String Pass1, String Pass2, Int64 idUser)
+        {
+            try
+            {
+                return new LoginUsuario().ChangePasswordEvent(Pass1, Pass2, idUser);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -70,6 +70,25 @@ namespace Datos
             }
         }
 
+        public Int32 ChangePasswordEvent(String Pass1 , String Pass2, Int64 idUser)
+        {
+            try
+            {
+                var con = new Conexion();
+                con.parametros.AddWithValue("@Password1", Pass1);
+                con.parametros.AddWithValue("@Password2", Pass2);
+                con.parametros.AddWithValue("@IdUserC", idUser);
+                var Result = con.ejecutarSP("spChangePasswordEvent");
+                int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
+                return Respuesta;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
     }
 

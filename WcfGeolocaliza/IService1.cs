@@ -19,5 +19,7 @@ namespace WcfGeolocaliza
         Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2);
         [OperationContract]
         Int32 LoginRecoverPassword(String correo);
+        [OperationContract]
+        Int32 ChangePasswordEvent(String Pass1, String Pass2, Int64 idUser);
     }
 }

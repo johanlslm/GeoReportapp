@@ -48,4 +48,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ChangePasswordEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Pass1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Pass2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idUser" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangePasswordEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

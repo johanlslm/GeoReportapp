@@ -25,6 +25,12 @@
   <wsdl:message name="IService1_LoginRecoverPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginRecoverPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ChangePasswordEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordEvent" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangePasswordEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordEventResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="IngresarLoginEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/IngresarLoginEvent" message="tns:IService1_IngresarLoginEvent_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="LoginRecoverPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginRecoverPassword" message="tns:IService1_LoginRecoverPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginRecoverPasswordResponse" message="tns:IService1_LoginRecoverPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangePasswordEvent" message="tns:IService1_ChangePasswordEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangePasswordEventResponse" message="tns:IService1_ChangePasswordEvent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoginRecoverPassword">
       <soap:operation soapAction="http://tempuri.org/IService1/LoginRecoverPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordEvent">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangePasswordEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
