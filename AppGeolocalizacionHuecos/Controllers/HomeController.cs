@@ -2,6 +2,7 @@
 using Modelos;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -352,6 +353,77 @@ namespace AppGeolocalizacionHuecos.Controllers
                 return Json(new { txtTextInfo, TipoRespuesta, Error });
             }
         }
+
+
+        //[HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        //public async Task<JsonResult> CrearPublicidad(string base64Imagen, string imagenNombre)
+        //{
+        //    var error = false;
+        //    var msj = "";
+        //    bool Result;
+        //    //usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".AdministrativoSunemedic"));
+        //    //var srv = Proxy.obtenerServicioDistribuidoGeneral();
+        //    try
+        //    {
+
+        //        string ruta = (base64Imagen.Replace("data:image/png;base64,", ""));
+        //        ruta = ruta.Replace("data:image/jpeg;base64,", "");
+        //        ruta = ruta.Replace("data:image/jpg;base64,", "");
+        //        ruta = ruta.Replace('-', '+').Replace('_', '/');
+        //        byte[] data = System.Convert.FromBase64String(ruta);
+
+        //        string filePath = Server.MapPath("/Img/Media/");
+        //        string filepathComplete = filePath + "\\" + "ReporteHuecos";
+        //        string subCarpeta = CrearSubCarpeta(filepathComplete, filePath);
+        //        string rutaCompleta = subCarpeta + "\\" + imagenNombre;
+        //        using (var imageFile = new FileStream(rutaCompleta, FileMode.Create))
+        //        {
+        //            imageFile.Write(data, 0, data.Length);
+        //            imageFile.Flush();
+        //        }
+        //        Result = await srv.SunemCrearPublicidad_Publicidad_CrearAsync(Nombre, "img/Publicidad/ImgPublicidad/" + imagenNombre);
+        //        if (Result == true)
+        //        {
+        //            msj = "Imagen subida con exito, podra visualizar en el Home";
+        //            error = false;
+        //        }
+        //        else
+        //        {
+        //            msj = "Error interno";
+        //            error = true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        msj = ex.Message;
+        //        error = true;
+        //        throw;
+        //    }
+        //    return Json(new
+        //    {
+        //        error,
+        //        msj
+        //    });
+        //}
+
+        //private string CrearSubCarpeta(string ruta, string direccion)
+        //{
+        //    string rutaCreada = "";
+        //    if (!Directory.Exists(ruta))
+        //    {
+        //        DirectoryInfo di = Directory.CreateDirectory(ruta);
+        //        rutaCreada = direccion + "\\" + Convert.ToString(di);
+        //    }
+        //    else
+        //    {
+        //        rutaCreada = ruta;
+        //    }
+
+        //    return rutaCreada;
+        //}
+
+
+    
 
     }
 }

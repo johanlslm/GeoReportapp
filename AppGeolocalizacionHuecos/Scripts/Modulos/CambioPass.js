@@ -67,11 +67,12 @@ function EventoModalNotification(TipoModal) {
 }
 
 async function ChangePasswordEvent() {
+    alert("entro")
     LoadingStar('Validando informacion')
 
-    let InputPass1 = document.getElementById('txtPassChance1');
-    let InputPass2 = document.getElementById('txtPassChance2');
-    let ObjVal = [{ Elemento: InputPass1.id }, { Elemento: InputPass2.id }];
+    let inputPass1 = document.getElementById('txtPassChance1');
+    let inputPass2 = document.getElementById('txtPassChance2');
+    let ObjVal = [{ Elemento: inputPass1.id }, { Elemento: inputPass2.id }];
     let RespuestaValidacion = validarCampos(ObjVal);
 
     if (RespuestaValidacion.ErrorRespuesta) {
@@ -79,7 +80,7 @@ async function ChangePasswordEvent() {
         LoadingStop();
     } else {
         var parametro = {
-            PassConf1: InputPass1.value, PassConf2: InputPass2.value
+            InputPass1: inputPass1.value, InputPass2: inputPass2.value
         };
         $.ajax({
             type: 'POST',
