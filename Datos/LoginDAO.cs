@@ -89,6 +89,32 @@ namespace Datos
             }
         }
 
+        public Int32 GenerarReporteEvent(String LatVal, String LngVal, String DirVal, Int32 TipVal,  String URLVal, String DescVal, Int64 UserVal)
+        {
+            try
+            {
+
+                var con = new Conexion();
+                con.parametros.AddWithValue("@Longitud", LatVal);
+                con.parametros.AddWithValue("@Latitud", LngVal);
+                con.parametros.AddWithValue("@Direccion", DirVal);
+                con.parametros.AddWithValue("@Tipo_hueco", TipVal);
+                con.parametros.AddWithValue("@Url_image", URLVal);
+                con.parametros.AddWithValue("@Description", DescVal);
+                con.parametros.AddWithValue("@Usuario_Repor", UserVal);
+
+                var Result = con.ejecutarSP("spRegistrarInfo");
+
+                int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
+
+                return Respuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 

@@ -58,5 +58,19 @@ namespace ReglasNegocios
                 throw ex;
             }
         }
+
+        public Int32 GenerarReporteEvent(String LatVal, String LngVal, String DirVal, Int32 TipVal, String URLVal, String DescVal, Int64 UserVal)
+        {
+
+            try
+            {
+                return new LoginDAO().GenerarReporteEvent(LatVal, LngVal, DirVal, TipVal, URLVal, DescVal, UserVal);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

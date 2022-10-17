@@ -67,7 +67,6 @@ function EventoModalNotification(TipoModal) {
 }
 
 async function ChangePasswordEvent() {
-    alert("entro")
     LoadingStar('Validando informacion')
 
     let inputPass1 = document.getElementById('txtPassChance1');
@@ -90,22 +89,26 @@ async function ChangePasswordEvent() {
             dataType: 'json',
             success: function (data) {
                 LoadingStop();
-                console.log(data);
 
-                var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
+                var RespEvent;
                 let objEnviarModal;
+
                 if (data.Error) {
+                    RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
                     EventoModalNotification(RespEvent);
                 } else {
-                    if (data.datosmodal == 2) {
 
-                        let Confirmar = function Confirmar() { window.location.href = '../' + data.URLAction; };
-                        objEnviarModal = { RespEvent, Confirmar }
-                        EventoModalNotification(objEnviarModal);
+                    if (data.TipoRespuesta == 3) {
+                        let confirmar = function Confirmar() {
+                            inputPass1.value = "";
+                            inputPass2.value = "";
+                        };
+                        RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo, Confirmar : confirmar };
+                        EventoModalNotification(RespEvent);
 
                     } else {
-                        objEnviarModal = { RespEvent }
-                        EventoModalNotification(objEnviarModal);
+                        RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo };
+                        EventoModalNotification(RespEvent);
                     }
 
                 }

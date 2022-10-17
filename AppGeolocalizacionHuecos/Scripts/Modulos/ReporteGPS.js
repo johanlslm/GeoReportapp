@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var nombreImagen;
+
+$(document).ready(function () {
 	var theMarker = {};
     var latlng = [4.583868359826262, -74.2134189605713];
     var mymapGPS = L.map("ContReportGPSMap").setView(latlng, 13);
@@ -89,7 +91,9 @@
 		theMarker = L.marker([Lat, Long]).addTo(mymapGPS)
 		
 		mymapGPS.setView([Lat, Long], 18)
-		$('#InputDirSearchGPS2').val(Lat + " , " + Long)
+        $('#InputDirSearchGPS2').val(Lat + " , " + Long)
+        $('#LatDirSearchGPS1').val(Lat)
+        $('#LngDirSearchGPS2').val(Long)
 		geocoder.geocode({ location: latlng }).then((response) => {
 			$('#InputDirSearchGPS1').val(response.results[0].formatted_address)
 		})
@@ -102,7 +106,44 @@
     });
 });
 
-var nombreImagen;
+function validarCampos(ObjCamposVal) {
+    let TipoVal = 0;
+    let ErrorVal = false;
+    let TxtVal;
+    let TipoErrorCampo = 0;
+    let respuesta;
+    ObjCamposVal.forEach(element => {
+        let ElemValInput = document.getElementById(element.Elemento);
+        if (ElemValInput.value === null || ElemValInput.value === "") {
+            TipoVal = 1;
+            TipoErrorCampo = 1
+            ErrorVal = true;
+            TxtVal = "Todos los campos deben estar completos";
+        }
+    });
+    return respuesta = { TipoRespuesta: TipoVal, ErrorRespuesta: ErrorVal, TextInfo: TxtVal, TipoErrorCampoVal: TipoErrorCampo };
+}
+
+function EventoModalNotification(TipoModal) {
+
+    let DTOInfoModalNot;
+    switch (TipoModal.TipoRespuesta) {
+        case 1:
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.TextInfo };
+            break;
+        case 2:
+            DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.TextInfo };
+            break;
+        case 3:
+            DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.TextInfo };
+            break;
+        case 4:
+            DTOInfoModalNot = { Color: "Rojo", Icono: "Fallo", TxtInfo: TipoModal.TextInfo };
+            break;
+    }
+    OpenAlertInfo(DTOInfoModalNot, TipoModal.Confirmar);
+
+}
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -136,85 +177,91 @@ function fileToBase64(file) {
     });
 }
 
-function GuardarImagen() {
-    var file = document.getElementById('FileImportIMGGPS').files[0];
+async function GenerarReporteEvent() {
+    LoadingStar('Validando registro')
+    let inputDir = document.getElementById('InputDirSearchGPS1');
+    let inputUbi = document.getElementById('InputDirSearchGPS2');
+    let inputTipoH = document.getElementById('InputDirSearchGPS3');
+    let inputDesc = document.getElementById('InputDirSearchGPS4');
 
-    if (file === undefined) {
-        $.confirm({
-            title: 'Alerta!!!',
-            typeAnimated: true,
-            useBootstrap: false,
-            type: 'orange',
-            icon: 'fas fa-exclamation-triangle',
-            boxWidth: '40%',
-            content: 'Debe seleccionar la imagen',
-            buttons: {
-                ok: function () {
-                },
+    let val1 = [{ Elemento: inputDir.id }, { Elemento: inputUbi.id }, { Elemento: inputTipoH.id }, { Elemento: inputDesc.id }]
+    let ResultadoValidacion = validarCampos(val1);
 
-            }
-        });
+    if (ResultadoValidacion.ErrorRespuesta == false) {
+        EventoModalNotification(ResultadoValidacion);
+        LoadingStop();
+
     } else {
-        fileToBase64(file).then(function (result) {
-            CrarPublicidad(result);
-        });
+
+        var file = document.getElementById('FileImportIMGGPS').files[0];
+
+        if (file === undefined) {
+            let TipoRespuesta = 1;
+            let TextInfo = "Debe enviar la evidencia fotografica del problema a reportar!"
+            let objEnviarModal = { TipoRespuesta, TextInfo };
+            EventoModalNotification(objEnviarModal);
+        } else {
+                fileToBase64(file).then(function (result) {
+                    var id = getRandomInt(1, 37757);
+                    var ImagenAletoria = id + nombreImagen;
+                    var parametros = {
+                        base64Imagen: result, imagenNombre: ImagenAletoria, DirValue: inputDir.value, UbiValue: inputUbi.value, TipoValue: parseInt(inputTipoH.value), DescValue: inputDesc.value
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: '../Home/GenerarReporteEvent',
+                        data: JSON.stringify(parametros),
+                        contentType: 'application/json; charset=UTF-8',
+                        dataType: 'json',
+                        success: function (data) {
+                            LoadingStop();
+                            if (data.error) {
+                                alert("error")
+                            }
+                            else {
+
+                                console.log(data)
+
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                            EventoModalNotification(RespEvent);
+                                
+                        }
+                    });
+
+            });
+        }
+
     }
+
 }
 
-function CrarPublicidad(result) {
-    var id = getRandomInt(1, 37757);
-    var ImagenAletoria = id + nombreImagen;
-        
-        var parametros = {
-            base64Imagen: result, imagenNombre: ImagenAletoria
-        };
-        $.ajax({
-            type: 'POST',
-            url: '../Home/CrearPublicidad',
-            data: JSON.stringify(parametros),
-            contentType: 'application/json; charset=UTF-8',
-            dataType: 'json',
-            success: function (data) {
-                if (data.error) {
-                    $.confirm({
-                        title: 'Error!',
-                        typeAnimated: true,
-                        useBootstrap: false,
-                        type: 'red',
-                        icon: 'fas fa-times',
-                        boxWidth: '20%',
-                        content: data.msj,
-                        buttons: {
-                            Ok: function () {
+async function prueba1() {
 
-                            }
-                        }
-                    });
-                }
-                else {
-                    loadingBlStop();
-                    $.confirm({
-                        title: 'Informacion!',
-                        typeAnimated: true,
-                        useBootstrap: false,
-                        type: 'blue',
-                        boxWidth: '20%',
-                        icon: "fas fa-check",
-                        content: data.msj,
-                        buttons: {
-                            Ok: function () {
-                                location.reload();
-                            }
-                        }
-                    });
+    let inputUbi = document.getElementById('InputDirSearchGPS2');
+    let inputLat = document.getElementById('LatDirSearchGPS1');
+    let inputLng = document.getElementById('LngDirSearchGPS2');
 
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+    var parametros = {
+        UbiValue: inputUbi.value, LatValue: inputLat.value, LngValue: inputLng.value
+    };
+    $.ajax({
+        type: 'POST',
+        url: '../Home/prueba1',
+        data: JSON.stringify(parametros),
+        contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+            EventoModalNotification(RespEvent);
+        }
+    });      
 
-            }
-        });
-    
 }
 
 

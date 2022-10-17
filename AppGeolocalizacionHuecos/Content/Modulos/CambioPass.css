@@ -9,7 +9,7 @@
 div.ResetPassModuleMain {
     width: 55em;
     height: 100%;
-    margin: 1em auto;
+    margin: 0 auto;
     padding: 3em;
     display: flex;
     flex-direction: column;
@@ -134,4 +134,52 @@ div.ResetPassModuleMain div.ContInputPass div.selec.conm .spanhom {
 .BtnContentReportGPS.ContInfoModalBtn1:hover span {
     position: absolute;
     left: 2%;
+}
+
+
+@media screen and (max-width:1930px) {
+    div.ResetPassModuleMain {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    div.ResetPassModuleMain {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    div.ResetPassModuleMain {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    div.ResetPassModuleMain {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    div.ResetPassModuleMain {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    div.ResetPassModuleMain {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    div.ResetPassModuleMain {
+        font-size: 9px;
+        width: 100%;
+        height: 98%;
+        margin: 0;
+        padding: 2em;
+    }
+
 }

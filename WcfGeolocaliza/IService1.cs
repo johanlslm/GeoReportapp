@@ -21,5 +21,8 @@ namespace WcfGeolocaliza
         Int32 LoginRecoverPassword(String correo);
         [OperationContract]
         Int32 ChangePasswordEvent(String Pass1, String Pass2, Int64 idUser);
+
+        [OperationContract]
+        Int32 GenerarReporteEvent(String LatVal, String LngVal, String DirVal, Int32 TipVal, String URLVal, String DescVal, Int64 UserVal);
     }
 }
