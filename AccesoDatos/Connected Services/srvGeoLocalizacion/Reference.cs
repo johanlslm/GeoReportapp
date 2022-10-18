@@ -38,6 +38,12 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePasswordEvent", ReplyAction="http://tempuri.org/IService1/ChangePasswordEventResponse")]
         System.Threading.Tasks.Task<int> ChangePasswordEventAsync(string Pass1, string Pass2, long idUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GenerarReporteEvent", ReplyAction="http://tempuri.org/IService1/GenerarReporteEventResponse")]
+        int GenerarReporteEvent(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GenerarReporteEvent", ReplyAction="http://tempuri.org/IService1/GenerarReporteEventResponse")]
+        System.Threading.Tasks.Task<int> GenerarReporteEventAsync(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         public System.Threading.Tasks.Task<int> ChangePasswordEventAsync(string Pass1, string Pass2, long idUser) {
             return base.Channel.ChangePasswordEventAsync(Pass1, Pass2, idUser);
+        }
+        
+        public int GenerarReporteEvent(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal) {
+            return base.Channel.GenerarReporteEvent(LatVal, LngVal, DirVal, TipVal, URLVal, DescVal, UserVal);
+        }
+        
+        public System.Threading.Tasks.Task<int> GenerarReporteEventAsync(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal) {
+            return base.Channel.GenerarReporteEventAsync(LatVal, LngVal, DirVal, TipVal, URLVal, DescVal, UserVal);
         }
     }
 }

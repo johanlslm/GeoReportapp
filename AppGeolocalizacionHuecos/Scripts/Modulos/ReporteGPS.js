@@ -149,6 +149,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
 function addImage(e) {
     var file = e.target.files[0],
         imageType = /image.*/;
@@ -177,91 +178,80 @@ function fileToBase64(file) {
     });
 }
 
-async function GenerarReporteEvent() {
+function GenerarRegistro() {
+    var file = document.getElementById('FileImportIMGGPS').files[0];
+
+    if (file === undefined) {
+        let TipoRespuesta = 1;
+        let TextInfo = "Debe enviar la evidencia fotografica del problema a reportar!"
+        let objEnviarModal = { TipoRespuesta, TextInfo };
+        EventoModalNotification(objEnviarModal);
+    } else {
+        fileToBase64(file).then(function (result) {
+            GenerarRegistroEvent(result);
+        });
+    }
+}
+
+function GenerarRegistroEvent(result) {
     LoadingStar('Validando registro')
+    var id = getRandomInt(1, 999999);
+    var ImagenAletoria = id + nombreImagen;
     let inputDir = document.getElementById('InputDirSearchGPS1');
     let inputUbi = document.getElementById('InputDirSearchGPS2');
     let inputTipoH = document.getElementById('InputDirSearchGPS3');
     let inputDesc = document.getElementById('InputDirSearchGPS4');
+    let inputLat = document.getElementById('LatDirSearchGPS1');
+    let inputLng = document.getElementById('LngDirSearchGPS2');
 
     let val1 = [{ Elemento: inputDir.id }, { Elemento: inputUbi.id }, { Elemento: inputTipoH.id }, { Elemento: inputDesc.id }]
     let ResultadoValidacion = validarCampos(val1);
 
-    if (ResultadoValidacion.ErrorRespuesta == false) {
+
+    if (ResultadoValidacion.ErrorRespuesta) {
         EventoModalNotification(ResultadoValidacion);
         LoadingStop();
 
     } else {
+        var parametros = {
+            base64Imagen: result, imagenNombre: ImagenAletoria, DirValue: inputDir.value, LatValue: inputLat.value, LngValue: inputLng.value, TipoValue: parseInt(inputTipoH.value), DescValue: inputDesc.value
+        };
 
-        var file = document.getElementById('FileImportIMGGPS').files[0];
+        $.ajax({
+            type: 'POST',
+            url: '../Home/GenerarReporteEvent',
+            data: JSON.stringify(parametros),
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+                LoadingStop();
+                if (data.error) {
+                    var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo }
+                    EventoModalNotification(RespEvent);
+                }
+                else {
+                    function confirmar() {
+                        location.reload();
+                    }
+                    var RespEvent = { TipoRespuesta: data.TipoRespuesta, TextInfo: data.txtTextInfo, Confirmar: confirmar }
+                    EventoModalNotification(RespEvent);
 
-        if (file === undefined) {
-            let TipoRespuesta = 1;
-            let TextInfo = "Debe enviar la evidencia fotografica del problema a reportar!"
-            let objEnviarModal = { TipoRespuesta, TextInfo };
-            EventoModalNotification(objEnviarModal);
-        } else {
-                fileToBase64(file).then(function (result) {
-                    var id = getRandomInt(1, 37757);
-                    var ImagenAletoria = id + nombreImagen;
-                    var parametros = {
-                        base64Imagen: result, imagenNombre: ImagenAletoria, DirValue: inputDir.value, UbiValue: inputUbi.value, TipoValue: parseInt(inputTipoH.value), DescValue: inputDesc.value
-                    };
-                    $.ajax({
-                        type: 'POST',
-                        url: '../Home/GenerarReporteEvent',
-                        data: JSON.stringify(parametros),
-                        contentType: 'application/json; charset=UTF-8',
-                        dataType: 'json',
-                        success: function (data) {
-                            LoadingStop();
-                            if (data.error) {
-                                alert("error")
-                            }
-                            else {
 
-                                console.log(data)
+                }
 
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
-                            EventoModalNotification(RespEvent);
-                                
-                        }
-                    });
 
-            });
-        }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                LoadingStop();
+                EventoModalNotification(RespEvent);
+            }
+        });
 
     }
-
+        
+    
 }
 
-async function prueba1() {
-
-    let inputUbi = document.getElementById('InputDirSearchGPS2');
-    let inputLat = document.getElementById('LatDirSearchGPS1');
-    let inputLng = document.getElementById('LngDirSearchGPS2');
-
-    var parametros = {
-        UbiValue: inputUbi.value, LatValue: inputLat.value, LngValue: inputLng.value
-    };
-    $.ajax({
-        type: 'POST',
-        url: '../Home/prueba1',
-        data: JSON.stringify(parametros),
-        contentType: 'application/json; charset=UTF-8',
-        dataType: 'json',
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
-            EventoModalNotification(RespEvent);
-        }
-    });      
-
-}
 
 

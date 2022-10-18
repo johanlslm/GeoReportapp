@@ -205,7 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Img\Media\ReporteHuecos\" />
+    <Folder Include="Img\ReporteHuecos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

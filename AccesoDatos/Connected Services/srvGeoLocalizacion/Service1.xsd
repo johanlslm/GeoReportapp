@@ -64,4 +64,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GenerarReporteEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LatVal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LngVal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DirVal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipVal" type="xs:int" />
+        <xs:element minOccurs="0" name="URLVal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DescVal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserVal" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerarReporteEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerarReporteEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

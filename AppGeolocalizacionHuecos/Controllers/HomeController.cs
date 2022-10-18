@@ -356,7 +356,7 @@ namespace AppGeolocalizacionHuecos.Controllers
 
 
         [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
-        public async Task<JsonResult> GenerarReporteEvent(string base64Imagen, string imagenNombre, string DirValue, string UbiValue, Int32 TipoValue, string DescValue)
+        public async Task<JsonResult> GenerarReporteEvent(string base64Imagen, string imagenNombre, string DirValue, string LatValue, string LngValue, Int32 TipoValue, string DescValue)
         {
             var srv = Proxy.obtenerConexionSRV();
             var TipoRespuesta = 0;
@@ -368,14 +368,13 @@ namespace AppGeolocalizacionHuecos.Controllers
                 usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
                 Int64 idUserVal = usuario.Id_usuario;
 
-
                 string ruta = (base64Imagen.Replace("data:image/png;base64,", ""));
                 ruta = ruta.Replace("data:image/jpeg;base64,", "");
                 ruta = ruta.Replace("data:image/jpg;base64,", "");
                 ruta = ruta.Replace('-', '+').Replace('_', '/');
                 byte[] data = System.Convert.FromBase64String(ruta);
 
-                string filePath = Server.MapPath("/Img/Media/");
+                string filePath = Server.MapPath("/Img/");
                 string filepathComplete = filePath + "\\" + "ReporteHuecos";
                 string subCarpeta = CrearSubCarpeta(filepathComplete, filePath);
                 string rutaCompleta = subCarpeta + "\\" + imagenNombre;
@@ -385,16 +384,32 @@ namespace AppGeolocalizacionHuecos.Controllers
                     imageFile.Flush();
                 }
 
-                //var datosmodal = await srv.ChangePasswordEventAsync(String LatVal, String LngVal, String DirVal, Int32 TipVal, String URLVal, String DescVal, Int64 UserVal);
+                var datosmodal = await srv.GenerarReporteEventAsync(LatValue, LngValue, DirValue, TipoValue, imagenNombre, DescValue, idUserVal);
+
+
+                switch (datosmodal)
+                {
+                    case 1:
+                        txtTextInfo = "Registro generado con exito, lo podras encontrar en la opción de (MIS REPORTES) o en el GPS";
+                        TipoRespuesta = 3;
+                        break;
+                    default:
+                        txtTextInfo = "Error no controlado, valide en un rato";
+                        TipoRespuesta = 4;
+                        Error = true;
+                        break;
+                }
+
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
             }
             catch (Exception ex)
             {
-                throw;
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
             }
-            return Json(new
-            {
-                base64Imagen, imagenNombre,DirValue,UbiValue,TipoValue,DescValue
-            });
+
         }
 
         private string CrearSubCarpeta(string ruta, string direccion)
@@ -414,19 +429,59 @@ namespace AppGeolocalizacionHuecos.Controllers
         }
 
 
+        //[HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        //public JsonResult CrearPublicidad(string base64Imagen, string imagenNombre)
+        //{
+        //    var error = false;
+        //    var msj = "";
+        //    bool Result;
+        //    //usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".AdministrativoSunemedic"));
+        //    //var srv = Proxy.obtenerServicioDistribuidoGeneral();
+        //    try
+        //    {
 
-        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
-        public async Task<JsonResult> prueba1(string UbiValue, string LatValue, string LngValue)
-        {
-            double  Val1 = double.Parse(LatValue);
-            double val2 = double.Parse(LngValue);
-            double valTotal = Val1 + val2;
-            
-            return Json(new
-            {
-                UbiValue, LatValue, LngValue,valTotal , Val1 , val2
-            });
-        }
+        //        //string ruta = (base64Imagen.Replace("data:image/png;base64,", ""));
+        //        //ruta = ruta.Replace("data:image/jpeg;base64,", "");
+        //        //ruta = ruta.Replace("data:image/jpg;base64,", "");
+        //        //ruta = ruta.Replace('-', '+').Replace('_', '/');
+        //        //byte[] data = System.Convert.FromBase64String(ruta);
+
+        //        //string filePath = Server.MapPath("/img/Publicidad");
+        //        //string filepathComplete = filePath + "\\" + "ImgPublicidad";
+        //        //string subCarpeta = CrearSubCarpeta(filepathComplete, filePath);
+        //        //string rutaCompleta = subCarpeta + "\\" + imagenNombre;
+        //        //using (var imageFile = new FileStream(rutaCompleta, FileMode.Create))
+        //        //{
+        //        //    imageFile.Write(data, 0, data.Length);
+        //        //    imageFile.Flush();
+        //        //}
+        //        //Result = await srv.SunemCrearPublicidad_Publicidad_CrearAsync(Nombre, "img/Publicidad/ImgPublicidad/" + imagenNombre);
+        //        //if (Result == true)
+        //        //{
+        //        //    msj = "Imagen subida con exito, podra visualizar en el Home";
+        //        //    error = false;
+        //        //}
+        //        //else
+        //        //{
+        //        //    msj = "Error interno";
+        //        //    error = true;
+        //        //}
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        msj = ex.Message;
+        //        error = true;
+        //        throw;
+        //    }
+        //    return Json(new
+        //    {
+        //        base64Imagen,
+        //        imagenNombre
+        //    });
+        //}
+
+
+
 
 
     }
