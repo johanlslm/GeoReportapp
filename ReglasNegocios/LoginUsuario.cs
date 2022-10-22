@@ -71,6 +71,18 @@ namespace ReglasNegocios
                 throw ex;
             }
         }
+        public List<ReporteHuecoDTO> ConsultaReportesUsuario(Int64 id_Usuario)
+        {
+
+            try
+            {
+                return new LoginDAO().ConsultaReportesUsuario(id_Usuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

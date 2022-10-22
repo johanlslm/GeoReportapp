@@ -115,6 +115,27 @@ namespace Datos
             }
         }
 
+        public List<ReporteHuecoDTO> ConsultaReportesUsuario(Int64 id_Usuario)
+        {
+            try
+            {
+
+                List<ReporteHuecoDTO> Lista = new List<ReporteHuecoDTO>();
+                var con = new Conexion();
+                con.parametros.AddWithValue("@UsuarioReport", id_Usuario);
+                var Result = con.ejecutarSP("spConsultaReportesUsuario");
+                Lista = BaseAdapter.ConvertirLista<ReporteHuecoDTO>(Result.Tables[0]);
+                return Lista.Count > 0 ? Lista : new List<ReporteHuecoDTO>();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
 
     }
 

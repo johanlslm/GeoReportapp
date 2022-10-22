@@ -76,6 +76,7 @@ namespace AppGeolocalizacionHuecos.Controllers
             }
             else
             {
+
                 return RedirectToAction("Login", "Home");
             }
         }

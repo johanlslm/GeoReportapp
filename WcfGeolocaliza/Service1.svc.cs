@@ -74,5 +74,17 @@ namespace WcfGeolocaliza
                 throw ex;
             }
         }
+
+        public List<ReporteHuecoDTO> ConsultaReportesUsuario(Int64 id_Usuario)
+        {
+            try
+            {
+                return new LoginUsuario().ConsultaReportesUsuario(id_Usuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -2,6 +2,24 @@
 
 });
 
+var checkinput = document.querySelectorAll('.InputStatusReport');
+
+
+checkinput.forEach(contElem => {
+    contElem.addEventListener('change', (event) => {
+        console.log(event.target.value)
+        if (event.target.checked) {
+            alert("check")
+        } else {
+            alert("no check")
+        }
+    });
+});
+
+
+
+
+
 
 async function AbrirModalInfoReport() {
     setTimeout(function () {
