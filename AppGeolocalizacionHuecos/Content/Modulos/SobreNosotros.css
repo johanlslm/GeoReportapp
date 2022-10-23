@@ -1,2 +1,76 @@
-﻿body {
+﻿div.ContTextAbount {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    font-size: 10px;
+}
+
+div.ContTextAbount div.ContIMGAbount {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../Img/BGLogoMain.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+div.ContTextAbount div.ContTxtAbount {
+    width: 100%;
+    height: 35%;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    div.ContTextAbount {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    div.ContTextAbount {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    div.ContTextAbount {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    div.ContTextAbount {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    div.ContTextAbount {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    div.ContTextAbount {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    div.ContTextAbount {
+        font-size: 9px;
+        padding: 0em;
+    }
+
+    div.ContTextAbount div.ContTxtAbount {
+        height: 60%;
+    }
 }

@@ -34,3 +34,9 @@ D:\developer\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cac
 D:\developer\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
 D:\developer\GeoReportapp\Modelos\obj\Debug\Modelos.dll
 D:\developer\GeoReportapp\Modelos\obj\Debug\Modelos.pdb
+D:\developer\temporal\GeoReportapp\Modelos\bin\Debug\Modelos.dll
+D:\developer\temporal\GeoReportapp\Modelos\bin\Debug\Modelos.pdb
+D:\developer\temporal\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+D:\developer\temporal\GeoReportapp\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+D:\developer\temporal\GeoReportapp\Modelos\obj\Debug\Modelos.dll
+D:\developer\temporal\GeoReportapp\Modelos\obj\Debug\Modelos.pdb

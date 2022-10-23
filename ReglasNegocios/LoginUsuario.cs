@@ -84,11 +84,11 @@ namespace ReglasNegocios
             }
         }
 
-        public Int32 ActualizacionEstadoRegistro(Int64 id_Registro)
+        public Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA)
         {
             try
             {
-                return new LoginDAO().ActualizacionEstadoRegistro(id_Registro);
+                return new LoginDAO().ActualizacionEstadoRegistro(id_Registro, tipoA);
             }
             catch (Exception ex)
             {

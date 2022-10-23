@@ -28,6 +28,6 @@ namespace WcfGeolocaliza
         List<ReporteHuecoDTO> ConsultaReportesUsuario(Int64 id_Usuario);
 
         [OperationContract]
-        Int32 ActualizacionEstadoRegistro(Int64 id_Registro);
+        Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA);
     }
 }

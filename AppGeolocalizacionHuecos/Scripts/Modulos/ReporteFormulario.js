@@ -8,10 +8,17 @@ var checkinput = document.querySelectorAll('.InputStatusReport');
 checkinput.forEach(contElem => {
     contElem.addEventListener('change', (event) => {
         var IdReport = parseInt(event.target.value);
+        var AccionCheck;
         console.log(IdReport)
 
+        if (event.target.checked) {
+            AccionCheck = 2
+        } else {
+            AccionCheck = 1
+        }
+
         var parametros = {
-            IdReport: IdReport
+            IdReport: IdReport, tipoA: AccionCheck
         };
 
         $.ajax({
@@ -21,8 +28,6 @@ checkinput.forEach(contElem => {
             contentType: 'application/json; charset=UTF-8',
             dataType: 'json',
             success: function (data) {
-                console.log(data);
-
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
@@ -30,15 +35,6 @@ checkinput.forEach(contElem => {
             }
         });
 
-
-
-
-
-        //if (event.target.checked) {
-        //    alert("check")
-        //} else {
-        //    alert("no check")
-        //}
     });
 });
 

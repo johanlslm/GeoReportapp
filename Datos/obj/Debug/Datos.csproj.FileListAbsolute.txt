@@ -52,3 +52,12 @@ D:\developer\GeoReportapp\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
 D:\developer\GeoReportapp\Datos\obj\Debug\Datos.csproj.CopyComplete
 D:\developer\GeoReportapp\Datos\obj\Debug\Datos.dll
 D:\developer\GeoReportapp\Datos\obj\Debug\Datos.pdb
+D:\developer\temporal\GeoReportapp\Datos\bin\Debug\Datos.dll
+D:\developer\temporal\GeoReportapp\Datos\bin\Debug\Datos.pdb
+D:\developer\temporal\GeoReportapp\Datos\bin\Debug\Modelos.dll
+D:\developer\temporal\GeoReportapp\Datos\bin\Debug\Modelos.pdb
+D:\developer\temporal\GeoReportapp\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+D:\developer\temporal\GeoReportapp\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\developer\temporal\GeoReportapp\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\developer\temporal\GeoReportapp\Datos\obj\Debug\Datos.dll
+D:\developer\temporal\GeoReportapp\Datos\obj\Debug\Datos.pdb

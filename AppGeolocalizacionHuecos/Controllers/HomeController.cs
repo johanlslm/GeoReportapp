@@ -435,7 +435,7 @@ namespace AppGeolocalizacionHuecos.Controllers
         }
 
         [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
-        public async Task<JsonResult> ActualizacionEstadoRegistro(Int64 IdReport)
+        public async Task<JsonResult> ActualizacionEstadoRegistro(Int64 IdReport, Int32 tipoA)
         {
             var srv = Proxy.obtenerConexionSRV();
             var TipoRespuesta = 0;
@@ -443,7 +443,7 @@ namespace AppGeolocalizacionHuecos.Controllers
             var txtTextInfo = "";
             try
             {
-                var datosmodal = await srv.ActualizacionEstadoRegistroAsync(IdReport);
+                var datosmodal = await srv.ActualizacionEstadoRegistroAsync(IdReport, tipoA);
                 return Json(new { txtTextInfo, TipoRespuesta, Error, datosmodal });
             }
             catch (Exception ex)

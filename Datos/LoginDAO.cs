@@ -136,12 +136,13 @@ namespace Datos
 
         }
 
-        public Int32 ActualizacionEstadoRegistro(Int64 id_Registro)
+        public Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA)
         {
             try
             {
                 var con = new Conexion();
                 con.parametros.AddWithValue("@idRegistro", id_Registro);
+                con.parametros.AddWithValue("@TipoAccion", tipoA);
                 var Result = con.ejecutarSP("spActualizacionEstadoRegistro");
                 int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
                 return Respuesta;

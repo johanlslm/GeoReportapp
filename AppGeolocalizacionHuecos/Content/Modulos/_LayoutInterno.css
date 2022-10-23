@@ -8,7 +8,7 @@
     --ColSilverSolid: #464a46;
     --ColSilverMenu: #303630e6;
     --ColSilverHover: #65686599;
-    --ColMenu: #728c9be6;
+    --ColMenu: #7d96a5;
     --ConMenuHover: rgb(154, 199, 232);
     --BgBlueMin: #e4f6ff;
     font-size: 10px;
@@ -90,7 +90,7 @@ div.contLaySecMenu {
     }
 /****************** SECCION BG EMPRESARIAL************************/
 .contLaySecIcon {
-    background: url(../../img/AdministrativoCooinpaz/bgLogocoinpaz.png);
+    background: url(../../img/BGLogoMain.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;

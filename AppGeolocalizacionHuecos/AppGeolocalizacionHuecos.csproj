@@ -154,6 +154,7 @@
     <Content Include="Img\BgGPSReport.jpg" />
     <Content Include="Img\BgGPSSearch.jpg" />
     <Content Include="Img\BgLogin1.jpg" />
+    <Content Include="Img\BGLogoMain.png" />
     <Content Include="Img\LoadingPoint.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

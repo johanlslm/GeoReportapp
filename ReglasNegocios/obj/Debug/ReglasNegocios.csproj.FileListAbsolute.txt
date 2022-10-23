@@ -70,3 +70,15 @@ D:\developer\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CoreCom
 D:\developer\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CopyComplete
 D:\developer\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.dll
 D:\developer\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.pdb
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\ReglasNegocios.dll
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\ReglasNegocios.pdb
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\Datos.dll
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\Modelos.dll
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\arciait.dll
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\Datos.pdb
+D:\developer\temporal\GeoReportapp\ReglasNegocios\bin\Debug\Modelos.pdb
+D:\developer\temporal\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.AssemblyReference.cache
+D:\developer\temporal\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CoreCompileInputs.cache
+D:\developer\temporal\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.csproj.CopyComplete
+D:\developer\temporal\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.dll
+D:\developer\temporal\GeoReportapp\ReglasNegocios\obj\Debug\ReglasNegocios.pdb
