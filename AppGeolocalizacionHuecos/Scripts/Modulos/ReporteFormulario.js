@@ -7,12 +7,38 @@ var checkinput = document.querySelectorAll('.InputStatusReport');
 
 checkinput.forEach(contElem => {
     contElem.addEventListener('change', (event) => {
-        console.log(event.target.value)
-        if (event.target.checked) {
-            alert("check")
-        } else {
-            alert("no check")
-        }
+        var IdReport = parseInt(event.target.value);
+        console.log(IdReport)
+
+        var parametros = {
+            IdReport: IdReport
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '../Home/ActualizacionEstadoRegistro',
+            data: JSON.stringify(parametros),
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
+                EventoModalNotification(RespEvent);
+            }
+        });
+
+
+
+
+
+        //if (event.target.checked) {
+        //    alert("check")
+        //} else {
+        //    alert("no check")
+        //}
     });
 });
 
@@ -21,7 +47,8 @@ checkinput.forEach(contElem => {
 
 
 
-async function AbrirModalInfoReport() {
+async function AbrirModalInfoReport(img, id, dire, coor, tipoH, estadoH, like, dislike, desc, fecha) {
+
     setTimeout(function () {
         const ModalRecoverBodyInfo = document.querySelector('body');
         const ModalRecoverDivReport = document.createElement('div');
@@ -34,22 +61,24 @@ async function AbrirModalInfoReport() {
             '<i class="fa-solid fa-xmark"></i>' +
             '</button>' +
             '</div>' +
-            '<div class="ContReport1IMG"><div class="ContReportIntImg1"><img src="prueba.jpg" alt=""></div></div>' +
+            '<div class="ContReport1IMG"><div class="ContReportIntImg1"><img src="../Img/ReporteHuecos/' + img +'" alt=""></div></div>' +
             '<div class="ContReport2Info">' +
             '<div class="ContSpanReport"><span>ID REPORTE: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + id + '</div>' +
+            '<div class="ContSpanReport"><span>Fecha reporte: </span></div>' +
+            '<div class="ContInfoReporSpecific">' + fecha + '</div>' +
             '<div class="ContSpanReport"><span>Dirección: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + dire +'</div>' +
             '<div class="ContSpanReport"><span>Coordenadas: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + coor +'</div>' +
             '<div class="ContSpanReport"><span>Tipo Hueco: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + tipoH +'</div>' +
             '<div class="ContSpanReport"><span>Estado: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + estadoH +'</div>' +
             '<div class="ContSpanReport"><span><i class="fa-regular fa-thumbs-up"></i> / <i class="fa-sharp fa-solid fa-thumbs-down"></i></span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba --</div>' +
+            '<div class="ContInfoReporSpecific">' + like + ' / ' + dislike +'</div>' +
             '<div class="ContSpanReport"><span>Descripción: </span></div>' +
-            '<div class="ContInfoReporSpecific"> -- prueba  -- </div>' +
+            '<div class="ContInfoReporSpecific">' + desc +'</div>' +
             '</div>' +
             '</div>';
         $('#ContainerMainRegisterInfo1').html(DrawModalRecover);

@@ -44,6 +44,18 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GenerarReporteEvent", ReplyAction="http://tempuri.org/IService1/GenerarReporteEventResponse")]
         System.Threading.Tasks.Task<int> GenerarReporteEventAsync(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultaReportesUsuario", ReplyAction="http://tempuri.org/IService1/ConsultaReportesUsuarioResponse")]
+        Modelos.ReporteHuecoDTO[] ConsultaReportesUsuario(long id_Usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultaReportesUsuario", ReplyAction="http://tempuri.org/IService1/ConsultaReportesUsuarioResponse")]
+        System.Threading.Tasks.Task<Modelos.ReporteHuecoDTO[]> ConsultaReportesUsuarioAsync(long id_Usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizacionEstadoRegistro", ReplyAction="http://tempuri.org/IService1/ActualizacionEstadoRegistroResponse")]
+        int ActualizacionEstadoRegistro(long id_Registro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizacionEstadoRegistro", ReplyAction="http://tempuri.org/IService1/ActualizacionEstadoRegistroResponse")]
+        System.Threading.Tasks.Task<int> ActualizacionEstadoRegistroAsync(long id_Registro);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +123,22 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         public System.Threading.Tasks.Task<int> GenerarReporteEventAsync(string LatVal, string LngVal, string DirVal, int TipVal, string URLVal, string DescVal, long UserVal) {
             return base.Channel.GenerarReporteEventAsync(LatVal, LngVal, DirVal, TipVal, URLVal, DescVal, UserVal);
+        }
+        
+        public Modelos.ReporteHuecoDTO[] ConsultaReportesUsuario(long id_Usuario) {
+            return base.Channel.ConsultaReportesUsuario(id_Usuario);
+        }
+        
+        public System.Threading.Tasks.Task<Modelos.ReporteHuecoDTO[]> ConsultaReportesUsuarioAsync(long id_Usuario) {
+            return base.Channel.ConsultaReportesUsuarioAsync(id_Usuario);
+        }
+        
+        public int ActualizacionEstadoRegistro(long id_Registro) {
+            return base.Channel.ActualizacionEstadoRegistro(id_Registro);
+        }
+        
+        public System.Threading.Tasks.Task<int> ActualizacionEstadoRegistroAsync(long id_Registro) {
+            return base.Channel.ActualizacionEstadoRegistroAsync(id_Registro);
         }
     }
 }

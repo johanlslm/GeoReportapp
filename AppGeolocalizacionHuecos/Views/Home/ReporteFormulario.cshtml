@@ -1,7 +1,12 @@
-﻿
+﻿@using Modelos;
 @{
     ViewBag.Title = "Reporte Formulario";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    var Lista = ViewBag.Reporte as Modelos.ReporteHuecoDTO;
+    var TipoHueco = "";
+    var idInput = "";
+    var idCheck = "";
+    var EstadoHueco = "";
 }
 @section scripts {
     <script src="~/Scripts/Modulos/ReporteFormulario.js"></script>
@@ -27,6 +32,7 @@
                 <thead class="ThInfoReport">
                     <tr class="TbTrReport">
                         <th>ID</th>
+                        <th>Fecha Rep.</th>
                         <th>TIPO</th>
                         <th> <i class="fa-regular fa-thumbs-up"></i> / <i class="fa-sharp fa-solid fa-thumbs-down"></i></th>
                         <th>ESTADO</th>
@@ -34,54 +40,54 @@
                     </tr>
                 </thead>
                 <tbody class="TbInfoReport">
-                    <tr class="TbTrReport">
-                        <td>-- prueba --</td>
-                        <td>-- prueba --</td>
-                        <td class="interaccionReport1"> <span>0</span> <span>/</span> <span>0</span></td>
-                        <td>
-                            <div class="switch">
-                                <input type="checkbox" id="check1"  class="InputStatusReport" value="valor1" checked>
-                                <label for="check1" id="labelcheck1"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="contBtnInfoReport65" onclick="AbrirModalInfoReport();">
-                                <i class="fa-solid fa-street-view"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="TbTrReport">
-                        <td>-- prueba --</td>
-                        <td>-- prueba --</td>
-                        <td class="interaccionReport1"> <span>0</span> <span>/</span> <span>0</span></td>
-                        <td>
-                            <div class="switch">
-                                <input type="checkbox" id="check2" class="InputStatusReport" value="valor2">
-                                <label for="check2" id="labelcheck2"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="contBtnInfoReport65" onclick="AbrirModalInfoReport();">
-                                <i class="fa-solid fa-street-view"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="TbTrReport">
-                        <td>-- prueba --</td>
-                        <td>-- prueba --</td>
-                        <td class="interaccionReport1"> <span>0</span> <span>/</span> <span>0</span></td>
-                        <td>
-                            <div class="switch">
-                                <input type="checkbox" id="check3"  class="InputStatusReport" value="valor3">
-                                <label for="check3" id="labelcheck3"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="contBtnInfoReport65" onclick="AbrirModalInfoReport();">
-                                <i class="fa-solid fa-street-view"></i>
-                            </div>
-                        </td>
-                    </tr>
+
+                    @{
+                        switch (Lista.TipoH)
+                        {
+                            case 1:
+                                TipoHueco = "Hueco en la calle";
+                                break;
+                            case 2:
+                                TipoHueco = "Alcantarilla sin tapa";
+                                break;
+                            case 3:
+                                TipoHueco = "Hueco en puente";
+                                break;
+                            case 4:
+                                TipoHueco = "Losa levantada";
+                                break;
+                        }
+                        switch (Lista.Estado)
+                        {
+                            case 2:
+                                idCheck = "checked";
+                                EstadoHueco = "Inactivo";
+                                break;
+                            case 1:
+                                idCheck = "";
+                                EstadoHueco = "Activo";
+                                break;
+                        }
+                        idInput = @Lista.Id_Reporte + "ch";
+
+                        <tr class="TbTrReport">
+                            <td>@Lista.Id_Reporte</td>
+                            <td>@Lista.FechaRegistro</td>
+                            <td>@TipoHueco</td>
+                            <td class="interaccionReport1"> <span>@Lista.Like</span> <span>/</span> <span>@Lista.DisLike</span></td>
+                            <td>
+                                <div class="switch">
+                                    <input type="checkbox" id="@idInput" class="InputStatusReport" value="@Lista.Id_Reporte"   @idCheck >
+                                    <label for="@idInput"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contBtnInfoReport65" onclick="AbrirModalInfoReport('@Lista.Url_Img','@Lista.Id_Reporte' , '@Lista.Direccion', '@Lista.Coordenadas', '@TipoHueco', '@EstadoHueco', '@Lista.Like', '@Lista.DisLike', '@Lista.Descripcion', '@Lista.FechaRegistro');">
+                                    <i class="fa-solid fa-street-view"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

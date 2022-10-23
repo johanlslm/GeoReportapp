@@ -37,6 +37,18 @@
   <wsdl:message name="IService1_GenerarReporteEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:GenerarReporteEventResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ConsultaReportesUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaReportesUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ConsultaReportesUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaReportesUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizacionEstadoRegistro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizacionEstadoRegistro" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizacionEstadoRegistro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizacionEstadoRegistroResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="IngresarLoginEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/IngresarLoginEvent" message="tns:IService1_IngresarLoginEvent_InputMessage" />
@@ -57,6 +69,14 @@
     <wsdl:operation name="GenerarReporteEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GenerarReporteEvent" message="tns:IService1_GenerarReporteEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GenerarReporteEventResponse" message="tns:IService1_GenerarReporteEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReportesUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ConsultaReportesUsuario" message="tns:IService1_ConsultaReportesUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ConsultaReportesUsuarioResponse" message="tns:IService1_ConsultaReportesUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizacionEstadoRegistro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizacionEstadoRegistro" message="tns:IService1_ActualizacionEstadoRegistro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizacionEstadoRegistroResponse" message="tns:IService1_ActualizacionEstadoRegistro_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="GenerarReporteEvent">
       <soap:operation soapAction="http://tempuri.org/IService1/GenerarReporteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReportesUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ConsultaReportesUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizacionEstadoRegistro">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizacionEstadoRegistro" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

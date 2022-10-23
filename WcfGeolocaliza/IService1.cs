@@ -26,5 +26,8 @@ namespace WcfGeolocaliza
         Int32 GenerarReporteEvent(String LatVal, String LngVal, String DirVal, Int32 TipVal, String URLVal, String DescVal, Int64 UserVal);
         [OperationContract]
         List<ReporteHuecoDTO> ConsultaReportesUsuario(Int64 id_Usuario);
+
+        [OperationContract]
+        Int32 ActualizacionEstadoRegistro(Int64 id_Registro);
     }
 }

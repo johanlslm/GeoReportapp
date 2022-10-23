@@ -58,6 +58,7 @@ namespace AppGeolocalizacionHuecos.Controllers
 
             if (usuario != null)
             {
+
                 return View();
             }
             else
@@ -72,6 +73,10 @@ namespace AppGeolocalizacionHuecos.Controllers
 
             if (usuario != null)
             {
+                Int64 idUserVal = usuario.Id_usuario;
+                var srv = Proxy.obtenerConexionSRV();
+                var datosReporte = srv.ConsultaReportesUsuario(idUserVal);
+                ViewBag.Reporte = datosReporte[0];
                 return View();
             }
             else
@@ -429,61 +434,26 @@ namespace AppGeolocalizacionHuecos.Controllers
             return rutaCreada;
         }
 
-
-        //[HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
-        //public JsonResult CrearPublicidad(string base64Imagen, string imagenNombre)
-        //{
-        //    var error = false;
-        //    var msj = "";
-        //    bool Result;
-        //    //usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".AdministrativoSunemedic"));
-        //    //var srv = Proxy.obtenerServicioDistribuidoGeneral();
-        //    try
-        //    {
-
-        //        //string ruta = (base64Imagen.Replace("data:image/png;base64,", ""));
-        //        //ruta = ruta.Replace("data:image/jpeg;base64,", "");
-        //        //ruta = ruta.Replace("data:image/jpg;base64,", "");
-        //        //ruta = ruta.Replace('-', '+').Replace('_', '/');
-        //        //byte[] data = System.Convert.FromBase64String(ruta);
-
-        //        //string filePath = Server.MapPath("/img/Publicidad");
-        //        //string filepathComplete = filePath + "\\" + "ImgPublicidad";
-        //        //string subCarpeta = CrearSubCarpeta(filepathComplete, filePath);
-        //        //string rutaCompleta = subCarpeta + "\\" + imagenNombre;
-        //        //using (var imageFile = new FileStream(rutaCompleta, FileMode.Create))
-        //        //{
-        //        //    imageFile.Write(data, 0, data.Length);
-        //        //    imageFile.Flush();
-        //        //}
-        //        //Result = await srv.SunemCrearPublicidad_Publicidad_CrearAsync(Nombre, "img/Publicidad/ImgPublicidad/" + imagenNombre);
-        //        //if (Result == true)
-        //        //{
-        //        //    msj = "Imagen subida con exito, podra visualizar en el Home";
-        //        //    error = false;
-        //        //}
-        //        //else
-        //        //{
-        //        //    msj = "Error interno";
-        //        //    error = true;
-        //        //}
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        msj = ex.Message;
-        //        error = true;
-        //        throw;
-        //    }
-        //    return Json(new
-        //    {
-        //        base64Imagen,
-        //        imagenNombre
-        //    });
-        //}
-
-
-
-
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> ActualizacionEstadoRegistro(Int64 IdReport)
+        {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                var datosmodal = await srv.ActualizacionEstadoRegistroAsync(IdReport);
+                return Json(new { txtTextInfo, TipoRespuesta, Error, datosmodal });
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
 
     }
 }

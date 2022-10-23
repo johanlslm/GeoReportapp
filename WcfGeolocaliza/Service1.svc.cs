@@ -86,5 +86,18 @@ namespace WcfGeolocaliza
                 throw ex;
             }
         }
+
+        public Int32 ActualizacionEstadoRegistro(Int64 id_Registro)
+        {
+            try
+            {
+                return new LoginUsuario().ActualizacionEstadoRegistro(id_Registro);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }
