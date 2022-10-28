@@ -21,6 +21,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LoginUsuarioDTO" nillable="true" type="tns:LoginUsuarioDTO" />
+  <xs:complexType name="ResetPassDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PassResetVal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Respuesta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResetPassDTO" nillable="true" type="tns:ResetPassDTO" />
   <xs:complexType name="ArrayOfReporteHuecoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ReporteHuecoDTO" nillable="true" type="tns:ReporteHuecoDTO" />
@@ -42,4 +49,35 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReporteHuecoDTO" nillable="true" type="tns:ReporteHuecoDTO" />
+  <xs:complexType name="ArrayOfReporteGeneralDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReporteGeneralDTO" nillable="true" type="tns:ReporteGeneralDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReporteGeneralDTO" nillable="true" type="tns:ArrayOfReporteGeneralDTO" />
+  <xs:complexType name="ReporteGeneralDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisLike" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaRegistro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Reporte" type="xs:long" />
+      <xs:element minOccurs="0" name="Latitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Like" type="xs:int" />
+      <xs:element minOccurs="0" name="Longitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoH" type="xs:int" />
+      <xs:element minOccurs="0" name="Url_Img" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReporteGeneralDTO" nillable="true" type="tns:ReporteGeneralDTO" />
+  <xs:complexType name="ReporteConsulta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivoR" type="xs:int" />
+      <xs:element minOccurs="0" name="InactivoR" type="xs:int" />
+      <xs:element minOccurs="0" name="MesR" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalR" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReporteConsulta" nillable="true" type="tns:ReporteConsulta" />
 </xs:schema>

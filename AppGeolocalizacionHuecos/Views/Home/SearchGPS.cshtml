@@ -8,87 +8,24 @@
 
 <div class="containerConsultMain">
     <div id="mapcontainer">
-        <script>
-            var latlng = [4.57966395921659, -74.21545698023142];
-            var mymap = L.map("mapcontainer").setView(latlng, 18);
-            /*mymap.on('click', onMapClick);*/
-            L.tileLayer(
-                "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-                {
-                    maxZoom: 18,
-                    attribution:
-                        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    id: "mapbox/streets-v11",
-                    tileSize: 512,
-                    zoomOffset: -1,
-                }
-            ).addTo(mymap);
-
-        </script>
-
-
         <div class="airbutton">
-            <button>
+            <div class="ContRangeKMSelect">
+                <input type="range" name="myInput" step="0.5" value="1"  min="0.5" max="10" required id="InputRangeSearch">
+                <input type="text" id="InputRangeSearchTxt" value="1 KM" disabled style="text-align: center; font-size: 1.4em; font-weight: 600"> 
+            </div>
+            
+            <button id="btnGPSSearch1">
                 <i class="fa-solid fa-location-dot"></i>
             </button>
             <div class="airbuttonInt1">
-                <input type="text" placeholder="Buscar dirección" required>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar dirección" id="InputGPSSearch2" required>
+                <i class="fa-solid fa-magnifying-glass" id="btnGPSSearch3"></i>
             </div>
         </div>
-    </div>
-    <div id="reportcontainer">
-        <div class="CardContainerSearch slideInRight">
-            <div class="reporttext">
-                <div class="TxtLabelContentForm1">
-                    <span>CODIGO</span>
-                    <span>0001</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>FECHA R.</span>
-                    <span>18/01/2022</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>TIPO HUECO</span>
-                    <span>Alcantarilla destapada</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>UBICACION</span>
-                    <span>Cra 145# 142f -59</span>
-                </div>
-            </div>
-            <div class="reportimage">
-                <img src="~/Img/Media/ReporteHuecos/Hueco_000001.JPG" />
-            </div>
-        </div>
-        <div class="CardContainerSearch slideInRight">
-            <div class="reporttext">
-                <div class="TxtLabelContentForm1">
-                    <span>CODIGO</span>
-                    <span>0002</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>FECHA R.</span>
-                    <span>18/01/2022</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>TIPO HUECO</span>
-                    <span>Alcantarilla destapada</span>
-                </div>
-                <div class="TxtLabelContentForm1">
-                    <span>UBICACION</span>
-                    <span>Cra 145# 142f -59</span>
-                </div>
-            </div>
-            <div class="reportimage">
-                <img src="~/Img/Media/ReporteHuecos/Hueco_000002.JPG" />
-            </div>
-        </div>
-
     </div>
 </div>
 
 @section scripts {
     <script src="~/Scripts/Modulos/SearchGPS.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANmQt6fU7PMZFvpAE8ED2omcK4lpP0d28"></script>
 }

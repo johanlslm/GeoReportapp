@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Security;
+using AppGeolocalizacionHuecos.Clases;
 
 
 namespace AppGeolocalizacionHuecos.Controllers
@@ -75,8 +76,8 @@ namespace AppGeolocalizacionHuecos.Controllers
             {
                 Int64 idUserVal = usuario.Id_usuario;
                 var srv = Proxy.obtenerConexionSRV();
-                var datosReporte = srv.ConsultaReportesUsuario(idUserVal);
-                ViewBag.Reporte = datosReporte[0];
+                List<ReporteHuecoDTO> datosReporte = srv.ConsultaReportesUsuario(idUserVal);
+                ViewBag.Reporte = datosReporte;
                 return View();
             }
             else
@@ -92,6 +93,9 @@ namespace AppGeolocalizacionHuecos.Controllers
 
             if (usuario != null)
             {
+                var srv = Proxy.obtenerConexionSRV();
+                ReporteConsulta datosReporte = srv.ConsultaReporteGeneralDatos();
+                ViewBag.Reporte = datosReporte;
                 return View();
             }
             else
@@ -260,7 +264,11 @@ namespace AppGeolocalizacionHuecos.Controllers
                             txtTextInfo = "Registro completado con exito";
                             TipoRespuesta = 3;
                             break;
-                        default:
+                        case 4:
+                            txtTextInfo = "Contraseña poco segura, debe contener minimo 6 caracteres!!!";
+                            TipoRespuesta = 2;
+                            break;
+                    default:
                             txtTextInfo = "Error no controlado, valide en un rato";
                             TipoRespuesta = 4;
                             Error = true;
@@ -288,7 +296,7 @@ namespace AppGeolocalizacionHuecos.Controllers
             {
                 var datosmodal = await srv.LoginRecoverPasswordAsync(EmailResetPass);
 
-                switch (datosmodal)
+                switch (datosmodal.Respuesta)
                 {
                     case 1:
                         txtTextInfo = "Correo no registrado en el sistema";
@@ -299,6 +307,10 @@ namespace AppGeolocalizacionHuecos.Controllers
                         TipoRespuesta = 2;
                         break;
                     case 3:
+
+                        var mensaje = PlantillaCorreo_RegistrarCuentaSoporteMoto(datosmodal.PassResetVal);
+                        Utilities.enviaCorreo(EmailResetPass, mensaje, false, "prueba", "CAMBIO DE CONTRASEÑA GEO-REPORTAPP");
+
                         txtTextInfo = "Contraseña nueva enviada al correo electronico, valide por favor";
                         TipoRespuesta = 10;
                         break;
@@ -455,5 +467,55 @@ namespace AppGeolocalizacionHuecos.Controllers
             }
         }
 
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> ConsultaReporteGeneral()
+        {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                var datosGPSR = await srv.ConsultaReporteGeneralAsync();
+                return Json(new { txtTextInfo, TipoRespuesta, Error, datosGPSR });
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
+
+        [HttpPost, OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        public async Task<JsonResult> RegistroInteraccion(Int64 IdRegistro, int TipoLike)
+        {
+            var srv = Proxy.obtenerConexionSRV();
+            var TipoRespuesta = 0;
+            var Error = false;
+            var txtTextInfo = "";
+            try
+            {
+                usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+                Int64 idUserVal = usuario.Id_usuario;
+                var datosGPSR = await srv.RegistroInteraccionAsync(IdRegistro, idUserVal, TipoLike);
+                return Json(new { txtTextInfo, TipoRespuesta, Error, datosGPSR });
+            }
+            catch (Exception ex)
+            {
+                txtTextInfo = ex.Message;
+                TipoRespuesta = 4;
+                Error = true;
+                return Json(new { txtTextInfo, TipoRespuesta, Error });
+            }
+        }
+
+        string PlantillaCorreo_RegistrarCuentaSoporteMoto(String Clave)
+        {
+            string mensaje = "\"<meta charset=\"utf-8\" /><div style=\"display: flex; width: 300px; height: 200px; border: 1px solid silver; align-items: flex-start; justify-content: center; flex-direction: column;\"><span style=\"font-size: 17px;\"><b>CORREO DE REASIGNACIÓN DE CONTRASEÑA</b></span><br><br><span style=\"font-size: 15px;\">Se ha generado una contraseña temporal para el ingreso a la plataforma, se recomienda con el primer ingreso generar una nueva contraseña desde el modulo de (Cambiar contraseña)</span><br><br><br><span >CONTRASEÑA NUEVA: <b style=\"font-size: 17px;\">" + Clave  + "</b></span></div>";
+
+            return mensaje;
+        }
     }
 }

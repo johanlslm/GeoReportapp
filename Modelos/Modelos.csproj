@@ -44,6 +44,8 @@
     <Compile Include="ContenedorLoginDTO.cs" />
     <Compile Include="LoginUsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteConsulta.cs" />
+    <Compile Include="ReporteGeneralDTO.cs" />
     <Compile Include="ReporteHuecoDTO.cs" />
     <Compile Include="ResetPassDTO.cs" />
   </ItemGroup>

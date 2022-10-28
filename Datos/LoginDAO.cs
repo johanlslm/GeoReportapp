@@ -102,12 +102,14 @@ namespace Datos
                 con.parametros.AddWithValue("@Url_image", URLVal);
                 con.parametros.AddWithValue("@Description", DescVal);
                 con.parametros.AddWithValue("@Usuario_Repor", UserVal);
+                var Retorno = new SqlParameter();
+                Retorno = con.parametros.AddWithValue("@Resultado", 0);
+                var Result = con.ejecutarSPconParRetorno("spRegistrarInfo", Retorno);
+                     
+                return (int)Convert.ToInt32(Result);
 
-                var Result = con.ejecutarSP("spRegistrarInfo");
 
-                int Respuesta = (Int32)Result.Tables[0].Rows[0][0];
 
-                return Respuesta;
             }
             catch (Exception ex)
             {
@@ -126,6 +128,7 @@ namespace Datos
                 var Result = con.ejecutarSP("spConsultaReportesUsuario");
                 Lista = BaseAdapter.ConvertirLista<ReporteHuecoDTO>(Result.Tables[0]);
                 return Lista.Count > 0 ? Lista : new List<ReporteHuecoDTO>();
+
 
             }
             catch (Exception ex)
@@ -155,7 +158,63 @@ namespace Datos
             }
 
         }
+        public List<ReporteGeneralDTO> ConsultaReporteGeneral()
+        {
+            try
+            {
 
+                List<ReporteGeneralDTO> Lista = new List<ReporteGeneralDTO>();
+                var con = new Conexion();
+                var Result = con.ejecutarSP("spConsultaReporteGeneral");
+                Lista = BaseAdapter.ConvertirLista<ReporteGeneralDTO>(Result.Tables[0]);
+                return Lista.Count > 0 ? Lista : new List<ReporteGeneralDTO>();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
+        public ReporteConsulta ConsultaReporteGeneralDatos()
+        {
+            try
+            {
+                var con = new Conexion();
+                var resp = con.ejecutarSP<ReporteConsulta>("spConsultaReporteGeneralDatos");
+                return resp.Count > 0 ? resp[0] : new ReporteConsulta();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
+        public Int32 RegistroInteraccion(Int64 IdRegistro, Int64 UserVal, int TipoLike)
+        {
+            try
+            {
+                var con = new Conexion();
+                con.parametros.AddWithValue("@IdRegistro", IdRegistro);
+                con.parametros.AddWithValue("@IdUser", UserVal);
+                con.parametros.AddWithValue("@TipoIn", TipoLike);
+                var Retorno = new SqlParameter();
+                Retorno = con.parametros.AddWithValue("@Respuesta", 0);
+                var Result = con.ejecutarSPconParRetorno("spRegistroInteraccion", Retorno);
+
+                return (int)Convert.ToInt32(Result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 

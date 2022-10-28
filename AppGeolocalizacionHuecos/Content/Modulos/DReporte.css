@@ -1,2 +1,277 @@
-﻿body {
+﻿:root {
+    --ClSilver: #94d5e9eb;
+    --ClSilverG: #504f4fd0;
+    --clWhite: rgb(239, 233, 233);
+    --ClBlack: rgb(24, 22, 22);
+    --ClGreenMin: rgb(146, 231, 146);
+}
+
+.ContReportGPSMain {
+    width: 100%;
+    height: calc(100% - 7em);
+    display: grid;
+    font-size: 10px;
+    gap: 0.3em;
+    grid-template-columns: 1fr 50em;
+    position: relative;
+}
+
+.ContDownLoadReportGPS {
+    width: 100%;
+    height: 6em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContDownLoadReportGPS span{
+    font-size: 2.5em;
+}
+
+.ContReportGPSMain div#ContReportGPSMap {
+    width: 100%;
+    height: 100%;
+    background: #938ddd;
+    position: relative;
+}
+
+.ContReportGPSMain div.ContReportGPSForm {
+    width: 100%;
+    height: 100%;
+    background: #d5d7ff;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 1em;
+}
+
+div.ContReportGPSForm div.ContentBtnDwn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.ContReportGPSForm div.ContentTblDwn {
+    width: 100%;
+}
+
+div.ContReportGPSForm div.ContentTxtInfoDwn {
+    width: 100%;
+    margin-top: auto;
+}
+
+div.ContReportGPSForm div.ContentTxtInfoDwn span{
+    font-size: 1.1em;
+}
+
+.DivContGPSReport1 {
+    display: flex;
+    justify-content: center;
+
+}
+
+.DivContGPSReport1 button {
+    width: 20em;
+    height: 2.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.4em;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    background: rgb(60, 160, 60);
+    color: white;
+    text-transform: uppercase;
+    transition: .3s ease all;
+}
+
+.BtnContentReportGPS span {
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1 span {
+    transition: .4s ease-in-out all;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1 .icono {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    left: -20px;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+    font-size: 1.5em;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover {
+    background: rgb(60, 160, 60);
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover .icono {
+    left: calc(100% - 1.5em);
+    opacity: 1;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover span {
+    position: absolute;
+    left: 2%;
+}
+
+
+
+table.tblInfoReport {
+    background-color: #FFFFFF;
+    width: 100%;
+    display: table;
+    box-shadow: 2px 5px 5px rgb(0 0 0 / 50%);
+}
+
+ table.tblInfoReport thead.ThInfoReport {
+    display: table-row-group;
+    width: 100%;
+}
+
+table.tblInfoReport thead.ThInfoReport tr.TbTrReport {
+    display: table-row;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+table.tblInfoReport thead.ThInfoReport tr.TbTrReport th {
+    width: 15em;
+    color: #ffffff;
+    font-size: 1.4em;
+    padding: 0.4em 0.2em;
+    text-align: center;
+    display: table-cell;
+    background: #363535;
+    font-weight: bold;
+}
+
+table.tblInfoReport tbody.TbInfoReport {
+    overflow-y: auto;
+    position: relative;
+    display: table-row-group;
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport {
+    border-bottom: 1px solid #000000;
+    display: table-row;
+    align-items: center;
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport:nth-child(2n) {
+    background: rgb(199, 199, 199);
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td {
+    width: auto;
+    text-align: center;
+    font-size: 1.4em;
+    word-break: break-word;
+    padding: 0.4em;
+    position: relative;
+    display: table-cell;
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td:first-child {
+    text-align: left;
+}
+
+.leaflet-popup-content-wrapper {
+    width: 30em;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+.ContImgPop1 {
+    width: 100%;
+    height: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+    .ContImgPop1 img {
+        max-width: 28em;
+        height: 16em;
+        max-height: 16em;
+        object-fit: contain;
+    }
+
+.ContTxtPop1 {
+    max-width: 30em;
+    font-size: 1.3em;
+}
+
+.ContTxtPop1 span {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.ContTxtPop1 span .fa-thumbs-up{
+    color: green;
+}
+.ContTxtPop1 span .fa-thumbs-down{
+    color: red;
+}
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .ContReportGPSMain, .ContDownLoadReportGPS {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .ContReportGPSMain {
+        font-size: 9px;
+        grid-template-columns: 1fr;
+    }
+
+    .ContReportGPSMain div#ContReportGPSMap {
+        height: 40vh;
+    }
 }

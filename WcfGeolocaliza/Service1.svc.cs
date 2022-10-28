@@ -37,7 +37,7 @@ namespace WcfGeolocaliza
                 throw;
             }
         }
-        public Int32 LoginRecoverPassword(String correo)
+        public ResetPassDTO LoginRecoverPassword(String correo)
         {
             try
             {
@@ -98,6 +98,43 @@ namespace WcfGeolocaliza
                 throw ex;
             }
 
+        }
+
+        public List<ReporteGeneralDTO> ConsultaReporteGeneral()
+        {
+            try
+            {
+                return new LoginUsuario().ConsultaReporteGeneral();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public ReporteConsulta ConsultaReporteGeneralDatos()
+        {
+            try
+            {
+                return new LoginUsuario().ConsultaReporteGeneralDatos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Int32 RegistroInteraccion(Int64 IdRegistro, Int64 UserVal, int TipoLike)
+        {
+            try
+            {
+                return new LoginUsuario().RegistroInteraccion(IdRegistro, UserVal, TipoLike);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

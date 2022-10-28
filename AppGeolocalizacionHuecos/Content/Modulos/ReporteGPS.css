@@ -274,6 +274,7 @@
     }
     #ContReportGPSMap .airbutton {
         width: 27em;
+        width: 75vw;
     }
     .ContReportGPSMain div#ContReportGPSMap {
         font-size: 1em;
@@ -286,6 +287,10 @@
         grid-template-columns: 100%;
         grid-template-rows: 38em 1fr;
     }
+    #ContReportGPSMap .airbutton {
+        width: 75vw;
+    }
+
     .ContReportGPSMain div#ContReportGPSMap {
         font-size: 1em;
     }

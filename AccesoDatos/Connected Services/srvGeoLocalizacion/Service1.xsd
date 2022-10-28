@@ -44,7 +44,7 @@
   <xs:element name="LoginRecoverPasswordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="LoginRecoverPasswordResult" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="LoginRecoverPasswordResult" nillable="true" type="q2:ResetPassDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,7 +94,7 @@
   <xs:element name="ConsultaReportesUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="ConsultaReportesUsuarioResult" nillable="true" type="q2:ArrayOfReporteHuecoDTO" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="ConsultaReportesUsuarioResult" nillable="true" type="q3:ArrayOfReporteHuecoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -110,6 +110,46 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ActualizacionEstadoRegistroResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaReporteGeneral">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaReporteGeneralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="ConsultaReporteGeneralResult" nillable="true" type="q4:ArrayOfReporteGeneralDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaReporteGeneralDatos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaReporteGeneralDatosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="ConsultaReporteGeneralDatosResult" nillable="true" type="q5:ReporteConsulta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroInteraccion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdRegistro" type="xs:long" />
+        <xs:element minOccurs="0" name="UserVal" type="xs:long" />
+        <xs:element minOccurs="0" name="TipoLike" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroInteraccionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistroInteraccionResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

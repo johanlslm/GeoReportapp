@@ -77,7 +77,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Modelos.ContenedorLoginDTO.datasource" />
+    <None Include="Properties\DataSources\Modelos.ReporteConsulta.datasource" />
+    <None Include="Properties\DataSources\Modelos.ReporteGeneralDTO.datasource" />
     <None Include="Properties\DataSources\Modelos.ReporteHuecoDTO.datasource" />
+    <None Include="Properties\DataSources\Modelos.ResetPassDTO.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\srvGeoLocalizacion\" />

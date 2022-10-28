@@ -25,8 +25,9 @@ $(document).ready(function () {
     }
 
 	$('#btnGPSRepor1Act').click(function GenerarUbitacion() {
-			if (!"geolocation" in navigator) {
-				//generar alerta visual;
+        if (!"geolocation" in navigator) {
+                var RespEvent = { TipoRespuesta:1, TextInfo: "El navegador no tiene habilitada la busqueda por GPS, intenta por busqueda manual" }
+                EventoModalNotification(RespEvent);
 			} else {
 				let latitud;
 				let longitud;
@@ -36,7 +37,8 @@ $(document).ready(function () {
 					DrawMarker(latitud, longitud);
 				}
 				const onErrorDeUbicacion = err => {
-					//generar error de ubicacion
+                    var RespEvent = { TipoRespuesta: 4, TextInfo: "Error en el proceso de busqueda, intenta mas tarde!!!" }
+                    EventoModalNotification(RespEvent);
 				}
 				var opcionesDeSolicitud = {
 					enableHighAccuracy: true,
@@ -52,7 +54,8 @@ $(document).ready(function () {
 		let dirInfoSearch = inputDirSearch.value;
 
 		if (dirInfoSearch == null || dirInfoSearch == "") {
-			//llamar libreria de errores
+            var RespEvent = { TipoRespuesta: 1, TextInfo: "Debes completar los campos de busqueda!" }
+            EventoModalNotification(RespEvent);
 		} else {
 			let txtDireccion = dirInfoSearch;
 			let NombreCiudad = 'Soacha';
@@ -66,7 +69,8 @@ $(document).ready(function () {
 					longi = results[0].geometry.location.lng();
 					DrawMarker(lati, longi);
 				} else {
-						//alerta de error
+                    var RespEvent = { TipoRespuesta: 4, TextInfo: "Error en el proceso de busqueda, intenta mas tarde!!!" }
+                    EventoModalNotification(RespEvent);
 				}
 			});
 		}
@@ -104,6 +108,28 @@ $(document).ready(function () {
     $('#FileImportIMGGPS').change(function (e) {
         addImage(e);
     });
+
+    function EventoModalNotification(TipoModal) {
+
+        let DTOInfoModalNot;
+        switch (TipoModal.TipoRespuesta) {
+            case 1:
+                DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.TextInfo };
+                break;
+            case 2:
+                DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.TextInfo };
+                break;
+            case 3:
+                DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.TextInfo };
+                break;
+            case 4:
+                DTOInfoModalNot = { Color: "Rojo", Icono: "Fallo", TxtInfo: TipoModal.TextInfo };
+                break;
+        }
+        OpenAlertInfo(DTOInfoModalNot, TipoModal.Confirmar);
+
+    }
+
 });
 
 function validarCampos(ObjCamposVal) {
@@ -124,26 +150,7 @@ function validarCampos(ObjCamposVal) {
     return respuesta = { TipoRespuesta: TipoVal, ErrorRespuesta: ErrorVal, TextInfo: TxtVal, TipoErrorCampoVal: TipoErrorCampo };
 }
 
-function EventoModalNotification(TipoModal) {
 
-    let DTOInfoModalNot;
-    switch (TipoModal.TipoRespuesta) {
-        case 1:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Alerta", TxtInfo: TipoModal.TextInfo };
-            break;
-        case 2:
-            DTOInfoModalNot = { Color: "Naranja", Icono: "Password", TxtInfo: TipoModal.TextInfo };
-            break;
-        case 3:
-            DTOInfoModalNot = { Color: "Azul", Icono: "Usuario", TxtInfo: TipoModal.TextInfo };
-            break;
-        case 4:
-            DTOInfoModalNot = { Color: "Rojo", Icono: "Fallo", TxtInfo: TipoModal.TextInfo };
-            break;
-    }
-    OpenAlertInfo(DTOInfoModalNot, TipoModal.Confirmar);
-
-}
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;

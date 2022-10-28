@@ -2,9 +2,90 @@
 @{
     ViewBag.Title = "Descarga de reporte";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
-}
-@section scripts {
-    <script src="~/Scripts/Modulos/DReporte.js"></script>
+    var Info = ViewBag.Reporte as Modelos.ReporteConsulta;
 }
 
+
 <link href="~/Content/Modulos/DReporte.css" rel="stylesheet" />
+
+<div class="ContDownLoadReportGPS">
+    <span>REPORTE GENERAL GEO-REPORTAPP</span>
+</div>
+<div class="ContReportGPSMain">
+
+    <div id="ContReportGPSMap">
+
+    </div>
+
+    <div class="ContReportGPSForm">
+        <div class="ContentBtnDwn">
+            <div class="DivContGPSReport1">
+                <button class="BtnContentReportGPS ContInfoModalBtn1"  onclick="TableToExcel('ContentTblDwn', 'ReporteHuecosGeneral')">
+                    <div class="icono">
+                        <i class="fa-solid fa-download"></i>
+                    </div>
+                    <span>DESCARGAR REPORTE (.xlsx)</span>
+                </button>
+            </div>
+        </div>
+        <div class="ContentTblDwn" id="ContentTblDwn">
+            <table class="tblInfoReport">
+                <thead class="ThInfoReport">
+                    <tr class="TbTrReport">
+                        <th>ITEM</th>
+                        <th>VALOR</th>
+                    </tr>
+                </thead>
+                <tbody class="TbInfoReport">
+                    <tr class="TbTrReport">
+                        <td>Reportes mes</td>
+                        <td>@Info.MesR</td>
+                    </tr>
+                    <tr class="TbTrReport">
+                        <td>Reportes totales</td>
+                        <td>@Info.TotalR</td>
+                    </tr>
+                    <tr class="TbTrReport">
+                        <td>Reportes totales activos</td>
+                        <td>@Info.ActivoR</td>
+                    </tr>
+                    <tr class="TbTrReport">
+                        <td>Reportes totales inactivos</td>
+                        <td>@Info.InactivoR</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br />
+            <table class="tblInfoReport" style="display: none">
+                <thead class="ThInfoReport">
+                    <tr class="TbTrReport" style="background: #363535; color: white; font-weight: 600;">
+                        <th>ID REPORTE</th>
+                        <th>FECHA REGISTRO</th>
+                        <th>DIRECCION</th>
+                        <th>LATITUD</th>
+                        <th>LONGITUD</th>
+                        <th>CORREDENADAS</th>
+                        <th>TIPO HUECO</th>
+                        <th>ESTADO REPORTE</th>
+                        <th>INTERACCIONES POSITIVAS</th>
+                        <th>INTERACCIONES NEGATIVAS</th>
+                        <th>DESCRIPCION</th>
+                        <th>URL IMAGEN</th>
+                    </tr>
+                </thead>
+                <tbody class="TbInfoReport" id="TbInfoReport">
+                </tbody>
+            </table>
+        </div>
+        <div class="ContentTxtInfoDwn">
+            <span>
+                ¡El uso y divulgación de esta información es autorizada bajo el uso personal o con fines de investigación, no es permitido la comercialización de la misma sin autorización y de acuerdo con la ley de protección y tratamiento de datos <b>Ley 1581 de 2012</b>, no se entregará la información relacionada con los datos de registro para la app de los usuarios, únicamente en los reportes se vera reflejada la interacción e información reportada por los mismos usuarios!
+            </span>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Modulos/DReporte.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANmQt6fU7PMZFvpAE8ED2omcK4lpP0d28"></script>
+}

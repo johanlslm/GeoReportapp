@@ -18,7 +18,7 @@ namespace WcfGeolocaliza
         [OperationContract]
         Int32 RegistroLoginEvent(String nombres, String apellidos, String correo, String pass1, String pass2);
         [OperationContract]
-        Int32 LoginRecoverPassword(String correo);
+        ResetPassDTO LoginRecoverPassword(String correo);
         [OperationContract]
         Int32 ChangePasswordEvent(String Pass1, String Pass2, Int64 idUser);
 
@@ -29,5 +29,14 @@ namespace WcfGeolocaliza
 
         [OperationContract]
         Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA);
+
+        [OperationContract]
+        List<ReporteGeneralDTO> ConsultaReporteGeneral();
+
+        [OperationContract]
+        ReporteConsulta ConsultaReporteGeneralDatos();
+
+        [OperationContract]
+        Int32 RegistroInteraccion(Int64 IdRegistro, Int64 UserVal, int TipoLike);
     }
 }

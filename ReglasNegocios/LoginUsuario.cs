@@ -35,13 +35,11 @@ namespace ReglasNegocios
             }
         }
 
-        public Int32 LoginRecoverPassword(String correo)
+        public ResetPassDTO LoginRecoverPassword(String correo)
         {
             try
             {
-                var RespuestaSP = new LoginDAO().LoginRecoverPassword(correo);
-
-                return RespuestaSP.Respuesta;
+                return new LoginDAO().LoginRecoverPassword(correo);
             }
             catch (Exception ex) {
                 throw ex;
@@ -95,6 +93,44 @@ namespace ReglasNegocios
                 throw ex;
             }
 
+        }
+
+        public List<ReporteGeneralDTO> ConsultaReporteGeneral()
+        {
+            try
+            {
+                return new LoginDAO().ConsultaReporteGeneral();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public ReporteConsulta ConsultaReporteGeneralDatos()
+        {
+            try
+            {
+                return new LoginDAO().ConsultaReporteGeneralDatos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Int32 RegistroInteraccion(Int64 IdRegistro, Int64 UserVal, int TipoLike)
+        {
+            try
+            {
+                return new LoginDAO().RegistroInteraccion(IdRegistro, UserVal, TipoLike);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

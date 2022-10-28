@@ -1,26 +1,28 @@
 ﻿:root {
-    --ClSilver: #a59b9b85;
-    --ClSilverG: #d5d7ff;
+    --ClSilver: #94d5e9eb;
+    --ClSilverG: #504f4fd0;
     --clWhite: rgb(239, 233, 233);
     --ClBlack: rgb(24, 22, 22);
     --ClGreenMin: rgb(146, 231, 146);
 }
 
-
-div.containerConsultMain {
+.containerConsultMain {
     width: 100%;
     height: 100%;
+    background: rgb(142, 142, 187);
     display: grid;
-    grid-template-columns: 1fr 35em;
-    gap: 3px;
     font-size: 10px;
+    gap: 0.3em;
+    grid-template-columns: 1fr;
+    position: relative;
 }
 
-    div.containerConsultMain #mapcontainer {
-        background: #938ddd;
-        position: relative;
-        overflow: hidden;
-    }
+.containerConsultMain div#mapcontainer {
+    width: 100%;
+    height: 100%;
+    background: #938ddd;
+    position: relative;
+}
 
 #mapcontainer .airbutton {
     width: 30em;
@@ -32,164 +34,186 @@ div.containerConsultMain {
     align-items: center;
     position: absolute;
     right: 2em;
-    bottom: 2em;
+    bottom: 3em;
     z-index: 10000;
 }
-
-    #mapcontainer .airbutton button {
-        width: 5em;
-        height: 5em;
-        font-size: 1em;
-        border-radius: 45px;
-        cursor: pointer;
-        border: 3px inset #0D7AA4;
-        transition: all 0.5s ease-in-out;
-        background: var(--ClSilver);
-    }
-
-        #mapcontainer .airbutton button:hover {
-            border: 3px outset #0D7AA4;
-            background: var(--ClGreenMin);
-        }
-
-        #mapcontainer .airbutton button i {
-            font-size: 3em;
-            color: var(--ClBlack);
-        }
-
-    #mapcontainer .airbutton .airbuttonInt1 {
-        display: grid;
-        grid-template-columns: 1fr 3em;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid var(--ClSilverG);
-        background: var(--clWhite);
-        border-radius: 0.8em;
-        overflow: hidden;
-    }
-
-        #mapcontainer .airbutton .airbuttonInt1 input {
-            width: 100%;
-            height: 100%;
-            font-size: 1.7em;
-            padding: 0.4em;
-            background: none;
-            border-style: none;
-            outline: none;
-            color: var(--ClBlack);
-            border: 2px solid transparent;
-            transition: all 0.5s ease-in-out;
-        }
-
-        #mapcontainer .airbutton .airbuttonInt1 i {
-            font-size: 2em;
-            align-self: rigth;
-            color: var(--ClSilverG);
-            cursor: pointer;
-        }
-
-div.containerConsultMain #reportcontainer {
-    max-height: 100%;
-    background: var(--ClSilverG);
-    display: flex;
-    flex-direction: column;
-    gap: 0.3em;
-    padding: 0.3em;
-    overflow-y: auto;
-    overflow-x: hidden;
+.ContRangeKMSelect {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 1fr 5em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-#reportcontainer .CardContainerSearch {
-    width: 100%;
-    min-height: 9em;
-    box-shadow: 0px 44px 56px -43px rgba(30, 0, 199, 1);
+
+#mapcontainer .airbutton button {
+    width: 5em;
+    height: 5em;
+    font-size: 1em;
+    border-radius: 45px;
+    cursor: pointer;
+    border: 3px inset #0D7AA4;
+    transition: all 0.5s ease-in-out;
     background: var(--ClSilver);
-    padding: 1em;
+}
+
+#mapcontainer .airbutton button:hover {
+    border: 3px outset #0D7AA4;
+    background: var(--ClGreenMin);
+}
+
+#mapcontainer .airbutton button i {
+    font-size: 3em;
+    color: var(--ClBlack);
+}
+
+#mapcontainer .airbutton .airbuttonInt1 {
     display: grid;
-    grid-template-columns: 1fr 7em;
+    grid-template-columns: 1fr 3em;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--ClSilverG);
+    background: var(--clWhite);
+    border-radius: 0.8em;
+    overflow: hidden;
+}
+
+#mapcontainer .airbutton .airbuttonInt1 input {
+    width: 100%;
+    height: 100%;
+    font-size: 1.7em;
+    padding: 0.4em;
+    background: none;
+    border-style: none;
+    outline: none;
+    color: var(--ClBlack);
+    border: 2px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+#mapcontainer .airbutton .airbuttonInt1 i {
+    font-size: 2em;
+    color: var(--ClSilverG);
     cursor: pointer;
 }
 
-.reportimage {
-    height: 7em;
-    width: 7em;
+.leaflet-popup-content-wrapper {
+    width: 30em;
+    font-size: 10px;
+    box-sizing: border-box;
 }
 
-.reporttext {
-    background: #c9cbd4;
-    display: grid;
-    grid-template-rows: repeat(4,1fr);
-    gap: 2px;
+.ContImgPop1 {
+    width: 100%;
+    height: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
 }
-div.reporttext div.TxtLabelContentForm1 {
-    display: grid;
-    grid-template-columns: 10em  1fr;
+
+.ContImgPop1 img {
+    max-width: 28em;
+    height: 16em;
+    max-height: 16em;
+    object-fit: contain;
 }
-div.reporttext div.TxtLabelContentForm1 span {
+
+.ContTxtPop1 {
+    max-width: 30em;
     font-size: 1.3em;
 }
-div.reporttext div.TxtLabelContentForm1 span:first-child {
+
+.ContTxtPop1 span {
     font-weight: 600;
+    font-size: 1.1em;
 }
-div.reportimage img {
+
+.ContTxtPop1 span .fa-thumbs-up {
+    color: green;
+}
+
+.ContTxtPop1 span .fa-thumbs-down {
+    color: red;
+}
+.ContBtnLike{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+.ContBtnLike button{
+    width: 4em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid silver;
+    cursor: pointer;
+}
+
+.ContBtnLike button i{
+    font-size: 2em;
+}
+.ContBtnLike button:first-child i{
+    color: green;
+}
+.ContBtnLike button:last-child i{
+    color: red ;
 }
 /***************************************** RESPONSIVE *****************************************/
 @media screen and (max-width:1930px) {
-    div .containerConsultMain {
-        font-size: 12px;
+    .containerConsultMain {
+        font-size: 11px;
     }
 }
 
 @media screen and (max-width:1600px) {
-    div.containerConsultMain {
-        font-size: 11.5px;
-    }
-}
-
-@media screen and (max-width:1440px) {
-    div.containerConsultMain {
+    .containerConsultMain {
         font-size: 10.5px;
     }
 }
 
-@media screen and (max-width:1366px) {
-    div.containerConsultMain {
+@media screen and (max-width:1440px) {
+    .containerConsultMain {
         font-size: 10px;
     }
 }
 
+@media screen and (max-width:1366px) {
+    .containerConsultMain {
+        font-size: 9.5px;
+    }
+}
+
 @media screen and (max-width:1024px) {
-    div.containerConsultMain {
+    .containerConsultMain {
         font-size: 9px;
     }
 }
 
 @media screen and (max-width:800px) {
-    div.containerConsultMain {
+    .ContReportGPSMain {
         font-size: 8px;
+    }
+    #ContReportGPSMap .airbutton {
+        width: 27em;
+    }
+    .ContReportGPSMain div#ContReportGPSMap {
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width:650px) {
-    div.containerConsultMain {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 30em;
-        font-size: 9px;
+    .containerConsultMain {
+        font-size: 8px;
+    }
+    .ContReportGPSMain div#ContReportGPSMap {
+        font-size: 1em;
     }
     #mapcontainer .airbutton {
-        width: 90%;
-        grid-template-columns: 4em 1fr;
-        right: 0.5em;
-        bottom: 0.5em;
-    }
-    #mapcontainer .airbutton button {
-        width: 4em;
-        height: 4em;
-    }
-    #mapcontainer .airbutton .airbuttonInt1 input {
-        padding: 0.2em;
+        width: 75vw;
     }
 }
