@@ -1,0 +1,146 @@
+﻿
+@{
+    //var MenusAcceso = WebCoinpaz.Seguridad.Seguridad.validaSessionMenuCooinpaz(Request.Cookies.Get(".UserDTOMenusCooinpaz"));
+    var usuario = AppGeolocalizacionHuecos.Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
+    //var usuario = ViewBag.usuario as Entidades.UsuarioCooinpazDTO;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/Modulos/_LayoutInterno.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
+    <script src="https://kit.fontawesome.com/9c8676b409.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/Modulos/_LayoutInterno.js"</script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="ContLayMain">
+        <header class="HeaderLayout">
+            <div class="CenterContentImg">
+                <div class="contLaySecIcon"></div>
+            </div>
+            <div class="CenterContent contLaySecLog">
+                <span class="NameContUser">@usuario.Nombre_Usuario </span>
+                <div class="contInternoUser" id="contInternoUser">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <div class="secundContIcon">
+                        <i class="fa-solid fa-circle-chevron-down"></i>
+                    </div>
+                </div>
+                <span class="ModuleContUser">Usuario activo</span>
+            </div>
+        </header>
+        <div class="ContLayContent CenterContent">
+            <div class="MenuModaAcceso nav desactivar">
+                <ul class="list">
+                    <li class="list__item">
+                        <div class="list__button" data-value="1">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="HomeApp" class="nav__link">HOME</a>
+                        </div>
+                    </li>
+                    <li class="list__item">
+                        <div class="list__button" data-value="1">
+                            <i class="fa-solid fa-magnifying-glass-location"></i>
+                            <a href="SearchGPS" class="nav__link">BUSCAR HUECOS</a>
+                        </div>
+                    </li>
+                    <li class="list__item">
+                        <div class="list__button" data-value="1">
+                            <i class="fa-solid fa-cash-register"></i>
+                            <a href="ReporteGPS" class="nav__link">GENERAR REPORTE</a>
+                        </div>
+                    </li>
+                    <li class="list__item">
+                        <div class="list__button" data-value="1">
+                            <i class="fa-solid fa-list"></i>
+                            <a href="ReporteFormulario" class="nav__link">MIS REPORTES</a>
+                        </div>
+                    </li>
+
+                    <li class="list__item">
+                        <div class="list__button" data-value="3">
+                            <i class="fa-solid fa-download"></i>
+                            <a href="DReporte" class="nav__link">DESCARGAR REPORTE</a>
+                        </div>
+                    </li>
+                    @{
+                        if (usuario.Tipo_Usuario == 2)
+                        {
+                            <li class="list__item">
+                                <div class="list__button" data-value="4">
+                                    <i class="fa-solid fa-toolbox"></i>
+                                    <a href="Administrativo" class="nav__link">ADMINISTRATIVO</a>
+                                </div>
+                            </li>
+
+                        }
+                    }
+                    <li class="list__item">
+                        <div class="list__button" data-value="5">
+                            <i class="fa-solid fa-people-carry-box"></i>
+                            <a href="SobreNosotros" class="nav__link">SOBRE NOSOTROS</a>
+                        </div>
+                    </li>
+
+
+                </ul>
+                <div class="contLaySecMenu">
+                    <div class="contInternoMen" id="contInternoMen">
+                        <i class="fa-solid fa-bars"></i>
+                        <div class="secundContIcon">
+                            <i class="fa-solid fa-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ContLayContMain">
+                <div class="ContLayCont">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="MenuModaUser desactivar1">
+                <ul class="ListUser">
+                    <li class="list__itemUser">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="HomeApp" class="nav__linkUser">Home</a>
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                    </li>
+                    <li class="list__itemUser">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="CambioPass" class="nav__linkUser">Cambiar Contraseña</a>
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                    </li>
+                    <li class="list__itemUser" onclick="location.href='@Url.Action("logout", "Home")'">
+                        <div class="list__buttonUser" data-value="1">
+                            <a href="#" class="nav__linkUser">Salir</a>
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

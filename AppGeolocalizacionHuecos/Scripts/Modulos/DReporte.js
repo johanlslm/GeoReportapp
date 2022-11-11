@@ -104,8 +104,8 @@
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.Latitud + '</td>' +
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.Longitud + '</td>' +
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.Latitud + ' , ' + item.Longitud + '</td>' +
-                    '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.tipoHueco + '</td>' +
-                    '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.EstadoHueco + '</td>' +
+                    '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + tipoHueco + '</td>' +
+                    '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + EstadoHueco + '</td>' +
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.Like + '</td>' +
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.DisLike + '</td>' +
                     '<td class="tdinfo" style="text-align: left; border: 1 px solid silver">' + item.Descripcion + '</td>' +

@@ -46,7 +46,7 @@ namespace AppGeolocalizacionHuecos.Clases
 
             //Correo electronico desde la que enviamos el mensaje
             //mmsg.From = new System.Net.Mail.MailAddress("micuenta@servidordominio.com");
-            mmsg.From = new System.Net.Mail.MailAddress("georeportapp@gmail.com");
+            mmsg.From = new System.Net.Mail.MailAddress("servicioalcliente@ofertshop.com");
 
             /*-------------------------CLIENTE DE CORREO----------------------*/
 
@@ -56,7 +56,7 @@ namespace AppGeolocalizacionHuecos.Clases
             //Hay que crear las credenciales del correo emisor
             cliente.Credentials =
             //new System.Net.NetworkCredential("micuenta@servidordominio.com", "micontraseña");
-              new System.Net.NetworkCredential("georeportapp@gmail.com", "Johan.2019+");
+              new System.Net.NetworkCredential("servicioalcliente@ofertshop.com", "Koj78375");
             //new System.Net.NetworkCredential("servicioalcliente@cooinpaz.com", "Descuentos1500*");
 
             //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail

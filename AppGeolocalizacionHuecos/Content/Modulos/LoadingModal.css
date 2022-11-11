@@ -24,21 +24,21 @@
     transition: all 0.5s ease-in-out;
 }
 
-    .ContainerLoading1.desactivarModal {
-        transform: scale(0);
-        opacity: 0;
-    }
+.ContainerLoading1.desactivarModal {
+    transform: scale(0);
+    opacity: 0;
+}
 
-    .ContainerLoading1.activarModal {
-        transform: scale(1);
-        opacity: 1;
-    }
+.ContainerLoading1.activarModal {
+    transform: scale(1);
+    opacity: 1;
+}
 
-    .ContainerLoading1 .ContainerCubo {
-        height: 75%;
-        transform-style: preserve-3d;
-        animation: rotar 8s linear infinite;
-    }
+.ContainerLoading1 .ContainerCubo {
+    height: 75%;
+    transform-style: preserve-3d;
+    animation: rotar 8s linear infinite;
+}
 
 .ContainerCubo > span {
     position: absolute;
@@ -49,29 +49,29 @@
     border-radius: 4px;
 }
 
-    .ContainerCubo > span:nth-child(1) {
-        transform: rotateY(90deg)translateZ(3em);
-    }
+.ContainerCubo > span:nth-child(1) {
+    transform: rotateY(90deg)translateZ(3em);
+}
 
-    .ContainerCubo > span:nth-child(2) {
-        transform: rotateY(90deg)translateZ(-3em);
-    }
+.ContainerCubo > span:nth-child(2) {
+    transform: rotateY(90deg)translateZ(-3em);
+}
 
-    .ContainerCubo > span:nth-child(3) {
-        transform: rotateY(90deg)translateZ(-3em);
-    }
+.ContainerCubo > span:nth-child(3) {
+    transform: rotateY(90deg)translateZ(-3em);
+}
 
-    .ContainerCubo > span:nth-child(4) {
-        transform: rotateY(90deg)translateZ(3em);
-    }
+.ContainerCubo > span:nth-child(4) {
+    transform: rotateY(90deg)translateZ(3em);
+}
 
-    .ContainerCubo > span:nth-child(5) {
-        transform: translateZ(-3em);
-    }
+.ContainerCubo > span:nth-child(5) {
+    transform: translateZ(-3em);
+}
 
-    .ContainerCubo > span:nth-child(6) {
-        transform: translateZ(3em);
-    }
+.ContainerCubo > span:nth-child(6) {
+    transform: translateZ(3em);
+}
 
 .ContainerLoading1 .ContainerLoadingInfo {
     height: 25%;

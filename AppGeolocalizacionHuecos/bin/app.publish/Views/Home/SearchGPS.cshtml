@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Buscar Huecos";
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<link href="~/Content/Modulos/SearchGPS.css" rel="stylesheet" />
+
+
+<div class="containerConsultMain">
+    <div id="mapcontainer">
+        <div class="airbutton">
+            <div class="ContRangeKMSelect">
+                <input type="range" name="myInput" step="0.5" value="1"  min="0.5" max="10" required id="InputRangeSearch">
+                <input type="text" id="InputRangeSearchTxt" value="1 KM" disabled style="text-align: center; font-size: 1.4em; font-weight: 600"> 
+            </div>
+            
+            <button id="btnGPSSearch1">
+                <i class="fa-solid fa-location-dot"></i>
+            </button>
+            <div class="airbuttonInt1">
+                <input type="text" placeholder="Buscar dirección" id="InputGPSSearch2" required>
+                <i class="fa-solid fa-magnifying-glass" id="btnGPSSearch3"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Modulos/SearchGPS.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANmQt6fU7PMZFvpAE8ED2omcK4lpP0d28"></script>
+}

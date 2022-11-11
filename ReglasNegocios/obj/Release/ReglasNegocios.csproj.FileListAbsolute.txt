@@ -1,0 +1,12 @@
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\ReglasNegocios.dll
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\ReglasNegocios.pdb
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\Datos.dll
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\Modelos.dll
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\arciait.dll
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\Datos.pdb
+D:\developer\GeoReportapp\ReglasNegocios\bin\Release\Modelos.pdb
+D:\developer\GeoReportapp\ReglasNegocios\obj\Release\ReglasNegocios.csproj.AssemblyReference.cache
+D:\developer\GeoReportapp\ReglasNegocios\obj\Release\ReglasNegocios.csproj.CoreCompileInputs.cache
+D:\developer\GeoReportapp\ReglasNegocios\obj\Release\ReglasNegocios.csproj.CopyComplete
+D:\developer\GeoReportapp\ReglasNegocios\obj\Release\ReglasNegocios.dll
+D:\developer\GeoReportapp\ReglasNegocios\obj\Release\ReglasNegocios.pdb

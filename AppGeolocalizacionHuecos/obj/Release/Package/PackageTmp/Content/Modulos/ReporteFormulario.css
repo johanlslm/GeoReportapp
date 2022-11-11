@@ -1,0 +1,457 @@
+﻿#ContMisReportesMain {
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    overflow: hidden;
+}
+
+#ContMisReportesMain div.contReportHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid rgb(68, 68, 68);
+}
+
+#ContMisReportesMain div.contReportHeader h1 {
+    font-size: 2.5em;
+    padding: 0.5em;
+    font-weight: 600;
+}
+
+#ContMisReportesMain div.contReportInfo {
+    width: 100%;
+    display: flex;
+    text-align: left;
+}
+
+#ContMisReportesMain div.contReportInfo p {
+    font-size: 1.6em;
+    padding: 0.5em;
+    font-weight: 500;
+}
+
+#ContMisReportesMain div.contReportInfoTable {
+    width: 100%;
+    height: 50em;
+    max-height: 50em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+}
+
+#ContMisReportesMain div.contReportInfoTable div.contintSpanReport {
+    width: 100%;
+    height: 3em;
+    max-height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+#ContMisReportesMain div.contReportInfoTable div.contintSpanReport span {
+    font-size: 1.7em;
+}
+
+#ContMisReportesMain div.contReportInfoTable div.contIntTableReport1 {
+    width: 100%;
+    max-height: calc(100% - 4em);
+    overflow-y: auto;
+    position: relative;
+    display: block;
+}
+
+
+#ContMisReportesMain div.contReportInfoTable table.tblInfoReport {
+    background-color: #FFFFFF;
+    width: 100%;
+    display: table;
+    box-shadow: 2px 5px 5px rgb(0 0 0 / 50%);
+}
+
+div.contReportInfoTable table.tblInfoReport thead.ThInfoReport {
+    display: table-row-group;
+    width: 100%;
+}
+
+div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport {
+    display: table-row;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport th {
+    width: 15em;
+    color: #ffffff;
+    font-size: 1.4em;
+    padding: 0.4em 0.2em;
+    text-align: center;
+    display: table-cell;
+    background: #363535;
+    font-weight: bold;
+}
+
+div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport th:last-child, div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport th:nth-child(5) {
+    width: 5em;
+}
+
+
+table.tblInfoReport thead.ThInfoReport tr.TbTrReport th i.fa-thumbs-up {
+    color: rgb(73, 238, 73);
+    font-size: 1.6em;
+}
+
+table.tblInfoReport thead.ThInfoReport tr.TbTrReport th i.fa-thumbs-down {
+    color: rgb(255, 30, 30);
+    font-size: 1.6em;
+}
+
+div.contReportInfoTable table.tblInfoReport tbody.TbInfoReport {
+    overflow-y: auto;
+    position: relative;
+    display: table-row-group;
+}
+
+div.contReportInfoTable table.tblInfoReport tbody.TbInfoReport tr.TbTrReport {
+    border-bottom: 1px solid #000000;
+    display: table-row;
+    align-items: center;
+}
+
+div.contReportInfoTable table.tblInfoReport tbody.TbInfoReport tr.TbTrReport:nth-child(2n) {
+    background: rgb(199, 199, 199);
+}
+
+div.contReportInfoTable table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td {
+    width: auto;
+    text-align: center;
+    font-size: 1.4em;
+    word-break: break-word;
+    padding: 0.4em;
+    position: relative;
+    display: table-cell;
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td div.contBtnInfoReport65 {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td i {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+tbody.TbInfoReport tr.TbTrReport td.interaccionReport1 span:nth-child(1) {
+    color: rgb(73, 238, 73);
+    font-size: 1.4em;
+}
+
+tbody.TbInfoReport tr.TbTrReport td.interaccionReport1 span:nth-child(3) {
+    color: rgb(255, 30, 30);
+    font-size: 1.4em;
+}
+/*******************SWITCH*******************/
+table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td .switch {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch label {
+    display: block;
+    position: relative;
+    width: 3.7em;
+    height: 1.7em;
+    border-radius: 3em;
+    border: 2px solid #cad3dc;
+    box-shadow: -5px -3px 15px rgb(255 255 255 / 50%), 1px 3px 10px rgb(0 0 0 / 10%);
+    background-color: white;
+}
+
+.switch0 {
+    background: #16161638;
+}
+
+.switch1 {
+    background: #ef0a0a;
+}
+
+.switch label:before {
+    content: "";
+    position: absolute;
+    width: 1.6em;
+    height: 100%;
+    background: rgb(52 177 215);
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
+    left: 0;
+    top: 0;
+    transition: 0.3s ease-in-out all;
+}
+
+.switch input:checked + label {
+    background: #ffa2a2;
+}
+
+.switch input:checked + label:before {
+    left: 55%;
+    background: #ff2f2f;
+}
+
+/***************************************** MODAL INFO *******************************************/
+#ContainerMainRegisterInfo1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    background: #959595ab;
+}
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+    width: 45em;
+    height: 65em;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: #E5E5E5;
+    border-radius: 0.5em;
+    padding: 2em;
+    transition: all 0.5s ease-in-out;
+    gap: 1em;
+}
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser.activarModal {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser.desactivarModal {
+    transform: translateY(150px);
+    opacity: 0;
+}
+/***********************************CONTENIDO MODAL**************************************/
+div.ContainerRegisterUser div.ContReport1IMG {
+    width: 100%;
+    height: 22em;
+    display: flex;
+    justify-content: center;
+}
+
+div.ContainerRegisterUser div.ContReport1IMG div.ContReportIntImg1 {
+    width: 30em;
+    height: 22em;
+    max-height: 22em;
+    border: 2px solid rgb(198, 198, 198);
+    border-radius: 9px;
+    box-shadow: 0px 5px 10px 1px rgba(51,51,51,1);
+    background-color: white;
+}
+
+div.ContReport1IMG div.ContReportIntImg1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+div.ContainerRegisterUser div.ContReport2Info {
+    width: 100%;
+    height: 38em;
+    max-height: 38em;
+    border: 1.8px solid rgb(183, 173, 173);
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px 1px rgba(117,116,117,1);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 12em 1fr;
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContSpanReport {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1em;
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContSpanReport span {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContSpanReport span i {
+    font-size: 1.6em;
+    margin: 0 0.2em;
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContSpanReport span i:nth-child(1) {
+    color: rgb(39, 183, 39);
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContSpanReport span i:nth-child(2) {
+    color: rgb(255, 30, 30);
+}
+
+div.ContainerRegisterUser div.ContReport2Info div.ContInfoReporSpecific {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 1em;
+    word-break: break-all;
+    font-size: 1.4em;
+}
+
+/******************************************* BOTON DE CERRAR ****************************************************/
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser .BtnCloseModalRegister {
+    width: 4.5em;
+    height: 4.5em;
+    position: absolute;
+    right: -2em;
+    top: -2em;
+}
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser .BtnCloseModalRegisterInt {
+    width: 100%;
+    height: 100%;
+    background: #6c6cc5;
+    border-radius: 45px;
+    border: 4px outset #646464;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3em;
+    color: black;
+}
+
+#ContainerMainRegisterInfo1 div.ContainerRegisterUser .BtnCloseModalRegisterInt:hover {
+    background: var();
+    border: 4px inset var();
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1) rotate(180deg);
+}
+
+
+/****************************************RESPONSIVE*****************************************/
+@media screen and (max-width:1930px) {
+    #ContMisReportesMain {
+        font-size: 12px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    #ContMisReportesMain {
+        font-size: 11px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    #ContMisReportesMain {
+        font-size: 10.5px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 10.5px;
+        height: 55em;
+    }
+
+    #ContMisReportesMain div.contReportInfoTable {
+        height: 40em;
+        max-height: 40em;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    #ContMisReportesMain {
+        font-size: 10px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 10px;
+        height: 55em;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #ContMisReportesMain {
+        font-size: 9px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    #ContMisReportesMain {
+        font-size: 8px;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    #ContMisReportesMain {
+        font-size: 9px;
+        padding: 0;
+    }
+    #ContMisReportesMain div.contReportHeader h1 {
+        font-size: 2.2em;
+        padding: 0.5em 0.2em;
+    }
+
+    #ContMisReportesMain div.contReportInfoTable {
+        height: 60vh;
+        max-height: 60vh;
+    }
+
+    div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport th {
+        font-size: 1.2em;
+        width: 10em;
+    }
+
+    div.contReportInfoTable table.tblInfoReport thead.ThInfoReport tr.TbTrReport th:last-child {
+        width: 3em;
+    }
+
+    #ContainerMainRegisterInfo1 div.ContainerRegisterUser {
+        font-size: 9px;
+        width: 90vw;
+        height: 90vh;
+    }
+    .ContLayCont {
+        padding: 0.5em;
+    }
+}

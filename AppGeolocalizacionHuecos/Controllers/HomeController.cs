@@ -513,7 +513,7 @@ namespace AppGeolocalizacionHuecos.Controllers
 
         string PlantillaCorreo_RegistrarCuentaSoporteMoto(String Clave)
         {
-            string mensaje = "\"<meta charset=\"utf-8\" /><div style=\"display: flex; width: 300px; height: 200px; border: 1px solid silver; align-items: flex-start; justify-content: center; flex-direction: column;\"><span style=\"font-size: 17px;\"><b>CORREO DE REASIGNACIÓN DE CONTRASEÑA</b></span><br><br><span style=\"font-size: 15px;\">Se ha generado una contraseña temporal para el ingreso a la plataforma, se recomienda con el primer ingreso generar una nueva contraseña desde el modulo de (Cambiar contraseña)</span><br><br><br><span >CONTRASEÑA NUEVA: <b style=\"font-size: 17px;\">" + Clave  + "</b></span></div>";
+            string mensaje = "\"<meta charset=\"utf-8\" /> <table style=\"width: 500px; height: 300px; border: 1px solid black; border-radius:10px; background: radial-gradient(circle, rgba(178,191,255,1) 0%, rgba(148,148,233,1) 100%);\"><thead><tr><th style=\"font-size: 30px; font-weight: 600;\">GEO-REPORTAPP</th></tr></thead><tbody><tr><td><b>CAMBIO DE CONTRASEÑA</b>, Se ha generado la solicitud para el cambio de contraseña la cual se creo de manera aleatoria, por lo que se recomienda cambiar en el primer ingreso en el modulo de cambio de contraseña! se recomienda claves que no sean faciles de desifrar y con uso de numeros y letras.</td></tr><tr><td><b>CLAVE GENERADA:&nbsp;&nbsp;&nbsp;</b><span style=\"font-size: 35px;\">" + Clave + "<span></td></tr></tbody></table>";
 
             return mensaje;
         }

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Cambio de clave";
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+@section scripts {
+    <script src="~/Scripts/Modulos/CambioPass.js"></script>
+}
+
+<div class="ResetPassModuleMain">
+    <h1> CAMBIO DE CONTRASEÑA </h1>
+    <h4>Vas a generar el cambio de contraseña, recuerda que la contraseña nueva que asignaras deberá de tener una Mayúscula como mínimo, números y una longitud mínima de 8 caracteres. ¡si olvidas la contraseña, en inicio de la aplicación ("Login") pondrás encontrar la opción para recuperar la contraseña, en donde se te enviara a tu correo electrónico registrado una nueva contraseña!</h4>
+    <div class="ContInputPass">
+        <label>Ingresa la nueva contraseña</label>
+        <div class="selec conm lgg">
+            <input type="password" class="imm" placeholder="Contraseña Nueva" id="txtPassChance1" required>
+            <span id="spanhom1"><i class="fas fa-low-vision spanhom" aria-hidden="true"></i></span>
+        </div>
+    </div>
+    <div class="ContInputPass">
+        <label>Confirma la nueva contraseña</label>
+        <div class="selec conm lgg">
+            <input type="password" class="imm" placeholder="Confirmar Contraseña"  id="txtPassChance2">
+            <span id="spanhom2"><i class="fas fa-low-vision spanhom" aria-hidden="true"></i></span>
+        </div>
+    </div>
+    <div class="DivContGPSReport1">
+        <button class="BtnContentReportGPS ContInfoModalBtn1" onclick="ChangePasswordEvent();">
+            <div class="icono">
+                <i class="fa-solid fa-thumbs-up"></i>
+            </div>
+            <span>CONFIRMAR CAMBIO</span>
+        </button>
+    </div>
+</div>
+
+<link href="~/Content/Modulos/CambioPass.css" rel="stylesheet" />

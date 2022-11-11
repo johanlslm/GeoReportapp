@@ -1,0 +1,185 @@
+﻿:root {
+    --ClSilver: #94d5e9eb;
+    --ClSilverG: #504f4fd0;
+    --clWhite: rgb(239, 233, 233);
+    --ClBlack: rgb(24, 22, 22);
+    --ClGreenMin: rgb(146, 231, 146);
+}
+
+div.ResetPassModuleMain {
+    width: 55em;
+    height: 100%;
+    margin: 0 auto;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    border-radius: 10px;
+    border: 2px solid silver;
+    font-size: 10px;
+    background: #d5d7ff;
+}
+
+div.ResetPassModuleMain h1 {
+    font-size: 2.3em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid silver;
+    width: 100%;
+    text-align: center;
+}
+
+div.ResetPassModuleMain h4 {
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+}
+
+div.ResetPassModuleMain div.ContInputPass {
+    width: 30em;
+}
+
+div.ResetPassModuleMain div.ContInputPass label{
+    font-size: 1.6em;
+}
+
+
+div.ResetPassModuleMain div.ContInputPass div.selec.conm {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3em;
+    width: 100%;
+    border: 2px solid rgb(108 108 108 / 90%);
+    border-radius: 5px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+div.ResetPassModuleMain div.ContInputPass div.selec.conm input.imm {
+    width: 100%;
+    position: relative;
+    font-size: 1.5em;
+    padding: 0.4em;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+div.ResetPassModuleMain div.ContInputPass div.selec.conm .spanhom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.DivContGPSReport1 {
+    margin-top: auto;
+}
+
+.DivContGPSReport1 button {
+    width: 17em;
+    height: 2.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.4em;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    background: rgb(60, 160, 60);
+    color: white;
+    text-transform: uppercase;
+    transition: .3s ease all;
+}
+
+.BtnContentReportGPS span {
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1 span {
+    transition: .4s ease-in-out all;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1 .icono {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    left: -20px;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+    font-size: 1.5em;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover {
+    background: rgb(60, 160, 60);
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover .icono {
+    left: calc(100% - 1.5em);
+    opacity: 1;
+}
+
+.BtnContentReportGPS.ContInfoModalBtn1:hover span {
+    position: absolute;
+    left: 2%;
+}
+
+
+@media screen and (max-width:1930px) {
+    div.ResetPassModuleMain {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    div.ResetPassModuleMain {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    div.ResetPassModuleMain {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    div.ResetPassModuleMain {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    div.ResetPassModuleMain {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    div.ResetPassModuleMain {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    div.ResetPassModuleMain {
+        font-size: 9px;
+        width: 100%;
+        height: 98%;
+        margin: 0;
+        padding: 2em;
+    }
+
+}

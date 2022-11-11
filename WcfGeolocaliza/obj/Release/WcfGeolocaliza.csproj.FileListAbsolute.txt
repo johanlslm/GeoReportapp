@@ -1,0 +1,15 @@
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\WcfGeolocaliza.dll.config
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\WcfGeolocaliza.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\WcfGeolocaliza.pdb
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\Modelos.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\ReglasNegocios.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\Datos.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\arciait.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\Modelos.pdb
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\ReglasNegocios.pdb
+D:\developer\GeoReportapp\WcfGeolocaliza\bin\Datos.pdb
+D:\developer\GeoReportapp\WcfGeolocaliza\obj\Release\WcfGeolocaliza.csproj.AssemblyReference.cache
+D:\developer\GeoReportapp\WcfGeolocaliza\obj\Release\WcfGeolocaliza.csproj.CoreCompileInputs.cache
+D:\developer\GeoReportapp\WcfGeolocaliza\obj\Release\WcfGeolocaliza.csproj.CopyComplete
+D:\developer\GeoReportapp\WcfGeolocaliza\obj\Release\WcfGeolocaliza.dll
+D:\developer\GeoReportapp\WcfGeolocaliza\obj\Release\WcfGeolocaliza.pdb

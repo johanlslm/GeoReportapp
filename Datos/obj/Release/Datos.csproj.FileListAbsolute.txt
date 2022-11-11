@@ -1,0 +1,10 @@
+D:\developer\GeoReportapp\Datos\bin\Release\Datos.dll
+D:\developer\GeoReportapp\Datos\bin\Release\Datos.pdb
+D:\developer\GeoReportapp\Datos\bin\Release\arciait.dll
+D:\developer\GeoReportapp\Datos\bin\Release\Modelos.dll
+D:\developer\GeoReportapp\Datos\bin\Release\Modelos.pdb
+D:\developer\GeoReportapp\Datos\obj\Release\Datos.csproj.AssemblyReference.cache
+D:\developer\GeoReportapp\Datos\obj\Release\Datos.csproj.CoreCompileInputs.cache
+D:\developer\GeoReportapp\Datos\obj\Release\Datos.csproj.CopyComplete
+D:\developer\GeoReportapp\Datos\obj\Release\Datos.dll
+D:\developer\GeoReportapp\Datos\obj\Release\Datos.pdb

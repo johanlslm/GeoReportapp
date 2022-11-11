@@ -1,0 +1,219 @@
+﻿:root {
+    --ClSilver: #94d5e9eb;
+    --ClSilverG: #504f4fd0;
+    --clWhite: rgb(239, 233, 233);
+    --ClBlack: rgb(24, 22, 22);
+    --ClGreenMin: rgb(146, 231, 146);
+}
+
+.containerConsultMain {
+    width: 100%;
+    height: 100%;
+    background: rgb(142, 142, 187);
+    display: grid;
+    font-size: 10px;
+    gap: 0.3em;
+    grid-template-columns: 1fr;
+    position: relative;
+}
+
+.containerConsultMain div#mapcontainer {
+    width: 100%;
+    height: 100%;
+    background: #938ddd;
+    position: relative;
+}
+
+#mapcontainer .airbutton {
+    width: 30em;
+    height: 5em;
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2em;
+    bottom: 3em;
+    z-index: 10000;
+}
+.ContRangeKMSelect {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 1fr 5em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+#mapcontainer .airbutton button {
+    width: 5em;
+    height: 5em;
+    font-size: 1em;
+    border-radius: 45px;
+    cursor: pointer;
+    border: 3px inset #0D7AA4;
+    transition: all 0.5s ease-in-out;
+    background: var(--ClSilver);
+}
+
+#mapcontainer .airbutton button:hover {
+    border: 3px outset #0D7AA4;
+    background: var(--ClGreenMin);
+}
+
+#mapcontainer .airbutton button i {
+    font-size: 3em;
+    color: var(--ClBlack);
+}
+
+#mapcontainer .airbutton .airbuttonInt1 {
+    display: grid;
+    grid-template-columns: 1fr 3em;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--ClSilverG);
+    background: var(--clWhite);
+    border-radius: 0.8em;
+    overflow: hidden;
+}
+
+#mapcontainer .airbutton .airbuttonInt1 input {
+    width: 100%;
+    height: 100%;
+    font-size: 1.7em;
+    padding: 0.4em;
+    background: none;
+    border-style: none;
+    outline: none;
+    color: var(--ClBlack);
+    border: 2px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+#mapcontainer .airbutton .airbuttonInt1 i {
+    font-size: 2em;
+    color: var(--ClSilverG);
+    cursor: pointer;
+}
+
+.leaflet-popup-content-wrapper {
+    width: 30em;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+.ContImgPop1 {
+    width: 100%;
+    height: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.ContImgPop1 img {
+    max-width: 28em;
+    height: 16em;
+    max-height: 16em;
+    object-fit: contain;
+}
+
+.ContTxtPop1 {
+    max-width: 30em;
+    font-size: 1.3em;
+}
+
+.ContTxtPop1 span {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.ContTxtPop1 span .fa-thumbs-up {
+    color: green;
+}
+
+.ContTxtPop1 span .fa-thumbs-down {
+    color: red;
+}
+.ContBtnLike{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+.ContBtnLike button{
+    width: 4em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid silver;
+    cursor: pointer;
+}
+
+.ContBtnLike button i{
+    font-size: 2em;
+}
+.ContBtnLike button:first-child i{
+    color: green;
+}
+.ContBtnLike button:last-child i{
+    color: red ;
+}
+/***************************************** RESPONSIVE *****************************************/
+@media screen and (max-width:1930px) {
+    .containerConsultMain {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:1600px) {
+    .containerConsultMain {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    .containerConsultMain {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .containerConsultMain {
+        font-size: 9.5px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .containerConsultMain {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .ContReportGPSMain {
+        font-size: 8px;
+    }
+    #ContReportGPSMap .airbutton {
+        width: 27em;
+    }
+    .ContReportGPSMain div#ContReportGPSMap {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .containerConsultMain {
+        font-size: 8px;
+    }
+    .ContReportGPSMain div#ContReportGPSMap {
+        font-size: 1em;
+    }
+    #mapcontainer .airbutton {
+        width: 75vw;
+    }
+}
