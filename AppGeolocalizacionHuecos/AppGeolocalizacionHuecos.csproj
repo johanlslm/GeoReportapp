@@ -158,6 +158,8 @@
     <Content Include="Img\BGLogoMain.png" />
     <Content Include="Img\BGLogoMain2.png" />
     <Content Include="Img\LoadingPoint.gif" />
+    <Content Include="Img\Media\AlertaPrincipal.mp3" />
+    <Content Include="Img\Media\AlertaPrueba.mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Modulos\Administrativo.js" />

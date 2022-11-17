@@ -128,8 +128,6 @@ div.ContReportGPSForm div.ContentTxtInfoDwn span{
     left: 2%;
 }
 
-
-
 table.tblInfoReport {
     background-color: #FFFFFF;
     width: 100%;
@@ -205,12 +203,12 @@ table.tblInfoReport tbody.TbInfoReport tr.TbTrReport td:first-child {
     padding: 1em;
 }
 
-    .ContImgPop1 img {
-        max-width: 28em;
-        height: 16em;
-        max-height: 16em;
-        object-fit: contain;
-    }
+.ContImgPop1 img {
+    max-width: 28em;
+    height: 16em;
+    max-height: 16em;
+    object-fit: contain;
+}
 
 .ContTxtPop1 {
     max-width: 30em;

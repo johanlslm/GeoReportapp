@@ -3,6 +3,7 @@
     var LatMain;
     var LngMain;
     var theCircle = {};
+    var theCircleRed = {};
     var latlng = [4.583868359826262, -74.2134189605713];
     var mymapGPS = L.map("mapcontainer").setView(latlng, 13);
 
@@ -118,14 +119,23 @@
             mymapGPS.removeLayer(theCircle);
         };
 
+        if (theCircleRed != undefined) {
+            mymapGPS.removeLayer(theCircleRed);
+        };
+
         theMarker = L.marker([Lat, Long], { icon: greyIcon }).addTo(mymapGPS)
         theCircle = L.circle([Lat, Long], { radius: RadioMap }).addTo(mymapGPS);
+
         mymapGPS.setView([Lat, Long], Zoomval)
 
 
         var parametro = {};
+
         var latneg = LatMain - (RadioMap / 111000)
         var RadioGPS = LatMain - latneg;
+        var latneg2 = LatMain - (100 / 111000)
+        var RadioGPS2 = LatMain - latneg2;
+        var HuecoCercano = false;
 
         $.ajax({
             type: 'POST',
@@ -145,12 +155,14 @@
                         let ladoad = item.Latitud - Lat;
                         let ladoop = item.Longitud - Long;
                         var hp2 = Math.sqrt((ladoad * ladoad) + (ladoop * ladoop))
-                        console.log(hp2)
-                        console.log(RadioGPS)
-
-
 
                         if (hp2 < RadioGPS) {
+
+                            if (hp2 < RadioGPS2) {
+                                HuecoCercano = true;
+                            }
+
+
                             switch (item.TipoH) {
                                 case 1:
                                     tipoHueco = "Hueco en la calle";
@@ -186,17 +198,23 @@
                                 shadowSize: [41, 41]
                             });
 
+                            let idLike = "Like" + item.Id_Reporte;
+                            let idDislike = "Dislike" + item.Id_Reporte;
+                            let inputLike = "inputLike" + item.Id_Reporte;
+                            let inputDislike = "inputDislike" + item.Id_Reporte;
+
+
                             theMarker2 = L.marker([item.Latitud, item.Longitud], { icon: greyIcon }).addTo(mymapGPS).bindPopup('<div class="ContImgPop1"><img src="../Img/ReporteHuecos/' + item.Url_Img + '" alt=""></div>' +
                                 '<div class="ContTxtPop1">' +
                                 '<Span>Id Registro: </Span> ' + item.Id_Reporte + ' <br>' +
                                 '<Span>Fecha Registro: </Span> ' + item.FechaRegistro + ' <br>' +
-                                '<Span>Tipo de hueco: </Span> ' + item.tipoHueco + ' <br>' +
+                                '<Span>Tipo de hueco: </Span> ' + tipoHueco + ' <br>' +
                                 '<Span>Direccion: </Span> ' + item.Direccion + '<br>' +
                                 '<Span>Coordenadas: </Span> ' + item.Latitud + ' , ' + item.Longitud + ' <br>' +
-                                '<Span><i class="fa-solid fa-thumbs-up"></i></Span> ' + item.Like + ' <br>' +
-                                '<Span> <i class="fa-solid fa-thumbs-down"></i> </Span> ' + item.DisLike + '<br>' +
+                                '<Span><i class="fa-solid fa-thumbs-up"></i></Span> <input id="' + inputLike +'" type="text" class="InputLikeDis" value ="' + item.Like + '"> <br>' +
+                                '<Span> <i class="fa-solid fa-thumbs-down"></i> </Span><input id="' + inputDislike +'" type="text" class="InputLikeDis" value =" ' + item.DisLike + '"><br>' +
                                 '<Span>Descripción: </Span> ' + item.Descripcion + '<br>' +
-                                '<div class="ContBtnLike"><button onclick="InteraccionReport(1,' + item.Id_Reporte +')"><i class="fa-solid fa-thumbs-up"></i></button><button onclick="InteraccionReport(2,' + item.Id_Reporte+')"><i class="fa-solid fa-thumbs-down"></i> </button></div>' +
+                                '<div class="ContBtnLike"><button id="' + idLike + '" onclick="InteraccionReport(1,' + item.Id_Reporte + ')"><i class="fa-regular fa-thumbs-up"></i></button><button id="' + idDislike +'" onclick="InteraccionReport(2,' + item.Id_Reporte +')"><i class="fa-regular fa-thumbs-down"></i> </button></div>' +
                                 '</div>');
 
                         }
@@ -204,6 +222,14 @@
                      }
 
                 });
+
+                if (HuecoCercano) {
+                    theCircleRed = L.circle([Lat, Long], { radius: 100 }).addTo(mymapGPS);
+                    theCircleRed.setStyle({ fillColor: 'red' });
+                    var sonido = new Audio();
+                    sonido.src = "../Img/Media/AlertaPrincipal.mp3";
+                    sonido.play();
+                }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }
@@ -246,7 +272,40 @@ function InteraccionReport(x, idReport) {
         contentType: 'application/json; charset=UTF-8',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+            let idLike = document.getElementById("Like" + idReport);
+            let idDislike = document.getElementById("Dislike" + idReport);
+            let inputLike = document.getElementById("inputLike" + idReport);
+            let inputDislike = document.getElementById("inputDislike" + idReport);
+
+            if (x == 1) {
+                if (idLike.classList.contains('BtnActivoGreen')) {
+                    inputLike.value = parseInt(inputLike.value) - 1
+                    $(idLike).removeClass('BtnActivoGreen');
+                } else {
+                    inputLike.value = parseInt(inputLike.value) + 1
+                    $(idLike).addClass('BtnActivoGreen');
+                }
+
+                if (idDislike.classList.contains('BtnActivoRed')) {
+                    inputDislike.value = parseInt(inputDislike.value) - 1
+                    $(idDislike).removeClass('BtnActivoRed');
+                }
+            }
+
+            if (x == 2) {
+
+                if (idDislike.classList.contains('BtnActivoRed')) {
+                    inputDislike.value = parseInt(inputDislike.value) - 1
+                    $(idDislike).removeClass('BtnActivoRed');
+                } else {
+                    inputDislike.value = parseInt(inputDislike.value) + 1
+                    $(idDislike).addClass('BtnActivoRed');
+                }
+                if (idLike.classList.contains('BtnActivoGreen')) {
+                    inputLike.value = parseInt(inputLike.value) - 1
+                    $(idLike).removeClass('BtnActivoGreen');
+                }
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             var RespEvent = { TipoRespuesta: 4, TextInfo: "Error no controlado, reintente mas tarde" }

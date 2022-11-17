@@ -1,10 +1,92 @@
-﻿
+﻿@using Modelos;
 @{
     ViewBag.Title = "Administrativo";
     Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    var Listas = ViewBag.Reporte as List<Modelos.ReporteHuecoDTO>;
+    var TipoHueco = "";
+    var idInput = "";
+    var idCheck = "";
+    var EstadoHueco = "";
 }
 @section scripts {
     <script src="~/Scripts/Modulos/Administrativo.js"></script>
 }
 
 <link href="~/Content/Modulos/Administrativo.css" rel="stylesheet" />
+
+<div id="ContMisReportesMain">
+    <div class="contReportHeader">
+        <h1>TOTALIDAD DE REPORTES GENERADOS GENERADOS</h1>
+    </div>
+    <div class="contReportInfoTable">
+        <div class="contintSpanReport">
+            <span><b>Reportes totales: </b>@Listas.Count</span>
+        </div>
+        <div class="contIntTableReport1">
+            <table class="tblInfoReport">
+                <thead class="ThInfoReport">
+                    <tr class="TbTrReport">
+                        <th>ID</th>
+                        <th>Fecha Rep.</th>
+                        <th>TIPO</th>
+                        <th> <i class="fa-regular fa-thumbs-up"></i> / <i class="fa-sharp fa-solid fa-thumbs-down"></i></th>
+                        <th>ESTADO</th>
+                        <th>DETALLE</th>
+                    </tr>
+                </thead>
+                <tbody class="TbInfoReport">
+                    @{
+                        foreach (var Lista in Listas)
+                        {
+                            switch (Lista.TipoH)
+                            {
+                                case 1:
+                                    TipoHueco = "Hueco en la calle";
+                                    break;
+                                case 2:
+                                    TipoHueco = "Alcantarilla sin tapa";
+                                    break;
+                                case 3:
+                                    TipoHueco = "Hueco en puente";
+                                    break;
+                                case 4:
+                                    TipoHueco = "Losa levantada";
+                                    break;
+                            }
+                            switch (Lista.Estado)
+                            {
+                                case 2:
+                                    idCheck = "checked";
+                                    EstadoHueco = "Inactivo";
+                                    break;
+                                case 1:
+                                    idCheck = "";
+                                    EstadoHueco = "Activo";
+                                    break;
+                            }
+                            idInput = @Lista.Id_Reporte + "ch";
+
+                            <tr class="TbTrReport">
+                                <td>@Lista.Id_Reporte</td>
+                                <td>@Lista.FechaRegistro</td>
+                                <td>@TipoHueco</td>
+                                <td class="interaccionReport1"> <span>@Lista.Like</span> <span>/</span> <span>@Lista.DisLike</span></td>
+                                <td>
+                                    <div class="switch">
+                                        <input type="checkbox" id="@idInput" class="InputStatusReport" value="@Lista.Id_Reporte" @idCheck>
+                                        <label for="@idInput"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="contBtnInfoReport65" onclick="AbrirModalInfoReport('@Lista.Url_Img','@Lista.Id_Reporte' , '@Lista.Direccion', '@Lista.Coordenadas', '@TipoHueco', '@EstadoHueco', '@Lista.Like', '@Lista.DisLike', '@Lista.Descripcion', '@Lista.FechaRegistro');">
+                                        <i class="fa-solid fa-street-view"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

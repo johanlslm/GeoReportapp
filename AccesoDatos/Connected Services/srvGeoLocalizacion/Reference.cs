@@ -74,6 +74,12 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistroInteraccion", ReplyAction="http://tempuri.org/IService1/RegistroInteraccionResponse")]
         System.Threading.Tasks.Task<int> RegistroInteraccionAsync(long IdRegistro, long UserVal, int TipoLike);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultaReportesGeneralAdm", ReplyAction="http://tempuri.org/IService1/ConsultaReportesGeneralAdmResponse")]
+        System.Collections.Generic.List<Modelos.ReporteHuecoDTO> ConsultaReportesGeneralAdm();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultaReportesGeneralAdm", ReplyAction="http://tempuri.org/IService1/ConsultaReportesGeneralAdmResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Modelos.ReporteHuecoDTO>> ConsultaReportesGeneralAdmAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +187,14 @@ namespace AccesoDatos.srvGeoLocalizacion {
         
         public System.Threading.Tasks.Task<int> RegistroInteraccionAsync(long IdRegistro, long UserVal, int TipoLike) {
             return base.Channel.RegistroInteraccionAsync(IdRegistro, UserVal, TipoLike);
+        }
+        
+        public System.Collections.Generic.List<Modelos.ReporteHuecoDTO> ConsultaReportesGeneralAdm() {
+            return base.Channel.ConsultaReportesGeneralAdm();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Modelos.ReporteHuecoDTO>> ConsultaReportesGeneralAdmAsync() {
+            return base.Channel.ConsultaReportesGeneralAdmAsync();
         }
     }
 }

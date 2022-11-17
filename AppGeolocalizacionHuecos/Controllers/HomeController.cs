@@ -108,13 +108,17 @@ namespace AppGeolocalizacionHuecos.Controllers
         {
             usuario = Seguridad.Seguridad.validaSessionUsuario(Request.Cookies.Get(".UserDTOLogin"));
 
-            if (usuario != null && usuario.Tipo_Usuario == 2)
+            if (usuario != null)
             {
+                var srv = Proxy.obtenerConexionSRV();
+                List<ReporteHuecoDTO> datosReporte = srv.ConsultaReportesGeneralAdm();
+                ViewBag.Reporte = datosReporte;
                 return View();
             }
             else
             {
-                return RedirectToAction("HomeApp", "Home");
+
+                return RedirectToAction("Login", "Home");
             }
         }
 

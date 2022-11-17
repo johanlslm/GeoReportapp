@@ -69,8 +69,6 @@ async function AbrirModalInfoReport(img, id, dire, coor, tipoH, estadoH, like, d
             '<div class="ContInfoReporSpecific">' + coor +'</div>' +
             '<div class="ContSpanReport"><span>Tipo Hueco: </span></div>' +
             '<div class="ContInfoReporSpecific">' + tipoH +'</div>' +
-            '<div class="ContSpanReport"><span>Estado: </span></div>' +
-            '<div class="ContInfoReporSpecific">' + estadoH +'</div>' +
             '<div class="ContSpanReport"><span><i class="fa-regular fa-thumbs-up"></i> / <i class="fa-sharp fa-solid fa-thumbs-down"></i></span></div>' +
             '<div class="ContInfoReporSpecific">' + like + ' / ' + dislike +'</div>' +
             '<div class="ContSpanReport"><span>Descripción: </span></div>' +

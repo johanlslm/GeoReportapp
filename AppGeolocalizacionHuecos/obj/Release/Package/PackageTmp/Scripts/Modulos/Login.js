@@ -114,7 +114,10 @@ async function IngresarLoginEvent() {
     let ObjVal = [{ Elemento: InputLoginEmail.id, Tipo: 1 }, { Elemento: InputLoginPassword.id, Tipo: 2 }];
     let RespuestaValidacion = validarCampos(ObjVal);
     if (RespuestaValidacion.ErrorRespuesta) {
-        EventoModalNotification(RespuestaValidacion);
+        let RespEvent1 = { TipoRespuesta: RespuestaValidacion.TipoRespuesta, TextInfo: RespuestaValidacion.TextInfo }
+        let RespEvent = { RespEvent: RespEvent1 }
+        LoadingStop();
+        EventoModalNotification(RespEvent);
     } else {
         var parametro = {
             CorreoVali: InputLoginEmail.value, PassWordVali: InputLoginPassword.value

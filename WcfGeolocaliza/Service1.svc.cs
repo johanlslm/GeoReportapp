@@ -87,6 +87,18 @@ namespace WcfGeolocaliza
             }
         }
 
+        public List<ReporteHuecoDTO> ConsultaReportesGeneralAdm()
+        {
+            try
+            {
+                return new LoginUsuario().ConsultaReportesGeneralAdm();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA)
         {
             try

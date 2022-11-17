@@ -82,6 +82,19 @@ namespace ReglasNegocios
             }
         }
 
+        public List<ReporteHuecoDTO> ConsultaReportesGeneralAdm()
+        {
+
+            try
+            {
+                return new LoginDAO().ConsultaReportesGeneralAdm();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA)
         {
             try

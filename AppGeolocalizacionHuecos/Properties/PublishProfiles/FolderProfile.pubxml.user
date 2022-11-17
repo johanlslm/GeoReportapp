@@ -5,17 +5,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\developer\GeoReportapp\AppGeolocalizacionHuecos\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2022-10-28T21:20:51.6281022Z;True|2022-10-28T11:51:36.0552612-05:00;</History>
+    <History>True|2022-11-11T20:46:41.8467958Z;True|2022-10-28T16:20:51.6281022-05:00;True|2022-10-28T11:51:36.0552612-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AccesoDatos.dll">
-      <publishTime>10/28/2022 16:20:48</publishTime>
+      <publishTime>11/17/2022 13:45:57</publishTime>
     </File>
     <File Include="bin/AccesoDatos.dll.config">
       <publishTime>10/24/2022 08:22:10</publishTime>
     </File>
     <File Include="bin/AccesoDatos.pdb">
-      <publishTime>10/28/2022 16:20:48</publishTime>
+      <publishTime>11/17/2022 13:45:57</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>10/24/2022 08:22:12</publishTime>
@@ -24,10 +24,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:12</publishTime>
     </File>
     <File Include="bin/AppGeolocalizacionHuecos.dll">
-      <publishTime>10/28/2022 16:20:49</publishTime>
+      <publishTime>11/17/2022 13:45:58</publishTime>
     </File>
     <File Include="bin/AppGeolocalizacionHuecos.pdb">
-      <publishTime>10/28/2022 16:20:49</publishTime>
+      <publishTime>11/17/2022 13:45:58</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
       <publishTime>10/24/2022 08:22:12</publishTime>
@@ -57,10 +57,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:13</publishTime>
     </File>
     <File Include="bin/Modelos.dll">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:06</publishTime>
     </File>
     <File Include="bin/Modelos.pdb">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:06</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>10/24/2022 08:22:13</publishTime>
@@ -264,43 +264,43 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:10</publishTime>
     </File>
     <File Include="Content/Modulos/Administrativo.css">
-      <publishTime>10/24/2022 08:22:10</publishTime>
+      <publishTime>11/15/2022 08:59:45</publishTime>
     </File>
     <File Include="Content/Modulos/CambioPass.css">
-      <publishTime>10/24/2022 08:22:10</publishTime>
+      <publishTime>11/10/2022 17:21:01</publishTime>
     </File>
     <File Include="Content/Modulos/DReporte.css">
-      <publishTime>10/25/2022 10:33:22</publishTime>
+      <publishTime>11/11/2022 11:23:55</publishTime>
     </File>
     <File Include="Content/Modulos/HomeApp.css">
       <publishTime>10/24/2022 08:22:10</publishTime>
     </File>
     <File Include="Content/Modulos/LoadingModal.css">
-      <publishTime>10/24/2022 08:22:10</publishTime>
+      <publishTime>11/11/2022 11:35:40</publishTime>
     </File>
     <File Include="Content/Modulos/Login.css">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/10/2022 17:21:47</publishTime>
     </File>
     <File Include="Content/Modulos/ModalNotifications.css">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/11/2022 11:34:28</publishTime>
     </File>
     <File Include="Content/Modulos/ModalRecoverPassword.css">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/10/2022 17:19:45</publishTime>
     </File>
     <File Include="Content/Modulos/ReporteFormulario.css">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/15/2022 08:59:47</publishTime>
     </File>
     <File Include="Content/Modulos/ReporteGPS.css">
-      <publishTime>10/27/2022 15:56:02</publishTime>
+      <publishTime>11/17/2022 10:58:38</publishTime>
     </File>
     <File Include="Content/Modulos/SearchGPS.css">
-      <publishTime>10/27/2022 15:53:59</publishTime>
+      <publishTime>11/17/2022 10:56:58</publishTime>
     </File>
     <File Include="Content/Modulos/SobreNosotros.css">
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Content/Modulos/_LayoutInterno.css">
-      <publishTime>10/28/2022 12:37:30</publishTime>
+      <publishTime>11/11/2022 15:23:35</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>10/24/2022 08:22:12</publishTime>
@@ -347,6 +347,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Img/LoadingPoint.gif">
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
+    <File Include="Img/Media/AlertaPrincipal.mp3">
+      <publishTime>11/17/2022 10:40:14</publishTime>
+    </File>
+    <File Include="Img/Media/AlertaPrueba.mp3">
+      <publishTime>11/17/2022 10:40:14</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
@@ -387,13 +393,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Scripts/Modulos/Administrativo.js">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/15/2022 15:06:02</publishTime>
     </File>
     <File Include="Scripts/Modulos/CambioPass.js">
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Scripts/Modulos/DReporte.js">
-      <publishTime>10/25/2022 17:44:44</publishTime>
+      <publishTime>11/11/2022 11:29:58</publishTime>
     </File>
     <File Include="Scripts/Modulos/HomeApp.js">
       <publishTime>10/24/2022 08:22:11</publishTime>
@@ -402,7 +408,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Scripts/Modulos/Login.js">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/11/2022 17:36:29</publishTime>
     </File>
     <File Include="Scripts/Modulos/ModalNotifications.js">
       <publishTime>10/24/2022 08:22:11</publishTime>
@@ -411,13 +417,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Scripts/Modulos/ReporteFormulario.js">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/15/2022 15:05:36</publishTime>
     </File>
     <File Include="Scripts/Modulos/ReporteGPS.js">
-      <publishTime>10/28/2022 16:09:14</publishTime>
+      <publishTime>11/17/2022 13:30:25</publishTime>
     </File>
     <File Include="Scripts/Modulos/SearchGPS.js">
-      <publishTime>10/27/2022 16:12:36</publishTime>
+      <publishTime>11/17/2022 11:36:13</publishTime>
     </File>
     <File Include="Scripts/Modulos/SobreNosotros.js">
       <publishTime>10/24/2022 08:22:11</publishTime>
@@ -426,10 +432,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 08:22:11</publishTime>
     </File>
     <File Include="Views/Home/Administrativo.cshtml">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/15/2022 15:04:19</publishTime>
     </File>
     <File Include="Views/Home/CambioPass.cshtml">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/11/2022 17:40:35</publishTime>
     </File>
     <File Include="Views/Home/DReporte.cshtml">
       <publishTime>10/25/2022 14:27:34</publishTime>
@@ -438,13 +444,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/24/2022 09:39:39</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
-      <publishTime>10/24/2022 08:22:11</publishTime>
+      <publishTime>11/10/2022 17:13:09</publishTime>
     </File>
     <File Include="Views/Home/ReporteFormulario.cshtml">
-      <publishTime>10/24/2022 08:48:09</publishTime>
+      <publishTime>11/11/2022 11:43:15</publishTime>
     </File>
     <File Include="Views/Home/ReporteGPS.cshtml">
-      <publishTime>10/28/2022 12:50:33</publishTime>
+      <publishTime>11/17/2022 13:32:10</publishTime>
     </File>
     <File Include="Views/Home/SearchGPS.cshtml">
       <publishTime>10/27/2022 16:11:39</publishTime>

@@ -38,5 +38,8 @@ namespace WcfGeolocaliza
 
         [OperationContract]
         Int32 RegistroInteraccion(Int64 IdRegistro, Int64 UserVal, int TipoLike);
+
+        [OperationContract]
+        List<ReporteHuecoDTO> ConsultaReportesGeneralAdm();
     }
 }

@@ -5,34 +5,35 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\pub_geo\wcf</_PublishTargetUrl>
+    <History>True|2022-11-17T18:44:09.5278758Z;True|2022-11-11T15:45:23.5765056-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/arciait.dll">
       <publishTime>10/24/2022 08:22:12</publishTime>
     </File>
     <File Include="bin/Datos.dll">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="bin/Datos.pdb">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="bin/Modelos.dll">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:06</publishTime>
     </File>
     <File Include="bin/Modelos.pdb">
-      <publishTime>10/28/2022 11:50:16</publishTime>
+      <publishTime>11/17/2022 13:44:06</publishTime>
     </File>
     <File Include="bin/ReglasNegocios.dll">
-      <publishTime>10/28/2022 11:50:17</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="bin/ReglasNegocios.pdb">
-      <publishTime>10/28/2022 11:50:17</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="bin/WcfGeolocaliza.dll">
-      <publishTime>10/28/2022 11:50:17</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="bin/WcfGeolocaliza.pdb">
-      <publishTime>10/28/2022 11:50:17</publishTime>
+      <publishTime>11/17/2022 13:44:07</publishTime>
     </File>
     <File Include="Service1.svc">
       <publishTime>10/24/2022 08:22:12</publishTime>

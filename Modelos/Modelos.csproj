@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContenedorLoginDTO.cs" />
+    <Compile Include="GenerarDTO.cs" />
     <Compile Include="LoginUsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteConsulta.cs" />

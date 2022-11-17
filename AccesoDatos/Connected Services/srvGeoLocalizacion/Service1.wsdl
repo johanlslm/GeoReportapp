@@ -67,6 +67,12 @@
   <wsdl:message name="IService1_RegistroInteraccion_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistroInteraccionResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ConsultaReportesGeneralAdm_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaReportesGeneralAdm" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ConsultaReportesGeneralAdm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaReportesGeneralAdmResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="IngresarLoginEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/IngresarLoginEvent" message="tns:IService1_IngresarLoginEvent_InputMessage" />
@@ -107,6 +113,10 @@
     <wsdl:operation name="RegistroInteraccion">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegistroInteraccion" message="tns:IService1_RegistroInteraccion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RegistroInteraccionResponse" message="tns:IService1_RegistroInteraccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReportesGeneralAdm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ConsultaReportesGeneralAdm" message="tns:IService1_ConsultaReportesGeneralAdm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ConsultaReportesGeneralAdmResponse" message="tns:IService1_ConsultaReportesGeneralAdm_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -194,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegistroInteraccion">
       <soap:operation soapAction="http://tempuri.org/IService1/RegistroInteraccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReportesGeneralAdm">
+      <soap:operation soapAction="http://tempuri.org/IService1/ConsultaReportesGeneralAdm" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -153,4 +153,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ConsultaReportesGeneralAdm">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaReportesGeneralAdmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Modelos" minOccurs="0" name="ConsultaReportesGeneralAdmResult" nillable="true" type="q6:ArrayOfReporteHuecoDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

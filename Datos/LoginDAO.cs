@@ -139,6 +139,26 @@ namespace Datos
 
         }
 
+        public List<ReporteHuecoDTO> ConsultaReportesGeneralAdm()
+        {
+            try
+            {
+
+                List<ReporteHuecoDTO> Lista = new List<ReporteHuecoDTO>();
+                var con = new Conexion();
+                var Result = con.ejecutarSP("spConsultaReportesGeneralAdm");
+                Lista = BaseAdapter.ConvertirLista<ReporteHuecoDTO>(Result.Tables[0]);
+                return Lista.Count > 0 ? Lista : new List<ReporteHuecoDTO>();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
+
         public Int32 ActualizacionEstadoRegistro(Int64 id_Registro, int tipoA)
         {
             try

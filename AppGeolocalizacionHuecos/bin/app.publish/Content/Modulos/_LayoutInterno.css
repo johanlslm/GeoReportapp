@@ -217,7 +217,7 @@ div.ContLayMain div.ContLayContent {
 /***************************************** MENU DESPLEGABLE *****************************************/
 
 .nav {
-    min-width: 18em;
+    min-width: 0em;
     max-width: 35em;
     height: calc(100vh - 6em);
     display: flex;
